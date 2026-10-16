@@ -1,0 +1,72 @@
+{
+  "USD": {
+    "country": "USA",
+    "lat": 38.9072,
+    "lon": -77.0369
+  },
+  "EUR": {
+    "country": "Strefa euro",
+    "lat": 50.1109,
+    "lon": 8.6821
+  },
+  "GBP": {
+    "country": "Wielka Brytania",
+    "lat": 51.5072,
+    "lon": -0.1276
+  },
+  "JPY": {
+    "country": "Japonia",
+    "lat": 35.6762,
+    "lon": 139.6503
+  },
+  "CHF": {
+    "country": "Szwajcaria",
+    "lat": 46.948,
+    "lon": 7.4474
+  },
+  "CAD": {
+    "country": "Kanada",
+    "lat": 45.4215,
+    "lon": -75.6972
+  },
+  "AUD": {
+    "country": "Australia",
+    "lat": -35.2809,
+    "lon": 149.13
+  },
+  "NZD": {
+    "country": "Nowa Zelandia",
+    "lat": -41.2866,
+    "lon": 174.7756
+  },
+  "CNY": {
+    "country": "Chiny",
+    "lat": 39.9042,
+    "lon": 116.4074
+  },
+  "PLN": {
+    "country": "Polska",
+    "lat": 52.2297,
+    "lon": 21.0122
+  },
+  "ALL": {
+    "country": "Globalne",
+    "lat": 46.2044,
+    "lon": 6.1432
+  },
+  "INR": {
+    "country": "Indie",
+    "lat": 18.9322,
+    "lon": 72.8347
+  },
+  "RUB": {
+    "country": "Rosja",
+    "lat": 55.7558,
+    "lon": 37.6173
+  },
+  "BRL": {
+    "country": "Brazylia",
+    "lat": -15.7939,
+    "lon": -47.8828
+  }
+}

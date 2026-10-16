@@ -1,0 +1,420 @@
+{
+  "_comment": "Stopy i daty posiedzeń — aktualizuj ręcznie. Stan na 2026-10-16, sprawdzone ze stronami banków i serwisami finansowymi. 'verify' = do potwierdzenia. Rezerwy złota: przybliżone, World Gold Council.",
+  "asOf": "2026-10-16",
+  "banks": [
+    {
+      "id": "fed",
+      "name": "Federal Reserve",
+      "short": "FED",
+      "city": "Washington, D.C.",
+      "country": "USA",
+      "currency": "USD",
+      "lat": 38.8929,
+      "lon": -77.0459,
+      "rate": 4.0,
+      "rateLabel": "3.75–4.00% (fed funds target)",
+      "lastChange": {
+        "date": "2026-09-16",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-09-16T18:00:00Z",
+        "2026-10-28T18:00:00Z",
+        "2026-12-09T19:00:00Z",
+        "2027-01-27T19:00:00Z",
+        "2027-03-17T18:00:00Z",
+        "2027-04-28T18:00:00Z",
+        "2027-06-09T18:00:00Z",
+        "2027-07-28T18:00:00Z",
+        "2027-09-15T18:00:00Z",
+        "2027-10-27T18:00:00Z",
+        "2027-12-08T19:00:00Z"
+      ],
+      "goldReservesT": 8133.5,
+      "goldTrend": "stable",
+      "goldNote": "Rezerwy należą formalnie do US Treasury; poziom niezmienny od dekad.",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    },
+    {
+      "id": "ecb",
+      "name": "European Central Bank",
+      "short": "ECB",
+      "city": "Frankfurt",
+      "country": "Strefa euro",
+      "currency": "EUR",
+      "lat": 50.1095,
+      "lon": 8.7032,
+      "rate": 2.5,
+      "rateLabel": "2.50% (depozytowa) / 2.65% (MRO)",
+      "lastChange": {
+        "date": "2026-09-10",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-09-10T12:15:00Z",
+        "2026-10-29T13:15:00Z",
+        "2026-12-17T13:15:00Z",
+        "2027-02-04T13:15:00Z",
+        "2027-03-18T13:15:00Z",
+        "2027-04-29T12:15:00Z",
+        "2027-06-10T12:15:00Z",
+        "2027-07-22T12:15:00Z",
+        "2027-09-09T12:15:00Z",
+        "2027-10-28T12:15:00Z",
+        "2027-12-16T13:15:00Z"
+      ],
+      "goldReservesT": 506.5,
+      "goldTrend": "stable",
+      "goldNote": "Własne rezerwy EBC; banki krajowe Eurosystemu trzymają dodatkowo ~10 tys. t.",
+      "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html"
+    },
+    {
+      "id": "boj",
+      "name": "Bank of Japan",
+      "short": "BOJ",
+      "city": "Tokio",
+      "country": "Japonia",
+      "currency": "JPY",
+      "lat": 35.6866,
+      "lon": 139.7713,
+      "rate": 1.25,
+      "rateLabel": "1.25% (overnight call rate)",
+      "lastChange": {
+        "date": "2026-09-18",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-09-18T03:00:00Z",
+        "2026-10-30T03:00:00Z",
+        "2026-12-18T03:00:00Z",
+        "2027-01-22T03:00:00Z",
+        "2027-03-18T03:00:00Z",
+        "2027-04-28T03:00:00Z",
+        "2027-06-11T03:00:00Z",
+        "2027-07-22T03:00:00Z",
+        "2027-09-22T03:00:00Z",
+        "2027-10-29T03:00:00Z",
+        "2027-12-17T03:00:00Z"
+      ],
+      "goldReservesT": 846,
+      "goldTrend": "stable",
+      "goldNote": "Rezerwy Japonii stabilne; godzina decyzji orientacyjna (BoJ nie podaje stałej godziny).",
+      "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "verify": "godzina decyzji"
+    },
+    {
+      "id": "boe",
+      "name": "Bank of England",
+      "short": "BOE",
+      "city": "Londyn",
+      "country": "Wielka Brytania",
+      "currency": "GBP",
+      "lat": 51.5142,
+      "lon": -0.0885,
+      "rate": 3.75,
+      "rateLabel": "3.75% (Bank Rate)",
+      "lastChange": {
+        "date": "2025-12-18",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-09-17T11:00:00Z",
+        "2026-11-05T12:00:00Z",
+        "2026-12-17T12:00:00Z",
+        "2027-02-04T12:00:00Z",
+        "2027-03-18T12:00:00Z",
+        "2027-04-29T11:00:00Z",
+        "2027-06-17T11:00:00Z",
+        "2027-07-29T11:00:00Z",
+        "2027-09-16T11:00:00Z",
+        "2027-11-04T12:00:00Z",
+        "2027-12-16T12:00:00Z"
+      ],
+      "goldReservesT": 310.3,
+      "goldTrend": "stable",
+      "goldNote": "BoE prowadzi też skarbiec przechowujący ~5 tys. t złota dla innych banków centralnych i rynku LBMA.",
+      "url": "https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates"
+    },
+    {
+      "id": "snb",
+      "name": "Swiss National Bank",
+      "short": "SNB",
+      "city": "Zurych",
+      "country": "Szwajcaria",
+      "currency": "CHF",
+      "lat": 47.3668,
+      "lon": 8.5446,
+      "rate": 0.0,
+      "rateLabel": "0.00% (SNB policy rate)",
+      "lastChange": {
+        "date": "2025-06-19",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-09-24T07:30:00Z",
+        "2026-12-10T08:30:00Z"
+      ],
+      "goldReservesT": 1040,
+      "goldTrend": "stable",
+      "goldNote": "Stałe 1040 t od 2008 r.",
+      "url": "https://www.snb.ch/en/the-snb/mandates-goals/monetary-policy/decisions",
+      "verify": "kalendarz 2027 jeszcze nieopublikowany"
+    },
+    {
+      "id": "pboc",
+      "name": "People's Bank of China",
+      "short": "PBOC",
+      "city": "Pekin",
+      "country": "Chiny",
+      "currency": "CNY",
+      "lat": 39.9078,
+      "lon": 116.3656,
+      "rate": 3.0,
+      "rateLabel": "3.00% (1Y LPR) / 3.50% (5Y LPR)",
+      "lastChange": {
+        "date": "2025-05-20",
+        "bps": -10
+      },
+      "meetings": [
+        "2026-09-21T01:15:00Z",
+        "2026-10-20T01:15:00Z",
+        "2026-11-20T01:15:00Z",
+        "2026-12-21T01:15:00Z",
+        "2027-01-20T01:15:00Z",
+        "2027-02-22T01:15:00Z",
+        "2027-03-22T01:15:00Z",
+        "2027-04-20T01:15:00Z",
+        "2027-05-20T01:15:00Z",
+        "2027-06-21T01:15:00Z",
+        "2027-07-20T01:15:00Z",
+        "2027-08-20T01:15:00Z",
+        "2027-09-20T01:15:00Z",
+        "2027-10-20T01:15:00Z",
+        "2027-11-22T01:15:00Z",
+        "2027-12-20T01:15:00Z"
+      ],
+      "goldReservesT": 2411,
+      "goldTrend": "buying",
+      "goldNote": "23 miesiące zakupów z rzędu (od XI 2024); ok. 2 411 t na koniec IX 2026 — jeden z głównych filarów popytu oficjalnego.",
+      "url": "http://www.pbc.gov.cn/en/3688006/index.html",
+      "verify": "LPR 2027: 20. dnia miesiąca (przesunięcia na dzień roboczy liczone, bez świąt chińskich)"
+    },
+    {
+      "id": "rba",
+      "name": "Reserve Bank of Australia",
+      "short": "RBA",
+      "city": "Sydney",
+      "country": "Australia",
+      "currency": "AUD",
+      "lat": -33.8679,
+      "lon": 151.2116,
+      "rate": 4.6,
+      "rateLabel": "4.60% (cash rate target)",
+      "lastChange": {
+        "date": "2026-09-29",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-09-29T04:30:00Z",
+        "2026-11-03T03:30:00Z",
+        "2026-12-08T03:30:00Z",
+        "2027-02-09T03:30:00Z",
+        "2027-03-23T03:30:00Z",
+        "2027-05-04T04:30:00Z",
+        "2027-06-22T04:30:00Z",
+        "2027-08-10T04:30:00Z",
+        "2027-09-21T04:30:00Z",
+        "2027-11-02T03:30:00Z",
+        "2027-12-14T03:30:00Z"
+      ],
+      "goldReservesT": 79.9,
+      "goldTrend": "stable",
+      "goldNote": "Australia to 3. producent złota na świecie, ale rezerwy RBA są niewielkie.",
+      "url": "https://www.rba.gov.au/schedules-events/board-meeting-schedules.html",
+      "verify": "daty 2027 wg rbaratewatch — potwierdź na rba.gov.au"
+    },
+    {
+      "id": "boc",
+      "name": "Bank of Canada",
+      "short": "BOC",
+      "city": "Ottawa",
+      "country": "Kanada",
+      "currency": "CAD",
+      "lat": 45.4215,
+      "lon": -75.7008,
+      "rate": 2.25,
+      "rateLabel": "2.25% (overnight rate)",
+      "lastChange": {
+        "date": "2025-10-29",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-09-02T13:45:00Z",
+        "2026-10-28T13:45:00Z",
+        "2026-12-09T14:45:00Z",
+        "2027-01-27T14:45:00Z",
+        "2027-03-03T14:45:00Z",
+        "2027-04-28T13:45:00Z",
+        "2027-06-02T13:45:00Z",
+        "2027-07-21T13:45:00Z",
+        "2027-09-08T13:45:00Z",
+        "2027-10-27T13:45:00Z",
+        "2027-12-08T14:45:00Z"
+      ],
+      "goldReservesT": 0,
+      "goldTrend": "stable",
+      "goldNote": "Kanada sprzedała całe złoto do 2016 r.",
+      "url": "https://www.bankofcanada.ca/press/upcoming-events/"
+    },
+    {
+      "id": "rbnz",
+      "name": "Reserve Bank of New Zealand",
+      "short": "RBNZ",
+      "city": "Wellington",
+      "country": "Nowa Zelandia",
+      "currency": "NZD",
+      "lat": -41.2795,
+      "lon": 174.7787,
+      "rate": 2.75,
+      "rateLabel": "2.75% (OCR)",
+      "lastChange": {
+        "date": "2026-09-02",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-09-02T02:00:00Z",
+        "2026-10-28T01:00:00Z",
+        "2026-12-09T01:00:00Z",
+        "2027-02-10T01:00:00Z",
+        "2027-03-17T01:00:00Z",
+        "2027-05-05T02:00:00Z",
+        "2027-06-16T02:00:00Z",
+        "2027-08-04T02:00:00Z",
+        "2027-09-15T02:00:00Z",
+        "2027-10-27T01:00:00Z",
+        "2027-12-08T01:00:00Z"
+      ],
+      "goldReservesT": 0,
+      "goldTrend": "stable",
+      "goldNote": "Brak rezerw złota.",
+      "url": "https://www.rbnz.govt.nz/monetary-policy/about-monetary-policy/monetary-policy-decision-dates"
+    },
+    {
+      "id": "nbp",
+      "name": "Narodowy Bank Polski",
+      "short": "NBP",
+      "city": "Warszawa",
+      "country": "Polska",
+      "currency": "PLN",
+      "lat": 52.2297,
+      "lon": 21.0122,
+      "rate": 3.75,
+      "rateLabel": "3.75% (stopa referencyjna)",
+      "lastChange": {
+        "date": "2026-03-04",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-10-07T13:00:00Z",
+        "2026-11-04T14:00:00Z",
+        "2026-12-02T14:00:00Z"
+      ],
+      "goldReservesT": 648,
+      "goldTrend": "buying",
+      "goldNote": "NBP to jeden z największych kupców złota wśród banków centralnych: 648 t na koniec VIII 2026 (+98 t od początku roku), cel 700 t.",
+      "url": "https://nbp.pl/polityka-pieniezna/decyzje-rpp/posiedzenia-rpp/"
+    },
+    {
+      "id": "rbi",
+      "name": "Reserve Bank of India",
+      "short": "RBI",
+      "city": "Mumbaj",
+      "country": "Indie",
+      "currency": "INR",
+      "lat": 18.9322,
+      "lon": 72.8347,
+      "rate": 5.5,
+      "rateLabel": "5.50% (repo rate)",
+      "lastChange": {
+        "date": "2026-10-07",
+        "bps": 25
+      },
+      "meetings": [
+        "2026-10-07T04:30:00Z",
+        "2026-12-04T04:30:00Z",
+        "2027-02-05T04:30:00Z"
+      ],
+      "goldReservesT": 880,
+      "goldTrend": "stable",
+      "goldNote": "Indie to drugi rynek konsumencki złota; RBI w 2025 r. wyraźnie zwolnił zakupy.",
+      "url": "https://www.rbi.org.in/"
+    },
+    {
+      "id": "cbr",
+      "name": "Bank Rosji",
+      "short": "CBR",
+      "city": "Moskwa",
+      "country": "Rosja",
+      "currency": "RUB",
+      "lat": 55.7594,
+      "lon": 37.6198,
+      "rate": 14.0,
+      "rateLabel": "14.00% (key rate)",
+      "lastChange": {
+        "date": "2026-07-24",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-09-11T10:30:00Z",
+        "2026-10-23T10:30:00Z",
+        "2026-12-18T10:30:00Z",
+        "2027-02-12T10:30:00Z",
+        "2027-03-19T10:30:00Z",
+        "2027-04-30T10:30:00Z",
+        "2027-06-11T10:30:00Z",
+        "2027-07-30T10:30:00Z",
+        "2027-09-10T10:30:00Z",
+        "2027-10-22T10:30:00Z",
+        "2027-12-17T10:30:00Z"
+      ],
+      "goldReservesT": 2271,
+      "goldTrend": "selling",
+      "goldNote": "Bank Rosji sprzedaje złoto (−56 t od początku 2026 r., −6 t w sierpniu); rezerwy objęte sankcjami zachodnimi.",
+      "url": "https://www.cbr.ru/eng/dkp/cal_mp/"
+    },
+    {
+      "id": "bcb",
+      "name": "Banco Central do Brasil",
+      "short": "BCB",
+      "city": "Brasília",
+      "country": "Brazylia",
+      "currency": "BRL",
+      "lat": -15.8008,
+      "lon": -47.8638,
+      "rate": 13.75,
+      "rateLabel": "13.75% (Selic)",
+      "lastChange": {
+        "date": "2026-09-16",
+        "bps": -25
+      },
+      "meetings": [
+        "2026-09-16T21:30:00Z",
+        "2026-11-04T21:30:00Z",
+        "2026-12-09T21:30:00Z",
+        "2027-01-27T21:30:00Z",
+        "2027-03-17T21:30:00Z",
+        "2027-04-28T21:30:00Z",
+        "2027-06-16T21:30:00Z",
+        "2027-08-04T21:30:00Z",
+        "2027-09-22T21:30:00Z",
+        "2027-10-27T21:30:00Z",
+        "2027-12-08T21:30:00Z"
+      ],
+      "goldReservesT": 145,
+      "goldTrend": "buying",
+      "goldNote": "Brazylia wróciła do zakupów złota w 2025 r.",
+      "url": "https://www.bcb.gov.br/en/monetarypolicy/copomschedule",
+      "verify": "tonaż rezerw"
+    }
+  ]
+}

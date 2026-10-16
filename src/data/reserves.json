@@ -1,0 +1,244 @@
+{
+  "_comment": "Oficjalne rezerwy złota (tony) — przybliżenie wg World Gold Council, stan ok. połowy 2026 r. Aktualizuj z gold.org/goldhub/data/gold-reserves-by-country. Strefa euro: EBC ma dodatkowo ok. 506 t.",
+  "asOf": "VIII–IX 2026 (WGC/IMF; pozostałe kraje — przybliżenie WGC)",
+  "reserves": [
+    {
+      "iso": "840",
+      "iso3": "USA",
+      "name": "USA",
+      "tonnes": 8133.5,
+      "trend": "stable"
+    },
+    {
+      "iso": "276",
+      "iso3": "DEU",
+      "name": "Niemcy",
+      "tonnes": 3350,
+      "trend": "stable"
+    },
+    {
+      "iso": "380",
+      "iso3": "ITA",
+      "name": "Włochy",
+      "tonnes": 2452,
+      "trend": "stable"
+    },
+    {
+      "iso": "250",
+      "iso3": "FRA",
+      "name": "Francja",
+      "tonnes": 2437,
+      "trend": "stable"
+    },
+    {
+      "iso": "156",
+      "iso3": "CHN",
+      "name": "Chiny",
+      "tonnes": 2411,
+      "trend": "buying"
+    },
+    {
+      "iso": "643",
+      "iso3": "RUS",
+      "name": "Rosja",
+      "tonnes": 2271,
+      "trend": "selling"
+    },
+    {
+      "iso": "756",
+      "iso3": "CHE",
+      "name": "Szwajcaria",
+      "tonnes": 1040,
+      "trend": "stable"
+    },
+    {
+      "iso": "356",
+      "iso3": "IND",
+      "name": "Indie",
+      "tonnes": 880,
+      "trend": "stable"
+    },
+    {
+      "iso": "392",
+      "iso3": "JPN",
+      "name": "Japonia",
+      "tonnes": 846,
+      "trend": "stable"
+    },
+    {
+      "iso": "616",
+      "iso3": "POL",
+      "name": "Polska",
+      "tonnes": 648,
+      "trend": "buying"
+    },
+    {
+      "iso": "528",
+      "iso3": "NLD",
+      "name": "Holandia",
+      "tonnes": 612,
+      "trend": "stable"
+    },
+    {
+      "iso": "792",
+      "iso3": "TUR",
+      "name": "Turcja",
+      "tonnes": 600,
+      "trend": "selling"
+    },
+    {
+      "iso": "860",
+      "iso3": "UZB",
+      "name": "Uzbekistan",
+      "tonnes": 439,
+      "trend": "buying"
+    },
+    {
+      "iso": "620",
+      "iso3": "PRT",
+      "name": "Portugalia",
+      "tonnes": 383,
+      "trend": "stable"
+    },
+    {
+      "iso": "398",
+      "iso3": "KAZ",
+      "name": "Kazachstan",
+      "tonnes": 377,
+      "trend": "buying"
+    },
+    {
+      "iso": "682",
+      "iso3": "SAU",
+      "name": "Arabia Saudyjska",
+      "tonnes": 323,
+      "trend": "stable"
+    },
+    {
+      "iso": "826",
+      "iso3": "GBR",
+      "name": "Wielka Brytania",
+      "tonnes": 310,
+      "trend": "stable"
+    },
+    {
+      "iso": "422",
+      "iso3": "LBN",
+      "name": "Liban",
+      "tonnes": 287,
+      "trend": "stable"
+    },
+    {
+      "iso": "724",
+      "iso3": "ESP",
+      "name": "Hiszpania",
+      "tonnes": 282,
+      "trend": "stable"
+    },
+    {
+      "iso": "040",
+      "iso3": "AUT",
+      "name": "Austria",
+      "tonnes": 280,
+      "trend": "stable"
+    },
+    {
+      "iso": "764",
+      "iso3": "THA",
+      "name": "Tajlandia",
+      "tonnes": 235,
+      "trend": "stable"
+    },
+    {
+      "iso": "056",
+      "iso3": "BEL",
+      "name": "Belgia",
+      "tonnes": 227,
+      "trend": "stable"
+    },
+    {
+      "iso": "012",
+      "iso3": "DZA",
+      "name": "Algieria",
+      "tonnes": 174,
+      "trend": "stable"
+    },
+    {
+      "iso": "434",
+      "iso3": "LBY",
+      "name": "Libia",
+      "tonnes": 147,
+      "trend": "stable"
+    },
+    {
+      "iso": "076",
+      "iso3": "BRA",
+      "name": "Brazylia",
+      "tonnes": 145,
+      "trend": "buying"
+    },
+    {
+      "iso": "818",
+      "iso3": "EGY",
+      "name": "Egipt",
+      "tonnes": 127,
+      "trend": "stable"
+    },
+    {
+      "iso": "752",
+      "iso3": "SWE",
+      "name": "Szwecja",
+      "tonnes": 126,
+      "trend": "stable"
+    },
+    {
+      "iso": "710",
+      "iso3": "ZAF",
+      "name": "RPA",
+      "tonnes": 125,
+      "trend": "stable"
+    },
+    {
+      "iso": "484",
+      "iso3": "MEX",
+      "name": "Meksyk",
+      "tonnes": 120,
+      "trend": "stable"
+    },
+    {
+      "iso": "300",
+      "iso3": "GRC",
+      "name": "Grecja",
+      "tonnes": 114,
+      "trend": "stable"
+    },
+    {
+      "iso": "348",
+      "iso3": "HUN",
+      "name": "Węgry",
+      "tonnes": 110,
+      "trend": "stable"
+    },
+    {
+      "iso": "634",
+      "iso3": "QAT",
+      "name": "Katar",
+      "tonnes": 110,
+      "trend": "buying"
+    },
+    {
+      "iso": "203",
+      "iso3": "CZE",
+      "name": "Czechy",
+      "tonnes": 86,
+      "trend": "buying"
+    },
+    {
+      "iso": "036",
+      "iso3": "AUS",
+      "name": "Australia",
+      "tonnes": 80,
+      "trend": "stable"
+    }
+  ]
+}

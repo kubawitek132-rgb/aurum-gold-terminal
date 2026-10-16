@@ -1,0 +1,117 @@
+{
+  "_comment": "Kluczowe wąskie gardła żeglugi. keys = frazy w nagłówkach przypisujące artykuł do punktu. bbox = [minLat, minLon, maxLat, maxLon] dla AIS.",
+  "chokepoints": [
+    {
+      "id": "hormuz",
+      "name": "Cieśnina Ormuz",
+      "lat": 26.566,
+      "lon": 56.25,
+      "keys": [
+        "hormuz",
+        "sea of oman",
+        "gulf of oman",
+        "persian gulf"
+      ],
+      "oilShare": "~20% światowej konsumpcji ropy, ~20% LNG",
+      "description": "Jedyne wyjście z Zatoki Perskiej. Napięcia z Iranem natychmiast podbijają ropę i premię za ryzyko.",
+      "bbox": [
+        25.8,
+        55.6,
+        27.2,
+        57.2
+      ]
+    },
+    {
+      "id": "babelmandeb",
+      "name": "Bab el-Mandeb / Morze Czerwone",
+      "lat": 12.6,
+      "lon": 43.33,
+      "keys": [
+        "bab el-mandeb",
+        "bab al-mandab",
+        "red sea",
+        "houthi",
+        "yanbu"
+      ],
+      "oilShare": "~9% handlu morskiego ropą; trasa do Suezu",
+      "description": "Ataki Huti wymuszają objazd wokół Przylądka Dobrej Nadziei → wyższe koszty frachtu i inflacja kosztowa.",
+      "bbox": [
+        11.8,
+        42.6,
+        13.6,
+        44.2
+      ]
+    },
+    {
+      "id": "suez",
+      "name": "Kanał Sueski",
+      "lat": 30.5,
+      "lon": 32.35,
+      "keys": [
+        "suez"
+      ],
+      "oilShare": "~12% handlu światowego",
+      "description": "Połączenie Morza Śródziemnego z Czerwonym; ruch spada, gdy Morze Czerwone jest zagrożone.",
+      "bbox": [
+        29.8,
+        32.2,
+        31.4,
+        32.6
+      ]
+    },
+    {
+      "id": "malacca",
+      "name": "Cieśnina Malakka",
+      "lat": 2.5,
+      "lon": 101.3,
+      "keys": [
+        "malacca"
+      ],
+      "oilShare": "~25% handlu morskiego; główna trasa ropy do Chin/Japonii/Korei",
+      "description": "Najbardziej ruchliwa trasa tankowców do Azji Wschodniej.",
+      "bbox": [
+        1.0,
+        99.5,
+        4.5,
+        103.5
+      ]
+    },
+    {
+      "id": "bosphorus",
+      "name": "Bosfor",
+      "lat": 41.12,
+      "lon": 29.07,
+      "keys": [
+        "bosphorus",
+        "bosporus",
+        "turkish straits",
+        "dardanelles"
+      ],
+      "oilShare": "~3% światowych dostaw ropy (eksport z Morza Czarnego)",
+      "description": "Wyjście z Morza Czarnego — kluczowe dla ropy rosyjskiej/kazachskiej i zbóż z Ukrainy.",
+      "bbox": [
+        40.9,
+        28.9,
+        41.3,
+        29.2
+      ]
+    },
+    {
+      "id": "panama",
+      "name": "Kanał Panamski",
+      "lat": 9.08,
+      "lon": -79.68,
+      "keys": [
+        "panama canal"
+      ],
+      "oilShare": "~5% handlu morskiego; LNG z USA do Azji",
+      "description": "Susze ograniczają liczbę przejść; zakłócenia głównie wpływają na koszty frachtu.",
+      "bbox": [
+        8.8,
+        -80.0,
+        9.5,
+        -79.4
+      ]
+    }
+  ]
+}

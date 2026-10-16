@@ -1,0 +1,51 @@
+{
+  "_comment": "Huby fizycznego złota, główne przepływy i producenci. Producenci: przybliżone dane roczne (t) wg World Gold Council / USGS — aktualizuj ręcznie. premium: wpisz ręcznie, jeśli śledzisz premię (np. SGE vs Londyn).",
+  "producersAsOf": "2024 (przybliżenie WGC/USGS)",
+  "hubs": [
+    { "id": "london", "name": "Londyn", "venue": "LBMA / skarbce BoE", "lat": 51.5136, "lon": -0.089, "role": "Globalne centrum rynku OTC i spot; benchmark LBMA Gold Price (AM/PM). Największe zasoby sztab 400 oz w skarbcach (BoE + komercyjne).", "premium": null, "url": "https://www.lbma.org.uk/prices-and-data/precious-metal-prices" },
+    { "id": "newyork", "name": "Nowy Jork", "venue": "COMEX (CME Group)", "lat": 40.7075, "lon": -74.0113, "role": "Główny rynek futures (GC). Zapasy rejestrowane/uprawnione w skarbcach COMEX; spread EFP Londyn–NY sygnalizuje napięcia logistyczne.", "premium": null, "url": "https://www.cmegroup.com/markets/metals/precious/gold.html" },
+    { "id": "zurich", "name": "Zurych / Ticino", "venue": "Szwajcarskie rafinerie (Valcambi, PAMP, Argor-Heraeus, Metalor)", "lat": 47.3769, "lon": 8.5417, "role": "Światowe centrum rafinacji: przetapianie sztab 400 oz na kilobary dla Azji i odwrotnie. Dane eksportowe Swiss Customs pokazują kierunki popytu.", "premium": null, "url": "https://www.gold.org/goldhub/data/gold-trade-flows" },
+    { "id": "shanghai", "name": "Szanghaj", "venue": "Shanghai Gold Exchange (SGE)", "lat": 31.2304, "lon": 121.4737, "role": "Największy rynek fizyczny; benchmark Shanghai Gold Price. Premia SGE vs Londyn = miara chińskiego popytu (kwoty importowe PBoC).", "premium": null, "url": "https://en.sge.com.cn/" },
+    { "id": "hongkong", "name": "Hongkong", "venue": "CGSE / skarbce", "lat": 22.3193, "lon": 114.1694, "role": "Brama do Chin kontynentalnych; reeksport do Shenzhen.", "premium": null, "url": "https://www.cgse.com.hk/en/" },
+    { "id": "dubai", "name": "Dubaj", "venue": "DMCC / Gold Souk", "lat": 25.0753, "lon": 55.1442, "role": "Hub dla złota z Afryki i Rosji, reeksport do Indii, Szwajcarii i Hongkongu.", "premium": null, "url": "https://www.dmcc.ae/gateway-to-trade/commodities/gold" },
+    { "id": "mumbai", "name": "Mumbaj", "venue": "MCX / IIBX", "lat": 19.076, "lon": 72.8777, "role": "Drugi rynek konsumencki świata (biżuteria). Premia/dyskonto lokalnych dealerów vs cena oficjalna zależy od ceł i sezonu (Diwali, wesela).", "premium": null, "url": "https://www.mcxindia.com/" },
+    { "id": "singapore", "name": "Singapur", "venue": "SBMA / skarbce wolnocłowe", "lat": 1.3521, "lon": 103.8198, "role": "Regionalny hub ASEAN, skarbce dla inwestorów prywatnych i dystrybucja do Azji Płd.-Wsch.", "premium": null, "url": "https://www.sbma.org.sg/" },
+    { "id": "istanbul", "name": "Stambuł", "venue": "Borsa Istanbul (PMM) / Grand Bazaar", "lat": 41.0082, "lon": 28.9784, "role": "Silny popyt detaliczny (inflacja w TRY), pośrednik w handlu z Bliskim Wschodem i Azją Środkową.", "premium": null, "url": "https://www.borsaistanbul.com/en/markets/precious-metals-and-diamond-market" }
+  ],
+  "flows": [
+    { "from": "london", "to": "zurich", "label": "Sztaby 400 oz → przetop na kilobary", "weight": 5 },
+    { "from": "zurich", "to": "shanghai", "label": "Kilobary dla Chin (import przez banki z licencją PBoC)", "weight": 4 },
+    { "from": "zurich", "to": "hongkong", "label": "Eksport do Hongkongu → reeksport do Chin", "weight": 4 },
+    { "from": "zurich", "to": "mumbai", "label": "Szwajcaria → Indie (biżuteria, inwestycje)", "weight": 4 },
+    { "from": "dubai", "to": "mumbai", "label": "Dubaj → Indie", "weight": 4 },
+    { "from": "london", "to": "newyork", "label": "Arbitraż EFP Londyn ↔ COMEX", "weight": 3 },
+    { "from": "zurich", "to": "newyork", "label": "Kilobary do skarbców COMEX", "weight": 3 },
+    { "from": "hongkong", "to": "shanghai", "label": "Reeksport do Chin kontynentalnych", "weight": 3 },
+    { "from": "dubai", "to": "zurich", "label": "Złoto afrykańskie do rafinacji", "weight": 3 },
+    { "from": "zurich", "to": "istanbul", "label": "Szwajcaria → Turcja", "weight": 2 },
+    { "from": "singapore", "to": "shanghai", "label": "Region ASEAN → Chiny", "weight": 2 },
+    { "from": "dubai", "to": "hongkong", "label": "Dubaj → Azja Wschodnia", "weight": 2 }
+  ],
+  "producers": [
+    { "iso": "156", "name": "Chiny", "tonnes": 380 },
+    { "iso": "643", "name": "Rosja", "tonnes": 330 },
+    { "iso": "036", "name": "Australia", "tonnes": 290 },
+    { "iso": "124", "name": "Kanada", "tonnes": 200 },
+    { "iso": "840", "name": "USA", "tonnes": 160 },
+    { "iso": "288", "name": "Ghana", "tonnes": 140 },
+    { "iso": "484", "name": "Meksyk", "tonnes": 140 },
+    { "iso": "360", "name": "Indonezja", "tonnes": 140 },
+    { "iso": "398", "name": "Kazachstan", "tonnes": 130 },
+    { "iso": "860", "name": "Uzbekistan", "tonnes": 120 },
+    { "iso": "604", "name": "Peru", "tonnes": 100 },
+    { "iso": "710", "name": "RPA", "tonnes": 100 },
+    { "iso": "466", "name": "Mali", "tonnes": 90 },
+    { "iso": "076", "name": "Brazylia", "tonnes": 85 },
+    { "iso": "854", "name": "Burkina Faso", "tonnes": 60 },
+    { "iso": "834", "name": "Tanzania", "tonnes": 60 },
+    { "iso": "729", "name": "Sudan", "tonnes": 60 },
+    { "iso": "598", "name": "Papua-Nowa Gwinea", "tonnes": 55 },
+    { "iso": "170", "name": "Kolumbia", "tonnes": 50 },
+    { "iso": "032", "name": "Argentyna", "tonnes": 50 }
+  ]
+}

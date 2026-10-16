@@ -1,0 +1,69 @@
+{
+  "_comment": "Regiony ryzyka geopolitycznego. q = zapytanie GDELT DOC (spacja = AND, OR w nawiasach, słowa min. 3 znaki — krótsze GDELT odrzuca). Indeks = średnia z ostatnich 3 dni / średnia z wcześniejszych dni (30 dni). keys = słowa w nagłówkach do przypisania zdarzeń z warstwy GEO.",
+  "regions": [
+    {
+      "id": "mideast",
+      "name": "Bliski Wschód",
+      "lat": 31.5,
+      "lon": 45.0,
+      "q": "(iran OR israel OR gaza OR hezbollah OR hormuz OR lebanon) (strike OR missile OR attack OR war OR drone)",
+      "keys": [
+        "Middle East"
+      ],
+      "gold": "Eskalacja na Bliskim Wschodzie łączy premię za ryzyko z ryzykiem dla ropy (Ormuz) — historycznie najsilniej wspiera złoto."
+    },
+    {
+      "id": "ruukr",
+      "name": "Rosja–Ukraina",
+      "lat": 50.0,
+      "lon": 35.0,
+      "q": "(ukraine OR russia OR kremlin OR kyiv) (strike OR missile OR attack OR offensive OR drone)",
+      "keys": [
+        "Europe"
+      ],
+      "gold": "Eskalacja zwiększa popyt na bezpieczne aktywa w Europie; sankcje wzmacniają motyw dedolaryzacji rezerw."
+    },
+    {
+      "id": "taiwan",
+      "name": "Cieśnina Tajwańska / M. Płd.-chińskie",
+      "lat": 21.0,
+      "lon": 118.0,
+      "q": "(taiwan OR \"south china sea\" OR pla) (military OR drills OR warships OR blockade)",
+      "keys": [
+        "Asia-Pacific"
+      ],
+      "gold": "Ryzyko konfliktu USA–Chiny dotyczy łańcuchów dostaw i rezerw dolarowych Chin — silny motyw dla zakupów oficjalnych."
+    },
+    {
+      "id": "redsea",
+      "name": "Morze Czerwone / Róg Afryki",
+      "lat": 15.0,
+      "lon": 42.0,
+      "q": "(\"red sea\" OR houthi OR \"bab el-mandeb\" OR somalia OR sudan) (attack OR ship OR missile OR war)",
+      "keys": [
+        "Africa"
+      ],
+      "gold": "Ataki na żeglugę podnoszą koszty frachtu i inflację importowaną — pośrednie wsparcie dla złota."
+    },
+    {
+      "id": "korea",
+      "name": "Półwysep Koreański",
+      "lat": 39.0,
+      "lon": 127.0,
+      "q": "(\"north korea\" OR pyongyang) (missile OR nuclear OR launch)",
+      "keys": [],
+      "gold": "Testy rakietowe zwykle dają krótkie skoki popytu na bezpieczne aktywa; trwały wpływ tylko przy eskalacji."
+    },
+    {
+      "id": "trade",
+      "name": "Wojny handlowe i sankcje",
+      "lat": 38.9,
+      "lon": -77.04,
+      "q": "(tariff OR tariffs OR sanctions OR \"export controls\") (china OR russia OR iran OR \"european union\" OR mexico)",
+      "keys": [
+        "Americas"
+      ],
+      "gold": "Cła i sankcje → ryzyko inflacji i fragmentacji systemu dolarowego → wsparcie dla złota, zwłaszcza popytu banków centralnych."
+    }
+  ]
+}

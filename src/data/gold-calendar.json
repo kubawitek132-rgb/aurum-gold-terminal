@@ -1,0 +1,95 @@
+{
+  "_comment": "Stałe zdarzenia strukturalne rynku złota (święta, sezony popytu). Daty COMEX, raporty CFTC i inne cykliczne publikacje są liczone automatycznie w src/lib/goldCalendar.ts. approx=true → data orientacyjna.",
+  "events": [
+    {
+      "date": "2026-11-06",
+      "title": "Dhanteras — szczyt zakupów złota w Indiach",
+      "category": "demand",
+      "venue": "mumbai",
+      "detail": "Najważniejszy dzień zakupów biżuterii i monet w Indiach; widoczny w premii lokalnej i imporcie.",
+      "approx": false
+    },
+    {
+      "date": "2026-11-08",
+      "title": "Diwali (Muhurat trading)",
+      "category": "demand",
+      "venue": "mumbai",
+      "detail": "Święto i symboliczna sesja na giełdach indyjskich; koniec przedświątecznego szczytu popytu.",
+      "approx": false
+    },
+    {
+      "date": "2026-11-15",
+      "endDate": "2027-02-28",
+      "title": "Sezon weselny w Indiach",
+      "category": "demand",
+      "venue": "mumbai",
+      "detail": "Podwyższony popyt na biżuterię złotą od połowy listopada do lutego.",
+      "approx": true
+    },
+    {
+      "date": "2026-11-26",
+      "title": "Thanksgiving — święto w USA",
+      "category": "holiday",
+      "venue": "newyork",
+      "detail": "Nieregularne godziny handlu CME/COMEX; niższa płynność także w piątek 27.11.",
+      "approx": false
+    },
+    {
+      "date": "2026-12-25",
+      "title": "Boże Narodzenie — LBMA i COMEX zamknięte",
+      "category": "holiday",
+      "venue": "london",
+      "detail": "Brak fixingu LBMA; COMEX zamknięty.",
+      "approx": false
+    },
+    {
+      "date": "2026-12-28",
+      "title": "Boxing Day (dzień zastępczy) — brak fixingu LBMA",
+      "category": "holiday",
+      "venue": "london",
+      "detail": "Święto bankowe w UK; rynek londyński nieczynny.",
+      "approx": false
+    },
+    {
+      "date": "2027-01-01",
+      "title": "Nowy Rok — LBMA i COMEX zamknięte",
+      "category": "holiday",
+      "venue": "london",
+      "detail": "Niska płynność na przełomie roku.",
+      "approx": false
+    },
+    {
+      "date": "2027-01-10",
+      "endDate": "2027-02-05",
+      "title": "Zakupy przed Chińskim Nowym Rokiem",
+      "category": "demand",
+      "venue": "shanghai",
+      "detail": "Sezonowy wzrost popytu detalicznego w Chinach; zwykle widoczny w premii SGE.",
+      "approx": true
+    },
+    {
+      "date": "2027-02-06",
+      "title": "Chiński Nowy Rok — przerwa na SGE (ok. tydzień)",
+      "category": "holiday",
+      "venue": "shanghai",
+      "detail": "Shanghai Gold Exchange nieczynna przez okres Święta Wiosny; dokładne daty publikuje SGE.",
+      "approx": true
+    },
+    {
+      "date": "2027-03-26",
+      "title": "Wielki Piątek — LBMA i COMEX zamknięte",
+      "category": "holiday",
+      "venue": "london",
+      "detail": "Święto w UK i USA.",
+      "approx": false
+    },
+    {
+      "date": "2027-03-29",
+      "title": "Poniedziałek Wielkanocny — brak fixingu LBMA",
+      "category": "holiday",
+      "venue": "london",
+      "detail": "Święto bankowe w UK.",
+      "approx": false
+    }
+  ]
+}

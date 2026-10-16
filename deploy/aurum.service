@@ -1,0 +1,27 @@
+# systemd unit — uruchomienie bez Dockera (Next.js standalone).
+# Instalacja: patrz README → „VPS bez Dockera (systemd)”.
+[Unit]
+Description=AURUM // Gold Intelligence Terminal
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=aurum
+Group=aurum
+WorkingDirectory=/opt/aurum/.next/standalone
+EnvironmentFile=/opt/aurum/.env
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=DATA_DIR=/opt/aurum/.data
+Environment=HOSTNAME=127.0.0.1
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+# hardening
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
