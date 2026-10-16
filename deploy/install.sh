@@ -101,5 +101,5 @@ else
   say "Brak Tailscale — aplikacja słucha tylko lokalnie (127.0.0.1:3000). Wystaw ją przez Tailscale lub nginx z hasłem (deploy/nginx.conf.example)."
 fi
 
-say "Gotowe. Aktualizacja: podmień pliki projektu i uruchom ten skrypt ponownie (.env zostaje)."
+say "Gotowe. Aktualizacja z GitHuba: sudo bash deploy/update.sh (.env zostaje; przy instalacji przez bootstrap.sh dzieje się to samo co 30 min)."
 say "Test Telegrama: curl -X POST -H \"x-alerts-secret: \$(grep ^ALERTS_SECRET .env | cut -d= -f2)\" 'http://127.0.0.1:3000/api/alerts?test=1'"

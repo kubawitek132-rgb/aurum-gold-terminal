@@ -122,15 +122,19 @@ Bez klucza działają: kalendarz ForexFactory, GDELT (zdarzenia, regiony, chokep
 
 ## Wdrożenie na VPS (Docker) — jednym poleceniem
 
+Na serwerze (Debian/Ubuntu, dowolna architektura — także ARM):
+
 ```bash
-sudo mkdir -p /opt/aurum && sudo chown $USER /opt/aurum
-unzip aurum-gold-terminal.zip -d /opt/aurum        # albo rsync/scp katalogu projektu
-cd /opt/aurum && sudo bash deploy/install.sh
+curl -fsSL https://raw.githubusercontent.com/kubawitek132-rgb/aurum-gold-terminal/main/deploy/bootstrap.sh | sudo bash
 ```
+
+albo z Maca, przez SSH (adres jak w `~/.ssh/config` lub nazwa z Tailscale): dwuklik w `~/Public/AURUM — wdróż na VPS.command`, ewentualnie `bash ~/Public/aurum-deploy.sh user@vps`.
+
+`deploy/bootstrap.sh` pobiera kod z GitHuba do `/opt/aurum` (wcześniejsza instalacja z paczki zip jest przejmowana, `.env` i dane zostają), uruchamia `deploy/install.sh` i włącza **automatyczne aktualizacje**: co 30 minut `deploy/update.sh` sprawdza gałąź `main`, a po nowym commicie przebudowuje kontener; jeśli nowa wersja nie wstanie, wraca do poprzedniej. Log: `/var/log/aurum-update.log`, ręcznie: `sudo bash /opt/aurum/deploy/update.sh`, wyłączenie: `AURUM_AUTOUPDATE=0` przy instalacji albo usunięcie `/etc/cron.d/aurum-update`.
 
 Skrypt `deploy/install.sh` instaluje Dockera (jeśli brak), tworzy `.env` i pyta o klucze (Enter = pomiń), generuje `ALERTS_SECRET`, buduje i uruchamia kontener, sprawdza `/api/status`, a gdy na serwerze działa Tailscale — wystawia aplikację w tailnecie przez HTTPS na porcie **8443** (`https://<serwer>.<tailnet>.ts.net:8443`, osobny port, żeby nie kolidować z innymi usługami). Uruchomienie ponowne = aktualizacja (istniejący `.env` zostaje). Opcje: `AURUM_REDIS=1` (trwały cache w Redis), `AURUM_TS_PORT=…`, `AURUM_NONINTERACTIVE=1`.
 
-**CI (opcjonalnie):** po wrzuceniu projektu do repozytorium GitHub workflow `.github/workflows/ci.yml` przy każdym pushu robi typecheck, testy i `next build`, a z gałęzi `main` publikuje obraz `ghcr.io/<konto>/aurum:latest`.
+**CI:** workflow `.github/workflows/ci.yml` przy każdym pushu robi typecheck, testy i `next build`, a z gałęzi `main` publikuje obraz `ghcr.io/<konto>/aurum:latest`.
 
 Ręcznie, krok po kroku:
 
