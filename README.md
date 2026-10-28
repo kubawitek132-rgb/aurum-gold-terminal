@@ -239,7 +239,7 @@ Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, Wor
 
 ## Biuro (`/biuro`)
 
-Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Istniejący Coin Bot korzysta z Solany, DEX-ów/Jupiter i oddzielnego portfela podpisującego na serwerze. Phantom służył do zasilenia tego portfela. HQ nie podpisuje transakcji ani nie odczytuje prywatnych sald; saldo i transakcje pozostają w terminalu bota. Panel opisuje architekturę, bez potwierdzania bieżącej pracy silnika.
+Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Biuro HQ (`biurohq.com`) jest ojcem dwóch pionów, nie trzecim deskiem. AURUM — dziecko złota — żyje na [xauinteligenceooffice.com](https://xauinteligenceooffice.com). Istniejący Coin Bot korzysta z Solany, DEX-ów/Jupiter i oddzielnego portfela podpisującego na serwerze. Phantom służył do zasilenia tego portfela. HQ nie podpisuje transakcji ani nie odczytuje prywatnych sald; saldo i transakcje pozostają w terminalu bota. Panel opisuje architekturę, bez potwierdzania bieżącej pracy silnika.
 
 Coinbase/Kraken i wyszukiwarka DEX dostarczają HQ niezależne odczyty rynku. Nie oznaczają podłączenia tych giełd do silnika bota. Wrapped BTC/ETH na Solanie nie są potwierdzeniem egzekucji na natywnych sieciach Bitcoin/Ethereum.
 
