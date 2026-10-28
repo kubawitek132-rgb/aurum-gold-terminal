@@ -359,11 +359,11 @@
       "attention": "ok",
       "attentionLabel": "Bez uwagi",
       "signal": "CI build · sukces · e812955 · snapshot, dopóki API nie poda Live",
-      "summary": "Publiczny terminal na /. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.",
+      "summary": "Publiczny terminal na xauinteligenceooffice.com. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.",
       "links": [
         {
           "label": "Terminal",
-          "href": "/"
+          "href": "https://xauinteligenceooffice.com"
         },
         {
           "label": "GitHub",
@@ -808,7 +808,7 @@
         "stage": "Poza fabryką zleceń",
         "state": "Pilnowany",
         "kind": "ok",
-        "note": "Produkt na /. Nie składa zleceń. Nie jest botem egzekucji."
+        "note": "Produkt na xauinteligenceooffice.com. Nie składa zleceń. Nie jest botem egzekucji."
       },
       {
         "name": "Coin Bot",
