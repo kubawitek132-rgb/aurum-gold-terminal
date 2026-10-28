@@ -13,6 +13,6 @@ Inventory was read on 28 October 2026, 09:30 UTC:
 
 Role definitions do not certify running processes, available AI models, qualified strategies or trading permissions. Source names, counts and timestamps are in `src/lib/biuroStructure.ts`. No private infrastructure addresses, wallet balances, account addresses, transactions or credentials are published in this inventory.
 
-The existing bot wallet was left unchanged. The optional injected MetaMask viewer reads the current browser account only after the user's wallet permission; it is separate from the bot's signing environment. It supports account/network events, balance refresh and revocation of this site's permissions, and never requests transaction signatures.
+Coin Bot retains its existing Phantom connection, as confirmed by the owner. HQ displays this context only: it does not connect or reconnect a wallet, inspect browser accounts, read balances, or request permissions or signatures. Balances and transactions remain in the bot terminal. This public panel does not verify the current health of the private wallet connection.
 
 The market endpoint and token explorer provide real public data, not bot execution telemetry. See `biuro-exchanges.md`. Authenticated bot telemetry and execution are not provided by this public UI.

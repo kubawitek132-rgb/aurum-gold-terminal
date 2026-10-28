@@ -239,13 +239,13 @@ Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, Wor
 
 ## Biuro (`/biuro`)
 
-Osobna firma na pulpicie, nie terminal AURUM z `/`. Biuro pilnuje pionów (AURUM bez zleceń, Coin Bot jako autonomiczny paper), kolejkuje pomysły i w Fabryce botów składa kolejne deski co najwyżej do paperu. Live jest wyłączone — decyzja o realnych środkach nie zapada na tej stronie. Coin Bot nie ma bramki `accept()`, bo to paper, nie giełda. Limity: 5000 USD, 2% daily drawdown, kill-switch.
+Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Coin Bot ma istniejące połączenie z Phantom, potwierdzone przez właściciela. HQ nie łączy portfela ponownie ani nie zmienia jego uprawnień. Saldo i transakcje pozostają w terminalu bota; publiczny pulpit nie potwierdza bieżącego stanu prywatnego połączenia.
 
-Stan firmy jest w `public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
+Historyczny raport firmy pozostaje pod `/biuro/desk`. Jego snapshot jest w `public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`. Wynik paper w tym pliku nie jest bieżącym saldem portfela. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
 
 Odświeżenie:
 
 1. Uzupełnij snapshot. `paperBlotter.pnlUsd` ma równać się sumie `pnlUsd` filli, `exposureUsd` sumie nominałów z `open: true`. Metryki w `metrics` trzymaj zgodne z blotterem.
 2. Nowy pomysł: obiekt w `ideas[]` z `title`, `status` (`kolejka` | `research` | `odrzucone`), `thesis`, `invalidation`, `source`, `next`. Bez tezy i invalidation karta nie wchodzi.
-3. Wgraj commit na `main`. Strona robi `fetch /biuro-status.json`. Gdy plik nie dojdzie, zostaje treść w `public/biuro.html`.
+3. Wgraj commit na `main`. Raport robi `fetch /biuro-status.json`. Gdy plik nie dojdzie, zostaje treść w `public/biuro.html`.
 4. Bez kluczy, bez syncu prywatnego coin-bot, bez zleceń live.
