@@ -236,3 +236,16 @@ scripts/check-banks.mjs aktualność danych banków
 - Heatmapa i punkty to natywne warstwy MapLibre (stabilniejsze na globie); deck.gl obsługuje przepływy złota.
 
 Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, World Gold Council (przybliżenia), CME Group (reguły kontraktów), Twelve Data. Mapy: © OpenStreetMap contributors, © CARTO, Esri.
+
+## Biuro (`/biuro`)
+
+Osobna firma na pulpicie, nie terminal AURUM z `/`. Biuro pilnuje pionów (AURUM bez zleceń, Coin Bot jako autonomiczny paper), kolejkuje pomysły i w Fabryce botów składa kolejne deski co najwyżej do paperu. Live jest wyłączone — decyzja o realnych środkach nie zapada na tej stronie. Coin Bot nie ma bramki `accept()`, bo to paper, nie giełda. Limity: 5000 USD, 2% daily drawdown, kill-switch.
+
+Stan firmy jest w `public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
+
+Odświeżenie:
+
+1. Uzupełnij snapshot. `paperBlotter.pnlUsd` ma równać się sumie `pnlUsd` filli, `exposureUsd` sumie nominałów z `open: true`. Metryki w `metrics` trzymaj zgodne z blotterem.
+2. Nowy pomysł: obiekt w `ideas[]` z `title`, `status` (`kolejka` | `research` | `odrzucone`), `thesis`, `invalidation`, `source`, `next`. Bez tezy i invalidation karta nie wchodzi.
+3. Wgraj commit na `main`. Strona robi `fetch /biuro-status.json`. Gdy plik nie dojdzie, zostaje treść w `public/biuro.html`.
+4. Bez kluczy, bez syncu prywatnego coin-bot, bez zleceń live.
