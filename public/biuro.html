@@ -393,7 +393,7 @@ body:has(.biuro){
         <div class="t">Risk / paper</div>
         <div class="d" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch</div>
       </div>
-      <span class="pill warn" id="risk-pill">Pauza</span>
+      <span class="pill ok" id="risk-pill">Autonomiczny paper</span>
     </div>
     <p class="src" id="src-note">CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.</p>
   </div>
@@ -403,9 +403,9 @@ body:has(.biuro){
     <div class="row"><div><div class="t">CEO Agent</div><div class="d">Priorytety, raport, go/no-go</div></div><span class="pill acc">Plan</span></div>
     <div class="row"><div><div class="t">Obserwator</div><div class="d" id="obs-detail">AURUM CI build · e812955 · snapshot</div></div><span class="pill" id="obs-pill">Snapshot</span></div>
     <div class="row"><div><div class="t">Research bull/bear</div><div class="d">LangGraph · szablon</div></div><span class="pill acc">OK</span></div>
-    <div class="row"><div><div class="t">Data Ingest</div><div class="d">OHLCV BTC/ETH stub</div></div><span class="pill ok">Paper</span></div>
+    <div class="row"><div><div class="t">Data Ingest</div><div class="d">Symulowany feed · BTC/USDT · ETH/USDT</div></div><span class="pill ok">Paper</span></div>
     <div class="row"><div><div class="t">Risk</div><div class="d" id="risk-row-detail">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok" id="risk-dept-pill">Kod</span></div>
-    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Paper MVP na Origin (165b3b1) · pauza przed execute · gate: tylko accept()</div></div><span class="pill warn" id="ship-pill">Pauza</span></div>
+    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Origin main 4f06d3d · pętla paper sama · execute bez accept() · nie live</div></div><span class="pill ok" id="ship-pill">Autonomiczny paper</span></div>
     <div class="row"><div><div class="t">Idea Scout / 3D</div><div class="d">Kolejka MVP</div></div><span class="pill">Później</span></div>
   </div>
 
@@ -413,10 +413,10 @@ body:has(.biuro){
     <div class="card book">
       <h2>Projekty</h2>
       <div class="row"><div><div class="t">AURUM</div><div class="d">Gold Macro & Geo · Next.js</div></div><span class="pill ok">GitHub</span></div>
-      <div class="row"><div><div class="t">Coin Bot</div><div class="d">Paper BTC/ETH · LangGraph + Risk</div></div><span class="pill ok">Paper MVP</span></div>
+      <div class="row"><div><div class="t">Coin Bot</div><div class="d">BTC/USDT · ETH/USDT · pętla sama · nie live</div></div><span class="pill ok">Autonomiczny paper</span></div>
       <ul>
         <li>AURUM nie składa zleceń — terminal makro.</li>
-        <li>Coin Bot: tylko paper string, bez kluczy giełd.</li>
+        <li>Coin Bot: autonomiczny paper, bez accept() i bez giełdy live.</li>
         <li>Oba piony osobne — bez wspólnych danych.</li>
       </ul>
     </div>
@@ -441,7 +441,7 @@ body:has(.biuro){
     <div class="link-grid">
       <a class="btn primary" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal"><strong>AURUM na GitHubie</strong><span>kubawitek132-rgb/aurum-gold-terminal</span></a>
       <a class="btn" href="https://github.com/kubawitek132-rgb/coin-bot"><strong>Coin Bot na GitHubie</strong><span>kubawitek132-rgb/coin-bot (private)</span></a>
-      <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>paper MVP trading desk</span></a>
+      <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>autonomiczny paper desk</span></a>
       <a class="btn" href="https://cursor.com/canvas/store-b2eab6f9-4f23-4656-813e-e2342677b155/720d6e24-4a95-48d5-baa0-db32157b4686"><strong>Page w Cursor</strong><span>ta sama treść jako Page (wymaga logowania)</span></a>
     </div>
   </section>
@@ -477,7 +477,7 @@ body:has(.biuro){
 
   function paperKind(paper) {
     if (paper === 'Pauza') return 'warn';
-    if (paper === 'Paper' || paper === 'OK' || paper === 'Live') return 'ok';
+    if (paper === 'Paper' || paper === 'OK' || paper === 'Live' || paper === 'Autonomiczny paper' || paper === 'Paper auto') return 'ok';
     return '';
   }
 

@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-10-28T04:20:00Z",
+  "updatedAt": "2026-10-28T05:04:00Z",
   "update": "CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.",
   "risk": {
     "testsGreen": 27,
     "exposureCapUsd": 5000,
     "dailyDrawdownPct": "2%",
     "killSwitch": true,
-    "paper": "Pauza",
-    "paperDetail": "Paper MVP na Origin (165b3b1) · pauza przed execute · gate: tylko accept()",
-    "origin": { "ref": "main", "commit": "165b3b1", "note": "Paper MVP jest na Origin main. Execute dalej wstrzymane: bramka paper przyjmuje tylko accept()." },
+    "paper": "Autonomiczny paper",
+    "paperDetail": "Origin main 4f06d3d · pętla paper sama · execute bez accept() · nie live",
+    "origin": { "ref": "main", "commit": "4f06d3d", "note": "Autonomiczny paper na Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Pętla paper działa sama — execute nie czeka na accept(). BTC/USDT i ETH/USDT, feed symulowany. Risk dalej bramkuje: 5000 USD, 2% daily DD, kill-switch. Brak giełdy live." },
     "summary": "5000 USD · 2% DD · kill-switch"
   },
   "aurumCiFallback": {
