@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-10-28T02:16:04Z",
+  "update": "CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.",
+  "risk": {
+    "testsGreen": 27,
+    "exposureCapUsd": 5000,
+    "dailyDrawdownPct": "2%",
+    "killSwitch": true,
+    "paper": "Pauza",
+    "paperDetail": "Pauza przed execute",
+    "summary": "5000 USD · 2% DD · kill-switch"
+  },
+  "aurumCiFallback": {
+    "conclusion": "success",
+    "sha": "e812955",
+    "at": "2026-10-28T02:16:04Z",
+    "runUrl": "https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/runs/40619776944/job/122590723336"
+  }
+}
