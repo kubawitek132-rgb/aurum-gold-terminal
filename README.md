@@ -239,7 +239,7 @@ Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, Wor
 
 ## Biuro (`/biuro`)
 
-Osobna firma na pulpicie, nie terminal AURUM z `/`. Biuro pilnuje pionów (AURUM bez zleceń, Coin Bot jako autonomiczny paper), kolejkuje pomysły i w Fabryce botów składa kolejne deski co najwyżej do paperu. Live jest wyłączone — decyzja o realnych środkach nie zapada na tej stronie. Coin Bot nie ma bramki `accept()`, bo to paper, nie giełda. Limity: 5000 USD, 2% daily drawdown, kill-switch.
+Biuro HQ (`biurohq.com`, trasa `/biuro`) jest ojcem dwóch pionów, nie trzecim deskiem. AURUM — dziecko złota — żyje na [xauinteligenceooffice.com](https://xauinteligenceooffice.com) (www, gdy apex milczy). Coin Bot — dziecko crypto — to autonomiczny paper: [Origin](https://cursor.com/codebase/kuba-witek/coin-bot) i [GitHub](https://github.com/kubawitek132-rgb/coin-bot), bez giełdy live. Pod ojcem zostaje kolejka pomysłów i Fabryka, co najwyżej do paperu. Limity: 5000 USD, 2% daily drawdown, kill-switch.
 
 Stan firmy jest w `public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
 

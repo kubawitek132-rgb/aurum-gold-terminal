@@ -2,13 +2,17 @@
   "schemaVersion": 3,
   "updatedAt": "2026-10-28T06:40:00Z",
   "firm": {
-    "name": "Biuro AI — Trading Firm",
-    "office": "Biuro AI Kuby",
+    "name": "Biuro HQ",
+    "title": "Biuro HQ — AURUM + Coin Bot",
+    "office": "biurohq.com",
+    "role": "ojciec",
+    "host": "https://biurohq.com",
+    "children": ["aurum", "coin-bot"],
     "mission": [
-      "Pilnuje istniejących pionów: AURUM (terminal makro) i Coin Bot (autonomiczny paper).",
-      "Myśli i kolejkuje nowe pomysły — z tezą, źródłem i warunkiem unieważnienia.",
-      "Fabryka botów składa kolejne deski, co najwyżej do autonomicznego paperu.",
-      "Tam, gdzie paper już chodzi sam (Coin Bot), nie wkłada bramki accept()."
+      "Biuro HQ jest ojcem dwóch pionów-dzieci. Nie jest trzecim deskiem obok nich.",
+      "AURUM to dziecko złota. Terminal żyje na xauinteligenceooffice.com. Biuro tylko pilnuje.",
+      "Coin Bot to dziecko crypto. Autonomiczny paper pod tym HQ, bez giełdy live.",
+      "Pod ojcem zostaje kolejka pomysłów i Fabryka — co najwyżej do paperu."
     ]
   },
   "update": "Odświeżenie: edytuj public/biuro-status.json (firm, projects, executives, departments, observers, ideas, botFactory, paperBlotter, metrics, risk) i wgraj na main. Nowy pomysł: obiekt w ideas[] z title, status (kolejka | research | odrzucone), thesis, invalidation, source, next. Bez tezy i invalidation Scout nie przyjmuje karty. Pulpit robi fetch /biuro-status.json i podmienia firmę; gdy plik nie dojdzie, zostaje snapshot w public/biuro.html. CI AURUM: publiczne GitHub API, job build na main, bez klucza. Bez syncu prywatnego coin-bot, bez sekretów, bez giełdy live.",
@@ -353,17 +357,23 @@
       "id": "aurum",
       "name": "AURUM",
       "lane": "au",
-      "kind": "Terminal makro · złoto",
+      "relation": "child",
+      "parent": "biuro-hq",
+      "kind": "Dziecko · złoto · terminal makro",
       "state": "Pilnowany",
       "stateKind": "ok",
       "attention": "ok",
       "attentionLabel": "Bez uwagi",
       "signal": "CI build · sukces · e812955 · snapshot, dopóki API nie poda Live",
-      "summary": "Publiczny terminal na /. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.",
+      "summary": "Złoty stack żyje na xauinteligenceooffice.com. Biuro HQ tylko pilnuje CI i nie składa zleceń. Adres / na biurohq to to biuro, nie terminal.",
       "links": [
         {
           "label": "Terminal",
-          "href": "/"
+          "href": "https://xauinteligenceooffice.com"
+        },
+        {
+          "label": "WWW",
+          "href": "https://www.xauinteligenceooffice.com"
         },
         {
           "label": "GitHub",
@@ -379,21 +389,23 @@
       "id": "coin-bot",
       "name": "Coin Bot",
       "lane": "cb",
-      "kind": "BTC/ETH · autonomiczny paper",
+      "relation": "child",
+      "parent": "biuro-hq",
+      "kind": "Dziecko · crypto paper",
       "state": "Autonomiczny paper",
       "stateKind": "ok",
       "attention": "ok",
       "attentionLabel": "Bez uwagi",
       "signal": "Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40",
-      "summary": "Origin main 4f06d3d. Pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda.",
+      "summary": "Dziecko crypto pod Biurem HQ. Origin main 4f06d3d, pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda live.",
       "links": [
+        {
+          "label": "Origin",
+          "href": "https://cursor.com/codebase/kuba-witek/coin-bot"
+        },
         {
           "label": "GitHub",
           "href": "https://github.com/kubawitek132-rgb/coin-bot"
-        },
-        {
-          "label": "Agent",
-          "href": "https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"
         }
       ]
     },
@@ -401,7 +413,9 @@
       "id": "incubation",
       "name": "Inkubacja",
       "lane": "incub",
-      "kind": "Następne deski",
+      "relation": "internal",
+      "parent": "biuro-hq",
+      "kind": "Wewnątrz HQ · nie pion-dziecko",
       "state": "1 szkielet",
       "stateKind": "acc",
       "attention": "watch",
@@ -519,7 +533,7 @@
       "statusKind": "ok",
       "does": "Czyta tło, które AURUM już liczy: realne rentowności, dolar, banki, GPR, chokepointy. Zostawia werdykt w terminalu. Ten fotel nie ma ścieżki do zlecenia — makro tu jest kontekstem, nie orderem.",
       "input": "FRED, GDELT, kalendarz CME, rezerwy",
-      "output": "Reżim tła na /. Zero orderów.",
+      "output": "Reżim tła na xauinteligenceooffice.com. Zero orderów.",
       "next": "Zostać przy terminalu. Do Au Session oddać tylko filtr sesji, gdy research o niego poprosi — nie wcześniej.",
       "blocks": "Nic."
     },
@@ -808,7 +822,7 @@
         "stage": "Poza fabryką zleceń",
         "state": "Pilnowany",
         "kind": "ok",
-        "note": "Produkt na /. Nie składa zleceń. Nie jest botem egzekucji."
+        "note": "Dziecko złota na xauinteligenceooffice.com. Biuro tylko pilnuje. Nie składa zleceń."
       },
       {
         "name": "Coin Bot",
@@ -816,7 +830,7 @@
         "stage": "Autonomiczny paper",
         "state": "Na main 4f06d3d",
         "kind": "ok",
-        "note": "Pętla sama, bez accept(), feed symulowany. Nie live."
+        "note": "Dziecko crypto pod HQ. Pętla sama, bez accept(), feed symulowany. Nie live."
       },
       {
         "name": "Au Session",

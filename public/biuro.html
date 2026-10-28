@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090b0e">
-<title>Biuro AI — Trading Firm</title>
+<title>Biuro HQ — AURUM + Coin Bot</title>
 <style>
 :root{
   --bg:#090b0e;
@@ -610,6 +610,43 @@ body:has(.biuro){
 @media (min-width:900px){
   #paper-desk .panel-cb .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+.children{display:grid;gap:.65rem}
+.hq-tree{
+  margin:0 0 .55rem;
+  padding:.75rem .85rem .8rem;
+  border-radius:12px;
+  border:1px solid rgba(201,162,39,.38);
+  background:linear-gradient(180deg,rgba(201,162,39,.1),rgba(18,22,28,.5));
+}
+.hq-root{font-weight:700;letter-spacing:-.02em;font-size:1.02rem}
+.hq-root span{display:block;margin-top:.16rem;color:var(--muted);font-size:.78rem;font-weight:500}
+.hq-kids{list-style:none;margin:.5rem 0 0;padding:0 0 0 .15rem}
+.hq-kids li{
+  position:relative;
+  margin:0;
+  padding:.32rem 0 .32rem 1.15rem;
+  color:var(--muted);
+  font-size:.84rem;
+  line-height:1.4;
+}
+.hq-kids li::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:2px;
+  background:rgba(201,162,39,.5);
+}
+.hq-kids a{color:var(--text);font-weight:700;text-decoration:none}
+.hq-kids a:hover{color:var(--gold-2)}
+.biuro a.mini.go{
+  font-size:.82rem;
+  padding:.4rem .75rem;
+  background:rgba(201,162,39,.18);
+}
+.sleeve-cb a.mini.go{background:rgba(91,157,255,.18);color:#d5e6ff;border-color:rgba(126,176,255,.55)}
+@media (min-width:800px){
+  .children{grid-template-columns:1fr 1fr}
+}
 @media (min-width:800px){
   .mission{grid-template-columns:1fr 1fr}
   .portfolio{grid-template-columns:1fr 1fr}
@@ -621,6 +658,7 @@ body:has(.biuro){
   .portfolio{grid-template-columns:1.05fr 1.05fr .9fr}
   .exec-grid{grid-template-columns:1fr 1fr 1fr}
 }
+#portfolio-grid{grid-template-columns:1fr}
 @media (max-width:759px){
   .block-title{flex-direction:column;align-items:flex-start;gap:.1rem}
 }
@@ -635,25 +673,27 @@ body:has(.biuro){
       <text x="23" y="29.5" text-anchor="middle" fill="#f0d78c" font-size="16" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Au</text>
     </svg>
     <div class="titles">
-      <h1>Biuro AI — Trading Firm</h1>
-      <p class="sub">Biuro AI Kuby · pilnuje pionów · kolejkuje pomysły · składa deski · <time id="snap-time" datetime="2026-10-28T06:40:00Z">snapshot 28.10.2026, 06:40 UTC</time></p>
+      <h1>Biuro HQ</h1>
+      <p class="sub">Ojciec dwóch pionów · <span class="au">AURUM</span> złoto · <span class="cb">Coin Bot</span> crypto paper · nie trzeci desk · <time id="snap-time" datetime="2026-10-28T06:40:00Z">snapshot 28.10.2026, 06:40 UTC</time></p>
     </div>
     <div class="chips">
-      <span class="chip">AURUM · makro</span>
-      <span class="chip cb">Coin Bot · paper</span>
+      <span class="chip">HQ · biurohq.com</span>
+      <span class="chip">AURUM · dziecko</span>
+      <span class="chip cb">Coin Bot · dziecko</span>
     </div>
   </div>
 </header>
 <main class="desk">
-  <div class="rule"><strong>Zasada firmy.</strong> Paper-first. AURUM nie składa zleceń. Coin Bot prowadzi autonomiczny paper bez <code>accept()</code> i bez giełdy — pętla execute już chodzi sama. Fabryka doprowadza nowe deski co najwyżej do paperu. Live jest wyłączone i włącza je tylko decyzja Kuby poza tym pulpitem. Wobec nowego pomysłu najcenniejsze słowo CEO: nie. Limity: 5000 USD, 2% daily drawdown, kill-switch.</div>
+  <div class="rule"><strong>Biuro jest HQ.</strong> Ojciec, nie sąsiad. AURUM to dziecko złota — terminal żyje na xauinteligenceooffice.com, tu tylko nadzór, bez zleceń. Coin Bot to dziecko crypto: autonomiczny paper bez <code>accept()</code> i bez giełdy live. Adres / na biurohq to to biuro. Fabryka doprowadza nowe deski co najwyżej do paperu. Live giełdy włącza tylko decyzja Kuby poza tym pulpitem. Wobec nowego pomysłu najcenniejsze słowo CEO: nie. Limity: 5000 USD, 2% daily drawdown, kill-switch.</div>
   <ul class="mission" id="mission">
-    <li>Pilnuje istniejących pionów: AURUM (terminal makro) i Coin Bot (autonomiczny paper).</li>
-<li>Myśli i kolejkuje nowe pomysły — z tezą, źródłem i warunkiem unieważnienia.</li>
-<li>Fabryka botów składa kolejne deski, co najwyżej do autonomicznego paperu.</li>
-<li>Tam, gdzie paper już chodzi sam (Coin Bot), nie wkłada bramki accept().</li>
+    <li>Biuro HQ jest ojcem dwóch pionów-dzieci. Nie jest trzecim deskiem obok nich.</li>
+    <li>AURUM to dziecko złota. Terminal żyje na xauinteligenceooffice.com. Biuro tylko pilnuje.</li>
+    <li>Coin Bot to dziecko crypto. Autonomiczny paper pod tym HQ, bez giełdy live.</li>
+    <li>Pod ojcem zostaje kolejka pomysłów i Fabryka — co najwyżej do paperu.</li>
   </ul>
   <nav class="jump" aria-label="Sekcje firmy">
-    <a href="#portfolio">Nadzór</a>
+    <a href="#children">Piony</a>
+    <a href="#portfolio">Inkubacja</a>
     <a href="#exec">Egzekutywa</a>
     <a href="#seats">Fotele</a>
     <a href="#paper-desk">Paper</a>
@@ -662,31 +702,40 @@ body:has(.biuro){
     <a href="#firm-pipeline">Pipeline</a>
   </nav>
 
-  <section class="block" id="portfolio">
-    <div class="block-title"><p class="kicker">01 · Portfolio</p><h2 class="block-h">Nadzór projektów</h2></div>
-    <div class="portfolio" id="portfolio-grid">
-      <article class="sleeve sleeve-au" id="sleeve-aurum">
-    <header class="seat-h"><div><p class="kicker">Pion</p><h3>AURUM</h3><p class="role">Terminal makro · złoto</p></div><span class="pill" id="ci-pill">Snapshot</span></header>
-    
+  <section class="block" id="children">
+    <div class="block-title"><p class="kicker">Piony-dzieci</p><h2 class="block-h">Biuro HQ jest ojcem</h2></div>
+    <div class="hq-tree" id="hq-tree">
+      <div class="hq-root">Biuro HQ<span>ojciec · biurohq.com · nie trzeci desk obok</span></div>
+      <ul class="hq-kids">
+        <li><a href="https://xauinteligenceooffice.com">AURUM</a> — złoto. Terminal poza tym hostem. Biuro tylko pilnuje. <a href="https://www.xauinteligenceooffice.com">www</a></li>
+        <li><a href="https://cursor.com/codebase/kuba-witek/coin-bot">Coin Bot</a> — crypto paper, dziecko pod HQ, nie giełda live. <a href="https://github.com/kubawitek132-rgb/coin-bot">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="children" id="children-grid">
+      <article class="sleeve sleeve-au child" id="sleeve-aurum">
+    <header class="seat-h"><div><p class="kicker">Dziecko</p><h3>AURUM</h3><p class="role">Dziecko · złoto · terminal makro</p></div><span class="pill" id="ci-pill">Snapshot</span></header>
       <p class="attn ok" id="aurum-attn">Bez uwagi</p>
       <div class="metric metric-ok" id="m-ci"><b id="ci-value">Sukces</b><span id="ci-label">CI · e812955 · snapshot</span></div>
       <p class="signal"><a class="quiet" id="ci-link" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Ostatni znany: sukces · e812955</a></p>
-    <p>Publiczny terminal na /. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.</p>
-    
-    <div class="mini-row"><a class="mini" href="/">Terminal</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal">GitHub</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Actions</a></div>
+    <p>Złoty stack żyje na xauinteligenceooffice.com. Biuro HQ tylko pilnuje CI i nie składa zleceń. Adres / na biurohq to to biuro, nie terminal.</p>
+    <div class="mini-row"><a class="mini go" href="https://xauinteligenceooffice.com">Terminal</a><a class="mini" href="https://www.xauinteligenceooffice.com">WWW</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal">GitHub</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Actions</a></div>
   </article>
-<article class="sleeve sleeve-cb" id="sleeve-coin">
-    <header class="seat-h"><div><p class="kicker">Pion</p><h3>Coin Bot</h3><p class="role">BTC/ETH · autonomiczny paper</p></div><span class="pill ok">Autonomiczny paper</span></header>
-    
+<article class="sleeve sleeve-cb child" id="sleeve-coin">
+    <header class="seat-h"><div><p class="kicker">Dziecko</p><h3>Coin Bot</h3><p class="role">Dziecko · crypto paper</p></div><span class="pill ok">Autonomiczny paper</span></header>
       <p class="attn ok">Bez uwagi</p>
       <p class="signal" id="cb-last-fill">Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40</p>
       <p class="signal">P&amp;L marked <b class="pos" id="sleeve-pnl">+36,20</b></p>
-    <p>Origin main 4f06d3d. Pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda.</p>
-    
-    <div class="mini-row"><a class="mini" href="https://github.com/kubawitek132-rgb/coin-bot">GitHub</a><a class="mini" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5">Agent</a></div>
+    <p>Dziecko crypto pod Biurem HQ. Origin main 4f06d3d, pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda live.</p>
+    <div class="mini-row"><a class="mini go" href="https://cursor.com/codebase/kuba-witek/coin-bot">Origin</a><a class="mini" href="https://github.com/kubawitek132-rgb/coin-bot">GitHub</a></div>
   </article>
+    </div>
+  </section>
+
+  <section class="block" id="portfolio">
+    <div class="block-title"><p class="kicker">Wewnątrz HQ</p><h2 class="block-h">Inkubacja, nie trzeci pion</h2></div>
+    <div class="portfolio" id="portfolio-grid">
 <article class="sleeve sleeve-incub">
-    <header class="seat-h"><div><p class="kicker">Pion</p><h3>Inkubacja</h3><p class="role">Następne deski</p></div><span class="pill acc">1 szkielet</span></header>
+    <header class="seat-h"><div><p class="kicker">Wewnątrz HQ</p><h3>Inkubacja</h3><p class="role">Wewnątrz HQ · nie pion-dziecko</p></div><span class="pill acc">1 szkielet</span></header>
     
       <p class="attn watch">Czeka na kartę</p>
       <p class="signal">Au Session stoi na szkielecie. Dwa pomysły bez slotu budowy.</p>
@@ -768,7 +817,7 @@ body:has(.biuro){
     <header class="seat-h"><div><h3>Macro</h3><p class="role">fotel macro · tło złota</p></div><span class="pill ok">Pracuje</span></header>
     
     <p><b>Robi.</b> Czyta tło, które AURUM już liczy: realne rentowności, dolar, banki, GPR, chokepointy. Zostawia werdykt w terminalu. Ten fotel nie ma ścieżki do zlecenia — makro tu jest kontekstem, nie orderem.</p>
-    <p class="io"><b>Wejście.</b> FRED, GDELT, kalendarz CME, rezerwy <b>→ Wyjście.</b> Reżim tła na /. Zero orderów.</p>
+    <p class="io"><b>Wejście.</b> FRED, GDELT, kalendarz CME, rezerwy <b>→ Wyjście.</b> Reżim tła na xauinteligenceooffice.com. Zero orderów.</p>
     <p><b>Następny krok.</b> Zostać przy terminalu. Do Au Session oddać tylko filtr sesji, gdy research o niego poprosi — nie wcześniej.</p>
     <p><b>Blokuje.</b> Nic.</p>
   </article>
@@ -1075,7 +1124,7 @@ body:has(.biuro){
     <div class="card" id="factory-board">
       <div class="stages"><span class="stage done">Pomysł</span><span class="stage now">Szkielet</span><span class="stage ahead">Paper MVP</span><span class="stage ahead">Autonomiczny paper</span><span class="stage off" title="Wyłączone. Tylko decyzja Kuby poza tym pulpitem.">Live · wyłączone</span></div>
       <p class="hint">Wyłączone. Tylko decyzja Kuby poza tym pulpitem.</p>
-      <div class="roster"><div class="row"><div><div class="t">AURUM · Terminal makro</div><div class="d">Poza fabryką zleceń — Produkt na /. Nie składa zleceń. Nie jest botem egzekucji.</div></div><span class="pill ok">Pilnowany</span></div><div class="row"><div><div class="t">Coin Bot · BTC/ETH paper</div><div class="d">Autonomiczny paper — Pętla sama, bez accept(), feed symulowany. Nie live.</div></div><span class="pill ok">Na main 4f06d3d</span></div><div class="row"><div><div class="t">Au Session · Sygnał złota · sesja azjatycka</div><div class="d">Szkielet — Stoi. Czeka na kartę bull/bear i słowo CEO. Nie papieruje.</div></div><span class="pill acc">W budowie</span></div><div class="row"><div><div class="t">FX News Alert · Alert, nie order</div><div class="d">Pomysł — W kolejce Idea Scout. Drugi szkielet się nie otwiera.</div></div><span class="pill">Slot zamknięty</span></div></div>
+      <div class="roster"><div class="row"><div><div class="t">AURUM · Terminal makro</div><div class="d">Poza fabryką zleceń — Dziecko złota na xauinteligenceooffice.com. Biuro tylko pilnuje. Nie składa zleceń.</div></div><span class="pill ok">Pilnowany</span></div><div class="row"><div><div class="t">Coin Bot · BTC/ETH paper</div><div class="d">Autonomiczny paper — Dziecko crypto pod HQ. Pętla sama, bez accept(), feed symulowany. Nie live.</div></div><span class="pill ok">Na main 4f06d3d</span></div><div class="row"><div><div class="t">Au Session · Sygnał złota · sesja azjatycka</div><div class="d">Szkielet — Stoi. Czeka na kartę bull/bear i słowo CEO. Nie papieruje.</div></div><span class="pill acc">W budowie</span></div><div class="row"><div><div class="t">FX News Alert · Alert, nie order</div><div class="d">Pomysł — W kolejce Idea Scout. Drugi szkielet się nie otwiera.</div></div><span class="pill">Slot zamknięty</span></div></div>
     </div>
   </section>
 
@@ -1107,11 +1156,11 @@ body:has(.biuro){
       <a class="btn primary" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal"><strong>AURUM na GitHubie</strong><span>kubawitek132-rgb/aurum-gold-terminal</span></a>
       <a class="btn" href="https://github.com/kubawitek132-rgb/coin-bot"><strong>Coin Bot na GitHubie</strong><span>kubawitek132-rgb/coin-bot (private)</span></a>
       <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>autonomiczny paper desk</span></a>
-      <a class="btn" href="/"><strong>Terminal AURUM</strong><span>makro, bez zleceń</span></a>
+      <a class="btn" href="https://xauinteligenceooffice.com"><strong>Terminal AURUM</strong><span>xauinteligenceooffice.com · dziecko złota</span></a>
     </div>
   </section>
 
-  <footer>Biuro AI · Trading Firm · CI AURUM z publicznego API · paper Coin Bot ze snapshotu public/biuro-status.json · live wyłączone</footer>
+  <footer>Biuro HQ · ojciec AURUM i Coin Bota · CI z publicznego API · paper ze snapshotu · giełda live wyłączona</footer>
 </main>
 </div>
 <script>
@@ -1215,11 +1264,11 @@ body:has(.biuro){
     return '#';
   }
 
-  function linkRow(links) {
+  function linkRow(links, child) {
     var row = el('div', 'mini-row');
     var list = links || [];
     for (var i = 0; i < list.length; i++) {
-      var a = el('a', 'mini', list[i].label || 'Link');
+      var a = el('a', (child && i === 0) ? 'mini go' : 'mini', list[i].label || 'Link');
       a.href = safeHref(list[i].href);
       row.appendChild(a);
     }
@@ -1235,19 +1284,25 @@ body:has(.biuro){
 
   function renderProjects(list) {
     if (!list || !list.length) return;
-    var nodes = [];
-    for (var i = 0; i < list.length; i++) nodes.push(projectCard(list[i]));
-    mount('portfolio-grid', nodes);
+    var children = [];
+    var rest = [];
+    for (var i = 0; i < list.length; i++) {
+      var card = projectCard(list[i]);
+      if (list[i].relation === 'child') children.push(card);
+      else rest.push(card);
+    }
+    if (children.length) mount('children-grid', children);
+    if (rest.length) mount('portfolio-grid', rest);
   }
 
   function projectCard(p) {
     var lane = p.lane === 'au' ? 'sleeve-au' : (p.lane === 'cb' ? 'sleeve-cb' : 'sleeve-incub');
-    var art = el('article', 'sleeve ' + lane);
+    var art = el('article', 'sleeve ' + lane + (p.relation === 'child' ? ' child' : ''));
     if (p.id === 'aurum') art.id = 'sleeve-aurum';
     if (p.id === 'coin-bot') art.id = 'sleeve-coin';
     var head = el('header', 'seat-h');
     var titles = el('div');
-    titles.appendChild(el('p', 'kicker', 'Pion'));
+    titles.appendChild(el('p', 'kicker', p.relation === 'child' ? 'Dziecko' : 'Wewnątrz HQ'));
     titles.appendChild(el('h3', '', p.name));
     titles.appendChild(el('p', 'role', p.kind || ''));
     head.appendChild(titles);
@@ -1298,7 +1353,7 @@ body:has(.biuro){
       slot.appendChild(el('span', '', slots[s].note || ''));
       art.appendChild(slot);
     }
-    if (p.links && p.links.length) art.appendChild(linkRow(p.links));
+    if (p.links && p.links.length) art.appendChild(linkRow(p.links, p.relation === 'child'));
     return art;
   }
 
@@ -1466,8 +1521,16 @@ body:has(.biuro){
     mount('pipe-list', nodes);
   }
 
+  function renderFirmChrome(firm) {
+    if (!firm) return;
+    if (firm.title) document.title = firm.title;
+    var h1 = document.querySelector('.biuro h1');
+    if (h1 && firm.name) h1.textContent = firm.name;
+  }
+
   function renderDesk(data) {
     if (!data) return;
+    try { renderFirmChrome(data.firm); } catch (e0) {}
     try { renderMission(data.firm); } catch (e) {}
     try { renderProjects(data.projects); } catch (e2) {}
     try { renderExec(data.executives); } catch (e3) {}

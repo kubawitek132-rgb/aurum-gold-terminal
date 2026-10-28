@@ -77,7 +77,22 @@ test('paper snapshot spina się z limitem i logiem filli', () => {
 });
 
 test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
-  assert.equal(status.firm.name, 'Biuro AI — Trading Firm');
+  assert.equal(status.firm.name, 'Biuro HQ');
+  assert.deepEqual(status.firm.children, ['aurum', 'coin-bot']);
+  const aurum = status.projects.find((p: { id: string }) => p.id === 'aurum');
+  const coin = status.projects.find((p: { id: string }) => p.id === 'coin-bot');
+  assert.equal(aurum.relation, 'child');
+  assert.equal(coin.relation, 'child');
+  assert.equal(aurum.parent, 'biuro-hq');
+  assert.equal(coin.parent, 'biuro-hq');
+  assert.equal(
+    aurum.links.find((l: { label: string }) => l.label === 'Terminal').href,
+    'https://xauinteligenceooffice.com',
+  );
+  assert.equal(aurum.links.some((l: { href: string }) => l.href === '/'), false);
+  assert.ok(aurum.links.some((l: { href: string }) => l.href === 'https://www.xauinteligenceooffice.com'));
+  assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://cursor.com/codebase/kuba-witek/coin-bot'));
+  assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://github.com/kubawitek132-rgb/coin-bot'));
   assert.equal(status.executives.length, EXECS.length);
   assert.deepEqual(status.executives.map((e: { name: string }) => e.name), EXECS);
   for (const e of status.executives) {
@@ -123,6 +138,13 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.match(html, /bez <code>accept\(\)<\/code>/);
   assert.match(html, /nie składa zleceń/);
   assert.match(html, /najcenniejsze słowo/i);
+  assert.match(html, /Biuro HQ — AURUM \+ Coin Bot/);
+  assert.match(html, /id="children"/);
+  assert.match(html, /Piony-dzieci/);
+  assert.match(html, /https:\/\/xauinteligenceooffice\.com/);
+  assert.match(html, /https:\/\/www\.xauinteligenceooffice\.com/);
+  assert.match(html, /https:\/\/cursor\.com\/codebase\/kuba-witek\/coin-bot/);
+  assert.equal(html.includes('href="/"'), false);
   assert.match(html, /id="portfolio"/);
   assert.match(html, /id="exec-grid"/);
   assert.match(html, /id="seat-grid"/);
@@ -133,7 +155,7 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.match(html, /Au Session/);
   assert.match(html, /FX News Alert/);
   assert.match(html, /Live · wyłączone|Live<\/span>|stage off|wyłączone/);
-  const order = ['id="portfolio"', 'id="exec"', 'id="seats"', 'id="fills-body"', 'id="ideas"', 'id="firm-pipeline"'];
+  const order = ['id="children"', 'id="portfolio"', 'id="exec"', 'id="seats"', 'id="fills-body"', 'id="ideas"', 'id="firm-pipeline"'];
   let at = -1;
   for (const token of order) {
     const next = html.indexOf(token);
@@ -156,6 +178,7 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
 
   const page = fs.readFileSync(path.join(root, 'src/app/biuro/page.tsx'), 'utf8');
   assert.match(page, /biuro\.html/);
+  assert.match(page, /Biuro HQ — AURUM \+ Coin Bot/);
   const home = fs.readFileSync(path.join(root, 'src/app/page.tsx'), 'utf8');
   assert.equal(home.includes('biuro'), false);
   assert.equal(/api[_-]?key|secret|BEGIN PRIVATE/i.test(JSON.stringify(status)), false);

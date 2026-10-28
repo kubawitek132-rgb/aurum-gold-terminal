@@ -6,8 +6,8 @@ import { BiuroFrame } from './frame';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Biuro AI — Trading Desk',
-  description: 'Biuro AI — firma tradingowa Kuby. Pilnuje AURUM i Coin Bota, kolejkuje pomysły, składa deski. Paper-first, bez giełdy live.',
+  title: 'Biuro HQ — AURUM + Coin Bot',
+  description: 'Biuro HQ na biurohq.com. Ojciec dwóch pionów: AURUM (złoto, xauinteligenceooffice.com) i Coin Bot (crypto paper). Nie trzeci desk.',
 };
 
 export const viewport: Viewport = {
