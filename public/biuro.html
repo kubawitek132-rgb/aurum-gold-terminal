@@ -133,6 +133,17 @@ body:has(.biuro){
 .metric-gold{border-color:rgba(201,162,39,.42)}
 .metric-gold::before{background:var(--gold)}
 .metric-gold b{color:var(--gold-2)}
+.metric-bad{border-color:rgba(248,113,113,.45)}
+.metric-bad::before{background:#f87171}
+.metric-bad b{color:#fecaca}
+.metric-acc{border-color:rgba(126,176,255,.45)}
+.metric-acc::before{background:#7eb0ff}
+.metric-acc b{color:#d5e6ff}
+#ci-value{font-size:1.45rem;letter-spacing:-.03em}
+.pill.bad{background:rgba(248,113,113,.14);color:#fecaca;border-color:rgba(254,202,202,.55)}
+.src{margin:.15rem 0 .55rem;color:var(--muted);font-size:.84rem;line-height:1.45}
+.biuro a.quiet{color:inherit;text-decoration:underline;text-decoration-color:rgba(240,215,140,.5);text-underline-offset:.18em}
+.biuro a.quiet:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 .card{
   background:rgba(18,22,28,.92);
   border:1px solid var(--line);
@@ -328,6 +339,7 @@ body:has(.biuro){
   border-top:1px solid var(--line);
 }
 @media (min-width:760px){
+  #ci-value{font-size:1.65rem}
   .biuro h1{font-size:1.6rem}
   .sub{font-size:.95rem}
   .metric b{font-size:2.05rem}
@@ -361,20 +373,39 @@ body:has(.biuro){
   <div class="rule"><strong>Zasada:</strong> LLM proponuje. Kod pilnuje limitów. Realne pieniądze tylko po Twojej akceptacji.</div>
 
   <div class="metrics">
-    <div class="metric"><b>2</b><span>Piony biura</span></div>
-    <div class="metric metric-ok"><b>27</b><span>Testy Risk (zielone)</span></div>
-    <div class="metric metric-gold"><b>5000</b><span>Cap ekspozycji USD</span></div>
-    <div class="metric metric-gold"><b>2%</b><span>Limit daily drawdown</span></div>
+    <div class="metric metric-ok" id="m-ci"><b id="ci-value">Sukces</b><span id="ci-label">CI · e812955 · snapshot</span></div>
+    <div class="metric metric-ok" id="m-tests"><b id="tests-value">27</b><span>Testy Risk (zielone)</span></div>
+    <div class="metric metric-gold" id="m-cap"><b id="cap-value">5000</b><span>Cap ekspozycji USD</span></div>
+    <div class="metric metric-gold" id="m-dd"><b id="dd-value">2%</b><span>Limit daily drawdown</span></div>
+  </div>
+
+  <div class="card signals">
+    <h2>Sygnały</h2>
+    <div class="row">
+      <div>
+        <div class="t">AURUM CI · build · main</div>
+        <div class="d"><a class="quiet" id="ci-link" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Ostatni znany: sukces · e812955</a></div>
+      </div>
+      <span class="pill" id="ci-pill">Snapshot</span>
+    </div>
+    <div class="row">
+      <div>
+        <div class="t">Risk / paper</div>
+        <div class="d" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch · Pauza przed execute</div>
+      </div>
+      <span class="pill warn" id="risk-pill">Pauza</span>
+    </div>
+    <p class="src" id="src-note">CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.</p>
   </div>
 
   <div class="card blotter">
     <h2>Status działów</h2>
     <div class="row"><div><div class="t">CEO Agent</div><div class="d">Priorytety, raport, go/no-go</div></div><span class="pill acc">Plan</span></div>
-    <div class="row"><div><div class="t">Obserwator</div><div class="d">AURUM PR/CI live</div></div><span class="pill ok">Live</span></div>
+    <div class="row"><div><div class="t">Obserwator</div><div class="d" id="obs-detail">AURUM CI build · e812955 · snapshot</div></div><span class="pill" id="obs-pill">Snapshot</span></div>
     <div class="row"><div><div class="t">Research bull/bear</div><div class="d">LangGraph · szablon</div></div><span class="pill acc">OK</span></div>
     <div class="row"><div><div class="t">Data Ingest</div><div class="d">OHLCV BTC/ETH stub</div></div><span class="pill ok">Paper</span></div>
-    <div class="row"><div><div class="t">Risk</div><div class="d">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok">Kod</span></div>
-    <div class="row"><div><div class="t">Ship / Paper</div><div class="d">Pauza przed execute</div></div><span class="pill warn">Pauza</span></div>
+    <div class="row"><div><div class="t">Risk</div><div class="d" id="risk-row-detail">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok" id="risk-dept-pill">Kod</span></div>
+    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Pauza przed execute</div></div><span class="pill warn" id="ship-pill">Pauza</span></div>
     <div class="row"><div><div class="t">Idea Scout / 3D</div><div class="d">Kolejka MVP</div></div><span class="pill">Później</span></div>
   </div>
 
@@ -415,8 +446,167 @@ body:has(.biuro){
     </div>
   </section>
 
-  <footer>Biuro AI · Grok Bot · plik działa offline w Safari / Chrome</footer>
+  <footer>Biuro AI · Grok Bot · plik działa offline w Safari / Chrome · CI z publicznego API, Risk ze snapshotu</footer>
 </main>
 </div>
+<script>
+(function () {
+  var STATUS_URL = '/biuro-status.json';
+  var RUNS_URL = 'https://api.github.com/repos/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml/runs?branch=main&event=push&per_page=5';
+
+  function byId(id) { return document.getElementById(id); }
+
+  function pill(el, kind, text) {
+    if (!el) return;
+    el.className = 'pill' + (kind ? ' ' + kind : '');
+    el.textContent = text;
+  }
+
+  function rel(iso) {
+    var t = new Date(iso).getTime();
+    if (!t || isNaN(t)) return '';
+    var min = Math.round(Math.max(0, Date.now() - t) / 60000);
+    if (min < 1) return 'przed chwilą';
+    if (min < 60) return min + ' min temu';
+    var h = Math.round(min / 60);
+    if (h < 24) return (h === 1 ? '1 godz.' : h + ' godz.') + ' temu';
+    var d = Math.round(h / 24);
+    if (d === 1) return 'wczoraj';
+    return d + ' dni temu';
+  }
+
+  function paperKind(paper) {
+    if (paper === 'Pauza') return 'warn';
+    if (paper === 'Paper' || paper === 'OK' || paper === 'Live') return 'ok';
+    return '';
+  }
+
+  function applyRisk(risk) {
+    if (!risk) return;
+    if (byId('tests-value') && risk.testsGreen != null) byId('tests-value').textContent = String(risk.testsGreen);
+    if (byId('cap-value') && risk.exposureCapUsd != null) byId('cap-value').textContent = String(risk.exposureCapUsd);
+    if (byId('dd-value') && risk.dailyDrawdownPct) byId('dd-value').textContent = String(risk.dailyDrawdownPct);
+    var bits = [];
+    if (risk.testsGreen != null) bits.push(risk.testsGreen + ' testów zielonych');
+    if (risk.exposureCapUsd != null) bits.push(risk.exposureCapUsd + ' USD cap');
+    if (risk.dailyDrawdownPct) bits.push(risk.dailyDrawdownPct + ' DD');
+    if (risk.killSwitch) bits.push('kill-switch');
+    if (risk.paperDetail) bits.push(risk.paperDetail);
+    if (byId('risk-detail')) byId('risk-detail').textContent = bits.join(' · ');
+    if (byId('risk-row-detail') && risk.summary) byId('risk-row-detail').textContent = risk.summary;
+    if (byId('ship-detail') && risk.paperDetail) byId('ship-detail').textContent = risk.paperDetail;
+    var paper = risk.paper || 'Pauza';
+    pill(byId('risk-pill'), paperKind(paper), paper);
+    pill(byId('ship-pill'), paperKind(paper), paper);
+  }
+
+  function applyCi(info, live) {
+    var names = {
+      success: ['Sukces', 'ok', 'OK'],
+      failure: ['Błąd', 'bad', 'Błąd'],
+      cancelled: ['Anulowano', '', 'Stop'],
+      timed_out: ['Timeout', 'bad', 'Timeout'],
+      skipped: ['Pominięto', '', 'Skip'],
+      in_progress: ['W toku', 'acc', 'W toku'],
+      queued: ['W kolejce', 'acc', 'Kolejka']
+    };
+    var conclusion = info.conclusion || 'unknown';
+    var row = names[conclusion] || ['Nieznany', '', '—'];
+    var value = byId('ci-value');
+    if (value) value.textContent = row[0];
+    var card = byId('m-ci');
+    if (card) {
+      card.classList.remove('metric-ok', 'metric-gold', 'metric-bad', 'metric-acc');
+      if (conclusion === 'success') card.classList.add('metric-ok');
+      else if (conclusion === 'failure' || conclusion === 'timed_out') card.classList.add('metric-bad');
+      else if (conclusion === 'in_progress' || conclusion === 'queued') card.classList.add('metric-acc');
+    }
+    var when = info.at ? rel(info.at) : '';
+    var sha = info.sha || '';
+    var bits = [];
+    if (sha) bits.push(sha);
+    if (when) bits.push(when);
+    if (!live) bits.push('snapshot');
+    var label = byId('ci-label');
+    if (label) label.textContent = 'CI · ' + (bits.join(' · ') || 'main');
+    var link = byId('ci-link');
+    if (link) {
+      var text = (live ? 'GitHub · ' : 'Ostatni znany: ') + row[0].toLowerCase();
+      if (sha) text += ' · ' + sha;
+      if (when) text += ' · ' + when;
+      link.textContent = text;
+      if (info.url) link.href = info.url;
+    }
+    var badge = live ? (conclusion === 'success' ? 'Live' : row[2]) : 'Snapshot';
+    var kind = live ? row[1] : '';
+    pill(byId('ci-pill'), kind, badge);
+    pill(byId('obs-pill'), kind, badge);
+    var obs = byId('obs-detail');
+    if (obs) obs.textContent = 'AURUM CI build · ' + (sha || 'main') + (when ? ' · ' + when : '') + (live ? '' : ' · snapshot');
+  }
+
+  function markApiDown() {
+    var link = byId('ci-link');
+    if (!link) return;
+    if (link.textContent.indexOf('API niedostępne') === -1) {
+      link.textContent = link.textContent + ' · API niedostępne';
+    }
+  }
+
+  function loadStatus() {
+    return fetch(STATUS_URL, { cache: 'no-store' }).then(function (res) {
+      if (!res.ok) throw new Error('status');
+      return res.json();
+    }).then(function (data) {
+      applyRisk(data.risk);
+      if (byId('src-note') && data.update) byId('src-note').textContent = data.update;
+      var fb = data.aurumCiFallback;
+      if (fb) {
+        applyCi({
+          conclusion: fb.conclusion,
+          sha: fb.sha,
+          at: fb.at,
+          url: fb.runUrl
+        }, false);
+      }
+    }).catch(function () {});
+  }
+
+  function loadCi() {
+    return fetch(RUNS_URL, { cache: 'no-store' }).then(function (res) {
+      if (!res.ok) throw new Error('runs ' + res.status);
+      return res.json();
+    }).then(function (data) {
+      var runs = data.workflow_runs || [];
+      var run = null;
+      for (var i = 0; i < runs.length; i++) {
+        if (runs[i].head_branch === 'main') { run = runs[i]; break; }
+      }
+      if (!run) throw new Error('no run');
+      return fetch(run.jobs_url, { cache: 'no-store' }).then(function (res) {
+        if (!res.ok) throw new Error('jobs ' + res.status);
+        return res.json();
+      }).then(function (payload) {
+        var jobs = payload.jobs || [];
+        var build = null;
+        for (var i = 0; i < jobs.length; i++) {
+          if (jobs[i].name === 'build') { build = jobs[i]; break; }
+        }
+        if (!build) throw new Error('no build');
+        applyCi({
+          conclusion: build.conclusion || build.status,
+          sha: String(run.head_sha || '').slice(0, 7),
+          at: build.completed_at || build.started_at || run.updated_at,
+          url: build.html_url || run.html_url
+        }, true);
+      });
+    }).catch(function () {
+      markApiDown();
+    });
+  }
+
+  loadStatus().then(loadCi, loadCi);
+})();
+</script>
 </body>
 </html>
