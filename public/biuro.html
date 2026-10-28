@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Biuro AI — Trading Desk</title>
+<style>
+:root{--bg:#0b0d10;--card:#14181f;--border:#243041;--text:#e8eef7;--muted:#8b9bb0;--accent:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--pad:1rem}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.45;-webkit-text-size-adjust:100%}
+header{padding:1.25rem var(--pad) .75rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(11,13,16,.92);backdrop-filter:blur(10px);z-index:2}
+h1{margin:0;font-size:1.25rem;font-weight:700}
+.sub{margin:.35rem 0 0;color:var(--muted);font-size:.9rem}
+main{padding:1rem var(--pad) 3rem;max-width:720px;margin:0 auto}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem;margin:1rem 0}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.85rem}
+.metric b{display:block;font-size:1.35rem}
+.metric span{color:var(--muted);font-size:.8rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;margin:0 0 .75rem}
+.card h2{margin:0 0 .65rem;font-size:1rem}
+.row{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start;padding:.55rem 0;border-top:1px solid var(--border)}
+.row:first-of-type{border-top:0}
+.row .t{font-weight:600;font-size:.92rem}
+.row .d{color:var(--muted);font-size:.82rem;margin-top:.15rem}
+.pill{flex-shrink:0;font-size:.72rem;font-weight:600;padding:.2rem .55rem;border-radius:999px;background:#1e293b;color:var(--muted)}
+.pill.ok{background:rgba(34,197,94,.15);color:var(--ok)}
+.pill.warn{background:rgba(245,158,11,.15);color:var(--warn)}
+.pill.acc{background:rgba(59,130,246,.15);color:#60a5fa}
+a.btn{display:block;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin:.5rem 0}
+a.btn strong{display:block}
+a.btn span{color:var(--muted);font-size:.82rem}
+.rule{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.35);border-radius:12px;padding:.9rem 1rem;margin:1rem 0;font-size:.9rem}
+ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.9rem}
+li{margin:.25rem 0}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding:.55rem 0 .55rem 2.1rem;position:relative;border-top:1px solid var(--border);font-size:.9rem}
+.steps li:first-child{border-top:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.55rem;width:1.5rem;height:1.5rem;border-radius:50%;background:#1e293b;color:#93c5fd;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--text)}
+footer{color:var(--muted);font-size:.75rem;margin-top:1.5rem;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>Biuro AI — Trading Desk</h1>
+  <p class="sub">Operacyjny pulpit Kuby · AURUM (złoto) + Coin Bot (crypto paper) · stan 28.10.2026</p>
+</header>
+<main>
+  <div class="rule"><strong>Zasada:</strong> LLM proponuje. Kod pilnuje limitów. Realne pieniądze tylko po Twojej akceptacji.</div>
+
+  <div class="metrics">
+    <div class="metric"><b>2</b><span>Piony biura</span></div>
+    <div class="metric"><b>27</b><span>Testy Risk (zielone)</span></div>
+    <div class="metric"><b>5000</b><span>Cap ekspozycji USD</span></div>
+    <div class="metric"><b>2%</b><span>Limit daily drawdown</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Status działów</h2>
+    <div class="row"><div><div class="t">CEO Agent</div><div class="d">Priorytety, raport, go/no-go</div></div><span class="pill acc">Plan</span></div>
+    <div class="row"><div><div class="t">Obserwator</div><div class="d">AURUM PR/CI live</div></div><span class="pill ok">Live</span></div>
+    <div class="row"><div><div class="t">Research bull/bear</div><div class="d">LangGraph · szablon</div></div><span class="pill acc">OK</span></div>
+    <div class="row"><div><div class="t">Data Ingest</div><div class="d">OHLCV BTC/ETH stub</div></div><span class="pill ok">Paper</span></div>
+    <div class="row"><div><div class="t">Risk</div><div class="d">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok">Kod</span></div>
+    <div class="row"><div><div class="t">Ship / Paper</div><div class="d">Pauza przed execute</div></div><span class="pill warn">Pauza</span></div>
+    <div class="row"><div><div class="t">Idea Scout / 3D</div><div class="d">Kolejka MVP</div></div><span class="pill">Później</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Projekty</h2>
+    <div class="row"><div><div class="t">AURUM</div><div class="d">Gold Macro & Geo · Next.js</div></div><span class="pill ok">GitHub</span></div>
+    <div class="row"><div><div class="t">Coin Bot</div><div class="d">Paper BTC/ETH · LangGraph + Risk</div></div><span class="pill acc">Szkielet</span></div>
+    <ul>
+      <li>AURUM nie składa zleceń — terminal makro.</li>
+      <li>Coin Bot: tylko paper string, bez kluczy giełd.</li>
+      <li>Oba piony osobne — bez wspólnych danych.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Pipeline</h2>
+    <ol class="steps">
+      <li><b>Pomysł</b> — karta ze źródłami</li>
+      <li><b>Selekcja</b> — CEO + Twoja akceptacja</li>
+      <li><b>Research</b> — bull/bear, kryteria odrzucenia</li>
+      <li><b>Dane</b> — OHLCV / cechy point-in-time</li>
+      <li><b>Test</b> — backtest + walk-forward</li>
+      <li><b>Risk</b> — twarde limity w kodzie</li>
+      <li><b>Paper</b> — 2–4 tyg., potem canary</li>
+      <li><b>Ops</b> — drift, kill-switch, retest</li>
+    </ol>
+  </div>
+
+  <h2 style="font-size:1rem;margin:1.25rem 0 .5rem">Otwórz repo / agentów</h2>
+  <a class="btn" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal"><strong>AURUM na GitHubie</strong><span>kubawitek132-rgb/aurum-gold-terminal</span></a>
+  <a class="btn" href="https://github.com/kubawitek132-rgb/coin-bot"><strong>Coin Bot na GitHubie</strong><span>kubawitek132-rgb/coin-bot (private)</span></a>
+  <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>szkielet trading desk</span></a>
+  <a class="btn" href="https://cursor.com/canvas/store-b2eab6f9-4f23-4656-813e-e2342677b155/720d6e24-4a95-48d5-baa0-db32157b4686"><strong>Page w Cursor</strong><span>ta sama treść jako Page (wymaga logowania)</span></a>
+
+  <footer>Biuro AI · Grok Bot · plik działa offline w Safari / Chrome</footer>
+</main>
+</body>
+</html>
