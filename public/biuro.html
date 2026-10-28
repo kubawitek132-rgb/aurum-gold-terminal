@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090b0e">
-<title>Biuro AI — Trading Desk</title>
+<title>Biuro AI — Trading Firm</title>
 <style>
 :root{
   --bg:#090b0e;
@@ -17,8 +17,8 @@
   --blue:#7eb0ff;
   --ok:#8cf0bc;
   --warn:#ffd98a;
-  --line:rgba(255,255,255,.07);
-  --max:960px;
+  --line:rgba(255,255,255,.08);
+  --max:1180px;
 }
 *{box-sizing:border-box}
 html{overflow-x:hidden}
@@ -36,73 +36,128 @@ body:has(.biuro){
   min-height:100dvh;
   color:var(--text);
   background:
-    radial-gradient(880px 380px at 50% -12%, rgba(201,162,39,.10), transparent 62%),
-    radial-gradient(640px 420px at 110% 8%, rgba(59,130,246,.07), transparent 58%),
+    radial-gradient(880px 320px at 12% -10%, rgba(201,162,39,.11), transparent 60%),
+    radial-gradient(720px 360px at 100% -8%, rgba(59,130,246,.09), transparent 58%),
     var(--bg);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  line-height:1.45;
+  line-height:1.4;
   -webkit-text-size-adjust:100%;
   text-rendering:optimizeLegibility;
 }
 .desk{
   width:min(var(--max),100%);
   margin-inline:auto;
-  padding-left:max(1.15rem,env(safe-area-inset-left));
-  padding-right:max(1.15rem,env(safe-area-inset-right));
+  padding-left:max(1rem,env(safe-area-inset-left));
+  padding-right:max(1rem,env(safe-area-inset-right));
 }
 .biuro header{
   position:sticky;
   top:0;
   z-index:5;
   padding-top:env(safe-area-inset-top);
-  background:rgba(9,11,14,.88);
+  background:rgba(9,11,14,.9);
   -webkit-backdrop-filter:blur(16px);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(201,162,39,.28);
 }
 .bar{
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
-  gap:.9rem;
-  padding-top:.95rem;
-  padding-bottom:.95rem;
+  gap:.7rem .85rem;
+  padding-top:.62rem;
+  padding-bottom:.62rem;
 }
-.mark{width:46px;height:46px;flex:none;display:block}
+.mark{width:38px;height:38px;flex:none;display:block}
+.titles{min-width:0;flex:1}
 .biuro h1{
   margin:0;
-  font-size:1.35rem;
+  font-size:1.18rem;
   font-weight:700;
   letter-spacing:-.03em;
   line-height:1.15;
 }
-.sub{margin:.32rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.4}
-.au{color:var(--gold-2);font-weight:600}
-.cb{color:#c5dcff;font-weight:600}
-.biuro main.desk{padding-top:.35rem;padding-bottom:max(1.5rem,env(safe-area-inset-bottom))}
+.sub{margin:.2rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.35}
+.au{color:var(--gold-2);font-weight:650}
+.cb{color:#c5dcff;font-weight:650}
+.chips{display:none;gap:.35rem;flex:none}
+.chip{
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.03em;
+  padding:.28rem .55rem;
+  border-radius:999px;
+  border:1px solid rgba(201,162,39,.45);
+  color:var(--gold-2);
+  background:rgba(201,162,39,.1);
+  white-space:nowrap;
+}
+.chip.cb{
+  border-color:rgba(126,176,255,.5);
+  color:#d5e6ff;
+  background:rgba(91,157,255,.12);
+}
+.biuro main.desk{padding-top:.55rem;padding-bottom:max(1.25rem,env(safe-area-inset-bottom))}
 .rule{
-  margin:1.15rem 0 0;
-  padding:.95rem 1.05rem .95rem 1rem;
-  border-radius:14px;
-  background:linear-gradient(90deg,rgba(201,162,39,.16),rgba(201,162,39,.05) 46%,rgba(91,157,255,.06));
-  border:1px solid rgba(201,162,39,.34);
+  margin:0;
+  padding:.62rem .8rem .62rem .85rem;
+  border-radius:10px;
+  background:linear-gradient(90deg,rgba(201,162,39,.14),rgba(201,162,39,.04) 42%,rgba(91,157,255,.06));
+  border:1px solid rgba(201,162,39,.32);
   box-shadow:inset 3px 0 0 var(--gold);
-  font-size:.98rem;
+  font-size:.84rem;
+  line-height:1.45;
 }
 .rule strong{color:var(--gold-2)}
-.metrics{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:.7rem;
-  margin:1rem 0 1.05rem;
+.rule code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.86em;
+  color:var(--gold-2);
 }
+.scan{
+  display:grid;
+  gap:.55rem;
+  margin-top:.6rem;
+}
+.panel{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:.62rem .68rem .68rem;
+  background:rgba(18,22,28,.94);
+}
+.panel-au{
+  background:linear-gradient(180deg,rgba(201,162,39,.08),rgba(18,22,28,.94) 46%);
+  box-shadow:inset 0 2px 0 var(--gold);
+}
+.panel-cb{
+  background:linear-gradient(180deg,rgba(126,176,255,.08),rgba(18,22,28,.94) 42%);
+  box-shadow:inset 0 2px 0 var(--blue);
+}
+.panel-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:.6rem;
+  margin:0;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.panel-title .k{color:var(--gold-2)}
+.panel-cb .panel-title .k{color:#d5e6ff}
+.panel-sub{margin:.18rem 0 .45rem;color:var(--muted);font-size:.75rem;line-height:1.35}
+.metrics{display:grid;gap:.4rem}
+.panel-au .metrics,.panel-cb .metrics{grid-template-columns:1fr 1fr}
 .metric{
   position:relative;
   overflow:hidden;
-  background:linear-gradient(180deg,var(--card-2),var(--card));
+  background:#0e1218;
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:1rem 1rem .9rem;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 28px rgba(0,0,0,.28);
+  border-radius:10px;
+  padding:.5rem .6rem .46rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
 }
 .metric::before{
   content:"";
@@ -111,86 +166,214 @@ body:has(.biuro){
   height:2px;
   background:rgba(255,255,255,.16);
 }
-.metric b{
+.metric > b{
   display:block;
-  font-size:1.85rem;
-  line-height:1;
-  letter-spacing:-.045em;
+  font-size:1.28rem;
+  line-height:1.05;
+  letter-spacing:-.04em;
   font-weight:700;
   font-variant-numeric:tabular-nums;
   color:#f7f8fb;
 }
-.metric span{
+.metric > b.word{font-size:1.08rem;letter-spacing:-.02em}
+.metric > span{
   display:block;
-  margin-top:.45rem;
+  margin-top:.22rem;
   color:var(--muted);
-  font-size:.875rem;
+  font-size:.72rem;
   line-height:1.3;
 }
+#ci-value{font-size:1.12rem;letter-spacing:-.02em}
 .metric-ok{border-color:rgba(61,214,140,.32)}
 .metric-ok::before{background:#3dd68c}
-.metric-ok b{color:var(--ok)}
+.metric-ok > b{color:var(--ok)}
 .metric-gold{border-color:rgba(201,162,39,.42)}
 .metric-gold::before{background:var(--gold)}
-.metric-gold b{color:var(--gold-2)}
+.metric-gold > b{color:var(--gold-2)}
 .metric-bad{border-color:rgba(248,113,113,.45)}
 .metric-bad::before{background:#f87171}
-.metric-bad b{color:#fecaca}
+.metric-bad > b{color:#fecaca}
 .metric-acc{border-color:rgba(126,176,255,.45)}
 .metric-acc::before{background:#7eb0ff}
-.metric-acc b{color:#d5e6ff}
-#ci-value{font-size:1.45rem;letter-spacing:-.03em}
-.pill.bad{background:rgba(248,113,113,.14);color:#fecaca;border-color:rgba(254,202,202,.55)}
-.src{margin:.15rem 0 .55rem;color:var(--muted);font-size:.84rem;line-height:1.45}
-.biuro a.quiet{color:inherit;text-decoration:underline;text-decoration-color:rgba(240,215,140,.5);text-underline-offset:.18em}
-.biuro a.quiet:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+.metric-acc > b{color:#d5e6ff}
+.metric-warn{border-color:rgba(255,217,138,.45)}
+.metric-warn::before{background:#ffd98a}
+.metric-warn > b{color:var(--warn)}
+.metric-cb{border-color:rgba(126,176,255,.38)}
+.metric-cb::before{background:#7eb0ff}
+.metric-cb > b{color:#d5e6ff}
+.work{
+  display:grid;
+  gap:.55rem;
+  margin-top:.55rem;
+}
 .card{
   background:rgba(18,22,28,.92);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:1.05rem 1.15rem .7rem;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 16px 36px rgba(0,0,0,.22);
+  border-radius:12px;
+  padding:.72rem .8rem .55rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
 }
-.biuro h2{
-  margin:0 0 .35rem;
-  font-size:1.02rem;
+.card h2,.links h2{
+  margin:0 0 .2rem;
+  font-size:.95rem;
   font-weight:700;
   letter-spacing:-.015em;
   display:flex;
   align-items:center;
-  gap:.55rem;
+  gap:.45rem;
 }
-.biuro h2::before{
+.card h2::before,.links h2::before{
   content:"";
-  width:.5rem;height:.5rem;
+  width:.42rem;height:.42rem;
   border-radius:2px;
   background:var(--gold);
   box-shadow:0 0 0 3px rgba(201,162,39,.16);
   flex:none;
 }
-.flow h2::before,.links h2::before{background:var(--blue);box-shadow:0 0 0 3px rgba(126,176,255,.16)}
+.flow h2::before,.links h2::before,.blotter h2::before{background:var(--blue);box-shadow:0 0 0 3px rgba(126,176,255,.16)}
+.effect h2::before{background:var(--ok);box-shadow:0 0 0 3px rgba(140,240,188,.14)}
+.blotter-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:.75rem;
+}
+.blotter-pnl{text-align:right;flex:none}
+.blotter-pnl b{
+  display:block;
+  font-size:1.35rem;
+  line-height:1;
+  letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+}
+.blotter-pnl b.pos{color:var(--ok)}
+.blotter-pnl b.neg{color:#fecaca}
+.blotter-pnl span{display:block;margin-top:.18rem;color:var(--muted);font-size:.68rem;letter-spacing:.02em}
+.snap{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  margin:.35rem 0 .4rem;
+  padding:.16rem .5rem;
+  border-radius:999px;
+  border:1px dashed rgba(126,176,255,.45);
+  color:#d5e6ff;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.snap::before{
+  content:"";
+  width:.38rem;height:.38rem;
+  border-radius:50%;
+  background:#7eb0ff;
+  flex:none;
+}
+.hint{margin:.15rem 0 .35rem;color:var(--muted);font-size:.75rem;line-height:1.35}
+.tape-wrap{overflow-x:auto;margin:.15rem -.2rem .15rem;-webkit-overflow-scrolling:touch}
+.tape{
+  width:100%;
+  min-width:36rem;
+  border-collapse:collapse;
+  font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.tape caption.vh{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
+}
+.tape th{
+  text-align:left;
+  font-size:.66rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:700;
+  padding:.32rem .4rem;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+.tape th.num,.tape td.num{text-align:right}
+.tape td{
+  padding:.36rem .4rem;
+  border-bottom:1px solid rgba(255,255,255,.045);
+  white-space:nowrap;
+  vertical-align:middle;
+}
+.tape tbody tr:nth-child(even) td{background:rgba(255,255,255,.018)}
+.tape tbody tr:hover td{background:rgba(126,176,255,.05)}
+.tape td.sym{font-weight:700;color:var(--text)}
+.tape tr.ns td{color:#93a0b2}
+.tape tr.ns td.sym{color:#d5deea;font-weight:600}
+.tape td.pos{color:var(--ok);font-weight:700}
+.tape td.neg{color:#fecaca;font-weight:700}
+.tag{
+  display:inline-block;
+  min-width:3.1rem;
+  text-align:center;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.03em;
+  padding:.06rem .32rem;
+  border-radius:999px;
+  background:rgba(140,240,188,.12);
+  color:#b8f8d4;
+  border:1px solid rgba(140,240,188,.35);
+}
+.tag.sell{background:rgba(248,113,113,.12);color:#fecaca;border-color:rgba(254,202,202,.4)}
+.stat{padding:.4rem 0;border-top:1px solid var(--line)}
+.stat:first-of-type{border-top:0;padding-top:.15rem}
+.stat-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:.6rem;
+  font-size:.82rem;
+}
+.stat-top > span{color:var(--muted)}
+.stat-top b{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:-.02em}
+.meter{
+  height:6px;
+  margin-top:.32rem;
+  border-radius:99px;
+  background:rgba(255,255,255,.08);
+  overflow:hidden;
+}
+.meter > i{display:block;height:100%;width:0;border-radius:99px;background:#7eb0ff}
+.meter.dd > i{background:var(--ok)}
+.meter.warn > i{background:var(--warn)}
+.meter.bad > i{background:#f87171}
+.src{margin:.35rem 0 .15rem;color:var(--muted);font-size:.78rem;line-height:1.45}
+.biuro a.quiet{color:inherit;text-decoration:underline;text-decoration-color:rgba(240,215,140,.5);text-underline-offset:.18em}
+.biuro a.quiet:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 .row{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:.85rem;
-  padding:.82rem 0;
+  gap:.7rem;
+  padding:.48rem 0;
   border-top:1px solid var(--line);
 }
 .row:first-of-type{border-top:0}
 .row > div:first-child{min-width:0}
-.row .t{font-weight:600;font-size:.98rem;letter-spacing:-.01em}
-.row .d{color:var(--muted);font-size:.84rem;margin-top:.14rem;line-height:1.35}
+.row .t{font-weight:650;font-size:.9rem;letter-spacing:-.01em}
+.row .d{color:var(--muted);font-size:.76rem;margin-top:.08rem;line-height:1.35}
 .pill{
   flex-shrink:0;
   display:inline-flex;
   align-items:center;
-  gap:.38rem;
-  min-height:1.7rem;
-  font-size:.78rem;
+  gap:.35rem;
+  min-height:1.5rem;
+  font-size:.72rem;
   font-weight:700;
   letter-spacing:.02em;
-  padding:.28rem .68rem;
+  padding:.18rem .55rem;
   border-radius:999px;
   background:rgba(197,208,222,.08);
   color:#e4ebf5;
@@ -198,57 +381,57 @@ body:has(.biuro){
 }
 .pill::before{
   content:"";
-  width:.42rem;height:.42rem;
+  width:.38rem;height:.38rem;
   border-radius:50%;
   background:currentColor;
-  box-shadow:0 0 0 2px rgba(255,255,255,.04);
 }
 .pill.ok{background:rgba(61,214,140,.14);color:#b8f8d4;border-color:rgba(140,240,188,.45)}
 .pill.acc{background:rgba(91,157,255,.16);color:#d5e6ff;border-color:rgba(126,176,255,.5)}
 .pill.warn{background:rgba(245,185,66,.16);color:#ffe7ad;border-color:rgba(255,217,138,.55)}
+.pill.bad{background:rgba(248,113,113,.14);color:#fecaca;border-color:rgba(254,202,202,.55)}
 .book .row:first-of-type{
-  margin:.4rem -.35rem 0;
-  padding:.75rem .45rem;
-  border-radius:12px;
+  margin:.25rem -.2rem 0;
+  padding:.5rem .4rem;
+  border-radius:8px;
   background:linear-gradient(90deg,rgba(201,162,39,.13),transparent 78%);
 }
 .book ul{
   list-style:none;
-  margin:.15rem 0 .4rem;
-  padding:.7rem 0 .2rem;
+  margin:.1rem 0 .25rem;
+  padding:.45rem 0 .1rem;
   border-top:1px solid var(--line);
 }
 .book li{
   position:relative;
   margin:0;
-  padding:.32rem 0 .32rem 1.05rem;
+  padding:.2rem 0 .2rem .95rem;
   color:var(--muted);
-  font-size:.9rem;
+  font-size:.8rem;
 }
 .book li::before{
   content:"";
   position:absolute;
-  left:0;top:.72rem;
-  width:.4rem;height:.4rem;
+  left:0;top:.55rem;
+  width:.34rem;height:.34rem;
   border-radius:50%;
   background:var(--gold);
 }
 .book li:nth-child(2)::before{background:var(--blue)}
 .book li:nth-child(3)::before{background:#9aa8ba}
-.split{display:grid;gap:.85rem;margin-top:.85rem}
+.split{display:grid;gap:.55rem;margin-top:.55rem}
 .steps{
   counter-reset:s;
   list-style:none;
-  margin:.45rem 0 .35rem;
+  margin:.3rem 0 .2rem;
   padding:0;
   position:relative;
 }
 .steps::before{
   content:"";
   position:absolute;
-  left:13px;
-  top:18px;
-  bottom:18px;
+  left:11px;
+  top:14px;
+  bottom:14px;
   width:2px;
   border-radius:2px;
   background:linear-gradient(var(--gold),var(--blue));
@@ -257,20 +440,20 @@ body:has(.biuro){
   counter-increment:s;
   position:relative;
   margin:0;
-  padding:.68rem 0 .68rem 2.85rem;
+  padding:.38rem 0 .38rem 2.35rem;
   color:var(--muted);
-  font-size:.92rem;
+  font-size:.8rem;
 }
 .steps li::before{
   content:counter(s);
   position:absolute;
-  left:0;top:.52rem;
-  width:28px;height:28px;
+  left:0;top:.22rem;
+  width:24px;height:24px;
   border-radius:50%;
   background:#1b170f;
   border:1.5px solid rgba(201,162,39,.75);
   color:var(--gold-2);
-  font-size:.75rem;
+  font-size:.68rem;
   font-weight:700;
   display:flex;
   align-items:center;
@@ -283,38 +466,38 @@ body:has(.biuro){
   color:#d5e6ff;
 }
 .steps b{color:var(--text);font-weight:700}
-.links{margin-top:1.2rem}
-.links h2{margin-bottom:.75rem}
-.link-grid{display:grid;gap:.7rem}
+.links{margin-top:.85rem}
+.links h2{margin-bottom:.5rem}
+.link-grid{display:grid;gap:.5rem}
 .biuro a.btn{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
-  column-gap:.85rem;
+  column-gap:.75rem;
   align-items:center;
-  min-height:4.15rem;
+  min-height:3.35rem;
   text-decoration:none;
   color:var(--text);
   background:#141922;
   border:1px solid rgba(255,255,255,.09);
-  border-radius:16px;
-  padding:.95rem 1rem;
+  border-radius:12px;
+  padding:.7rem .8rem;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
   -webkit-tap-highlight-color:rgba(201,162,39,.28);
 }
-.biuro a.btn strong{grid-column:1;grid-row:1;font-size:1rem;font-weight:700;letter-spacing:-.015em}
-.biuro a.btn span{grid-column:1;grid-row:2;margin-top:.16rem;color:var(--muted);font-size:.84rem}
+.biuro a.btn strong{grid-column:1;grid-row:1;font-size:.92rem;font-weight:700;letter-spacing:-.015em}
+.biuro a.btn span{grid-column:1;grid-row:2;margin-top:.1rem;color:var(--muted);font-size:.76rem}
 .biuro a.btn::after{
   content:"→";
   grid-column:2;
   grid-row:1 / span 2;
-  width:2.15rem;height:2.15rem;
+  width:1.85rem;height:1.85rem;
   display:grid;
   place-items:center;
   border-radius:999px;
   border:1px solid rgba(126,176,255,.45);
   color:#d5e6ff;
   background:rgba(91,157,255,.08);
-  font-size:1.05rem;
+  font-size:.95rem;
   line-height:1;
 }
 .biuro a.btn.primary{
@@ -332,26 +515,114 @@ body:has(.biuro){
 .biuro a.btn:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 .biuro footer{
   color:#c5d0de;
-  font-size:.8rem;
+  font-size:.75rem;
   text-align:center;
-  margin-top:1.45rem;
-  padding-top:1rem;
+  margin-top:1rem;
+  padding-top:.75rem;
   border-top:1px solid var(--line);
 }
 @media (min-width:760px){
-  #ci-value{font-size:1.65rem}
-  .biuro h1{font-size:1.6rem}
-  .sub{font-size:.95rem}
-  .metric b{font-size:2.05rem}
+  .chips{display:flex}
+  .biuro h1{font-size:1.38rem}
+  .sub{font-size:.86rem}
+  #ci-value{font-size:1.2rem}
   .link-grid{grid-template-columns:1fr 1fr}
-  .biuro a.btn.primary,.biuro a.btn:last-child{grid-column:1 / -1}
 }
-@media (min-width:880px){
-  .metrics{grid-template-columns:repeat(4,1fr)}
-  .split{grid-template-columns:1.15fr .85fr;align-items:start}
+@media (min-width:960px){
+  .scan{grid-template-columns:minmax(280px,.78fr) minmax(0,1.35fr);align-items:stretch}
+  .panel-cb .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .work{grid-template-columns:minmax(0,1.5fr) minmax(280px,.92fr);align-items:start}
+  .split{grid-template-columns:1.12fr .88fr;align-items:start}
 }
 @media (prefers-reduced-motion:reduce){
   .biuro a.btn:active{transform:none}
+}
+
+.jump{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.55rem}
+.jump a{
+  text-decoration:none;color:#d5deea;font-size:.72rem;font-weight:700;letter-spacing:.04em;
+  border:1px solid var(--line);border-radius:999px;padding:.22rem .5rem;background:rgba(255,255,255,.03)
+}
+.jump a:hover{border-color:rgba(240,215,140,.45);color:var(--gold-2)}
+.jump a:focus-visible{outline:2px solid var(--gold-2);outline-offset:2px}
+.mission{list-style:none;margin:.55rem 0 0;padding:0;display:grid;gap:.35rem}
+.mission li{
+  margin:0;padding:.45rem .6rem;border-radius:8px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line);color:var(--muted);font-size:.78rem;line-height:1.4
+}
+.mission b{color:var(--text)}
+.block{margin-top:.9rem}
+.block-title{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;margin:0 0 .45rem}
+.block-h{margin:0;font-size:1.02rem;letter-spacing:-.02em;font-weight:700}
+.kicker{margin:0;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2)}
+.block-title .kicker{color:var(--muted)}
+.portfolio,.exec-grid,.seat-grid,.idea-grid{display:grid;gap:.5rem}
+.sleeve,.exec,.seat,.idea{
+  background:rgba(18,22,28,.94);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:.65rem .72rem .7rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
+}
+.sleeve-au{box-shadow:inset 3px 0 0 var(--gold), inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,rgba(201,162,39,.08),rgba(18,22,28,.94) 42%)}
+.sleeve-cb{box-shadow:inset 3px 0 0 var(--blue), inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,rgba(126,176,255,.08),rgba(18,22,28,.94) 42%)}
+.sleeve-incub{box-shadow:inset 3px 0 0 rgba(255,217,138,.85), inset 0 1px 0 rgba(255,255,255,.04)}
+.seat-h{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
+.sleeve h3,.exec h3,.seat h3,.idea h3{margin:0;font-size:.95rem;letter-spacing:-.02em;line-height:1.2}
+.sleeve .kicker{color:var(--gold-2);margin:0}
+.sleeve-cb .kicker{color:#d5e6ff}
+.sleeve-incub .kicker{color:var(--warn)}
+.role{margin:.12rem 0 0;color:var(--muted);font-size:.72rem;line-height:1.3}
+.attn{display:inline-flex;margin:.35rem 0 .15rem;font-size:.72rem;font-weight:700;letter-spacing:.03em}
+.attn.ok{color:#b8f8d4}
+.attn.watch{color:#ffe7ad}
+.attn.alert{color:#fecaca}
+.signal{margin:.28rem 0;color:var(--muted);font-size:.78rem;line-height:1.4}
+.sleeve p,.exec p,.seat p,.idea p{margin:.28rem 0;font-size:.8rem;line-height:1.4;color:var(--muted)}
+.sleeve p b,.exec p b,.seat p b,.idea p b{color:var(--text);font-weight:650}
+.io{font-size:.75rem !important}
+.slot{padding:.38rem 0;border-top:1px solid var(--line)}
+.slot b{display:block;color:var(--text);font-size:.8rem}
+.slot span{color:var(--muted);font-size:.74rem}
+.mini-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}
+.biuro a.mini{
+  font-size:.72rem;font-weight:700;text-decoration:none;color:var(--gold-2);
+  border:1px solid rgba(201,162,39,.4);border-radius:999px;padding:.16rem .48rem;background:rgba(201,162,39,.08)
+}
+.sleeve-cb a.mini{color:#d5e6ff;border-color:rgba(126,176,255,.45);background:rgba(91,157,255,.1)}
+.biuro a.mini:hover{border-color:rgba(240,215,140,.7)}
+.biuro a.mini:focus-visible{outline:2px solid var(--gold-2);outline-offset:2px}
+.sleeve .metric{margin-top:.4rem}
+.seat-grid .seat:nth-child(15),.seat-grid .seat:nth-child(14){ }
+.stages{display:flex;flex-wrap:wrap;gap:.35rem;margin:.15rem 0 .45rem}
+.stage{
+  font-size:.72rem;font-weight:700;letter-spacing:.02em;
+  padding:.28rem .5rem;border-radius:999px;border:1px solid var(--line);color:#9aabbe
+}
+.stage.done{border-color:rgba(140,240,188,.4);color:#b8f8d4;background:rgba(61,214,140,.08)}
+.stage.now{border-color:rgba(126,176,255,.6);color:#d5e6ff;background:rgba(91,157,255,.14)}
+.stage.off{border-style:dashed;color:#8b9aab}
+.roster .row{padding:.42rem 0}
+.idea .status-line{display:flex;justify-content:space-between;gap:.5rem;align-items:baseline}
+.paper-head{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;margin-bottom:.15rem}
+#paper-desk .scan{grid-template-columns:1fr}
+#paper-desk .panel-cb .metrics{grid-template-columns:1fr 1fr}
+@media (min-width:900px){
+  #paper-desk .panel-cb .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:800px){
+  .mission{grid-template-columns:1fr 1fr}
+  .portfolio{grid-template-columns:1fr 1fr}
+  .exec-grid{grid-template-columns:1fr 1fr}
+  .seat-grid{grid-template-columns:1fr 1fr}
+  .idea-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1100px){
+  .portfolio{grid-template-columns:1.05fr 1.05fr .9fr}
+  .exec-grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:759px){
+  .block-title{flex-direction:column;align-items:flex-start;gap:.1rem}
 }
 </style>
 </head>
@@ -363,77 +634,471 @@ body:has(.biuro){
       <rect x="1.2" y="1.2" width="43.6" height="43.6" rx="12" fill="#16130c" stroke="#c9a227" stroke-width="1.4"/>
       <text x="23" y="29.5" text-anchor="middle" fill="#f0d78c" font-size="16" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Au</text>
     </svg>
-    <div>
-      <h1>Biuro AI — Trading Desk</h1>
-      <p class="sub">Operacyjny pulpit Kuby · <span class="au">AURUM (złoto)</span> + <span class="cb">Coin Bot (crypto paper)</span> · stan 28.10.2026</p>
+    <div class="titles">
+      <h1>Biuro AI — Trading Firm</h1>
+      <p class="sub">Biuro AI Kuby · pilnuje pionów · kolejkuje pomysły · składa deski · <time id="snap-time" datetime="2026-10-28T06:40:00Z">snapshot 28.10.2026, 06:40 UTC</time></p>
+    </div>
+    <div class="chips">
+      <span class="chip">AURUM · makro</span>
+      <span class="chip cb">Coin Bot · paper</span>
     </div>
   </div>
 </header>
 <main class="desk">
-  <div class="rule"><strong>Zasada:</strong> LLM proponuje. Kod pilnuje limitów. Realne pieniądze tylko po Twojej akceptacji.</div>
+  <div class="rule"><strong>Zasada firmy.</strong> Paper-first. AURUM nie składa zleceń. Coin Bot prowadzi autonomiczny paper bez <code>accept()</code> i bez giełdy — pętla execute już chodzi sama. Fabryka doprowadza nowe deski co najwyżej do paperu. Live jest wyłączone i włącza je tylko decyzja Kuby poza tym pulpitem. Wobec nowego pomysłu najcenniejsze słowo CEO: nie. Limity: 5000 USD, 2% daily drawdown, kill-switch.</div>
+  <ul class="mission" id="mission">
+    <li>Pilnuje istniejących pionów: AURUM (terminal makro) i Coin Bot (autonomiczny paper).</li>
+<li>Myśli i kolejkuje nowe pomysły — z tezą, źródłem i warunkiem unieważnienia.</li>
+<li>Fabryka botów składa kolejne deski, co najwyżej do autonomicznego paperu.</li>
+<li>Tam, gdzie paper już chodzi sam (Coin Bot), nie wkłada bramki accept().</li>
+  </ul>
+  <nav class="jump" aria-label="Sekcje firmy">
+    <a href="#portfolio">Nadzór</a>
+    <a href="#exec">Egzekutywa</a>
+    <a href="#seats">Fotele</a>
+    <a href="#paper-desk">Paper</a>
+    <a href="#ideas">Scout</a>
+    <a href="#factory-board">Fabryka</a>
+    <a href="#firm-pipeline">Pipeline</a>
+  </nav>
 
-  <div class="metrics">
-    <div class="metric metric-ok" id="m-ci"><b id="ci-value">Sukces</b><span id="ci-label">CI · e812955 · snapshot</span></div>
-    <div class="metric metric-ok" id="m-tests"><b id="tests-value">27</b><span>Testy Risk (zielone)</span></div>
-    <div class="metric metric-gold" id="m-cap"><b id="cap-value">5000</b><span>Cap ekspozycji USD</span></div>
-    <div class="metric metric-gold" id="m-dd"><b id="dd-value">2%</b><span>Limit daily drawdown</span></div>
-  </div>
-
-  <div class="card signals">
-    <h2>Sygnały</h2>
-    <div class="row">
-      <div>
-        <div class="t">AURUM CI · build · main</div>
-        <div class="d"><a class="quiet" id="ci-link" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Ostatni znany: sukces · e812955</a></div>
-      </div>
-      <span class="pill" id="ci-pill">Snapshot</span>
+  <section class="block" id="portfolio">
+    <div class="block-title"><p class="kicker">01 · Portfolio</p><h2 class="block-h">Nadzór projektów</h2></div>
+    <div class="portfolio" id="portfolio-grid">
+      <article class="sleeve sleeve-au" id="sleeve-aurum">
+    <header class="seat-h"><div><p class="kicker">Pion</p><h3>AURUM</h3><p class="role">Terminal makro · złoto</p></div><span class="pill" id="ci-pill">Snapshot</span></header>
+    
+      <p class="attn ok" id="aurum-attn">Bez uwagi</p>
+      <div class="metric metric-ok" id="m-ci"><b id="ci-value">Sukces</b><span id="ci-label">CI · e812955 · snapshot</span></div>
+      <p class="signal"><a class="quiet" id="ci-link" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Ostatni znany: sukces · e812955</a></p>
+    <p>Publiczny terminal na /. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.</p>
+    
+    <div class="mini-row"><a class="mini" href="/">Terminal</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal">GitHub</a><a class="mini" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml">Actions</a></div>
+  </article>
+<article class="sleeve sleeve-cb" id="sleeve-coin">
+    <header class="seat-h"><div><p class="kicker">Pion</p><h3>Coin Bot</h3><p class="role">BTC/ETH · autonomiczny paper</p></div><span class="pill ok">Autonomiczny paper</span></header>
+    
+      <p class="attn ok">Bez uwagi</p>
+      <p class="signal" id="cb-last-fill">Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40</p>
+      <p class="signal">P&amp;L marked <b class="pos" id="sleeve-pnl">+36,20</b></p>
+    <p>Origin main 4f06d3d. Pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda.</p>
+    
+    <div class="mini-row"><a class="mini" href="https://github.com/kubawitek132-rgb/coin-bot">GitHub</a><a class="mini" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5">Agent</a></div>
+  </article>
+<article class="sleeve sleeve-incub">
+    <header class="seat-h"><div><p class="kicker">Pion</p><h3>Inkubacja</h3><p class="role">Następne deski</p></div><span class="pill acc">1 szkielet</span></header>
+    
+      <p class="attn watch">Czeka na kartę</p>
+      <p class="signal">Au Session stoi na szkielecie. Dwa pomysły bez slotu budowy.</p>
+    <p>Fabryka trzyma jeden otwarty szkielet. Drugi nie startuje, dopóki Au Session nie dostanie karty bull/bear i słowa CEO. Live nie jest slotem.</p>
+    <div class="slot"><b>Au Session · Szkielet</b><span>Sygnał złota, sesja azjatycka. Czeka na bull/bear. Nie papieruje.</span></div><div class="slot"><b>FX News Alert · Kolejka</b><span>Alert bez zlecenia. Slot budowy zamknięty.</span></div><div class="slot"><b>ETH/BTC relative · Kolejka</b><span>Spread na tym samym feedzie. Bez slotu — piony zostają osobne.</span></div>
+    <div class="mini-row"><a class="mini" href="#factory-board">Fabryka</a></div>
+  </article>
     </div>
-    <div class="row">
-      <div>
-        <div class="t">Risk / paper</div>
-        <div class="d" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch</div>
-      </div>
-      <span class="pill ok" id="risk-pill">Autonomiczny paper</span>
+  </section>
+
+  <section class="block" id="exec">
+    <div class="block-title"><p class="kicker">02 · Warstwa wykonawcza</p><h2 class="block-h">Sześć foteli, bez ławki</h2></div>
+    <div class="exec-grid" id="exec-grid">
+      <article class="exec" id="exec-ceo">
+    <header class="seat-h"><div><h3>CEO / Head Trader</h3><p class="role">orkiestracja · go / no-go</p></div><span class="pill ok">Na warcie</span></header>
+    <p><b>Robi.</b> Ustawia kolejność firmy i mówi nie. Priorytety na ten tydzień: pilnować CI AURUM, trzymać Coin Bota w paperze, nie otwierać drugiego szkieletu. Najcenniejsze słowo wobec nowego pomysłu: nie.</p>
+    <p><b>Decyzja.</b> Coin Bot zostaje autonomicznym paperem na main 4f06d3d. Execute bez accept() jest zgodą na paper, nie na giełdę. Live z tego fotela nie wychodzi.</p>
+    <p><b>Czeka.</b> Na Kubę nie czeka awaria. Czeka ewentualne słowo przy Au Session, gdy karta bull/bear będzie domknięta. Do tego czasu firma nie stoi.</p>
+    <p><b>Następny krok.</b> Nie promować Au Session do Sim Lab, dopóki karta nie ma invalidation zapisanej przed testem.</p>
+    <p><b>Blokuje.</b> Nic nie blokuje biegu paperu ani terminala.</p>
+    
+  </article>
+<article class="exec" id="exec-cro">
+    <header class="seat-h"><div><h3>CRO / Risk</h3><p class="role">veto · 5000 / 2% / kill-switch</p></div><span class="pill ok">Veto uzbrojone</span></header>
+    <p><b>Robi.</b> Ma prawo zatrzymać deskę. Cap ekspozycji 5000 USD, dzienny drawdown 2%, kill-switch w kodzie. Dziś: ekspozycja 1 500, DD 0,41% (max w snapshocie 0,86%), kill-switch niezbity, 27 testów Risk zielonych. Veto stoi na live, na nominale powyżej 500 USD w tym paperze i na przebiciu limitu.</p>
+    <p><b>Decyzja.</b> Veto nie jest użyte. Paper może lecieć.</p>
+    <p><b>Czeka.</b> Na nic. Eskalacja do Kuby dopiero po zbiciu kill-switcha.</p>
+    <p><b>Następny krok.</b> Zostawić limity. Nie poluzować capu pod inkubację.</p>
+    <p><b>Blokuje.</b> Nic dziś. Próg jest w kodzie, nie w rozmowie.</p>
+    
+    <p class="signal">Testy Risk: <b id="tests-value">27</b> zielone</p>
+    <p class="signal" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch uzbrojony</p>
+    <p class="signal" id="risk-row-detail">5000 USD · 2% DD · kill-switch niezbity</p>
+    <p class="signal">Stan paperu <span class="pill ok" id="risk-pill">Autonomiczny paper</span></p>
+  </article>
+<article class="exec" id="exec-coo">
+    <header class="seat-h"><div><h3>COO / Ops</h3><p class="role">zdrowie biura · CI · journal</p></div><span class="pill ok">Spokój</span></header>
+    <p><b>Robi.</b> Patrzy, czy firma oddycha: CI AURUM, świeżość snapshotu, degradacje. Degradacji brak. CI ostatnio zielone (e812955, pill Snapshot aż API powie Live). Journal tego ranka: paper asOf 2026-10-28T06:40:00Z.</p>
+    <p><b>Decyzja.</b> Nie ma incydentu. Nie ma czego eskalować.</p>
+    <p><b>Czeka.</b> Na Kubę nic. Gdy CI spadnie albo snapshot przekroczy tydzień, uwaga idzie na pulpit, nie w cichy kanał.</p>
+    <p><b>Następny krok.</b> Zostawić fetch CI tak, jak jest: publiczny job build, bez klucza.</p>
+    <p><b>Blokuje.</b> Nic.</p>
+    
+  </article>
+<article class="exec" id="exec-cio">
+    <header class="seat-h"><div><h3>CIO / Alokacja</h3><p class="role">kapitał uwagi · nie live $</p></div><span class="pill ok">40 / 40 / 20</span></header>
+    <p><b>Robi.</b> Dzieli uwagę, nie środki. AURUM 40% — to produkt publiczny. Coin Bot 40% — paper, który już chodzi sam. Inkubacja 20% — jeden szkielet. Dolary live: zero. Drugi bot w budowie zjadłby uwagę terminala.</p>
+    <p><b>Decyzja.</b> Slot budowy jest jeden. FX News i ETH/BTC relative nie dostają czasu Fabryki.</p>
+    <p><b>Czeka.</b> Na nic finansowego. Kuba nie alokuje tu kapitału.</p>
+    <p><b>Następny krok.</b> Przesunąć uwagę na Sim Lab dopiero po „tak” CEO dla Au Session. Inaczej 20% zostaje przy karcie, nie przy kodzie.</p>
+    <p><b>Blokuje.</b> Live $ jest zerem i nie ma z czego poluzować.</p>
+    
+  </article>
+<article class="exec" id="exec-research-director">
+    <header class="seat-h"><div><h3>Research Director</h3><p class="role">promocja research → paper</p></div><span class="pill warn">Jedna karta</span></header>
+    <p><b>Robi.</b> Decyduje, co wolno przenieść z researchu do paperu. Ścieżka promocji: research, potem paper MVP, potem autonomiczny paper. Brama shadow/live jest zamknięta z tego fotela — nawet dobre paper nie awansuje samo na giełdę. Aktywna karta: sesja azjatycka XAU.</p>
+    <p><b>Decyzja.</b> Au Session zostaje w researchu. Coin Bot już jest za bramą paperu i nie wraca do labu.</p>
+    <p><b>Czeka.</b> Na domknięcie byka i niedźwiedzia. Potem CEO, nie dyrektor, mówi tak albo nie.</p>
+    <p><b>Następny krok.</b> Nie otwierać paper MVP bez karty. Nie obiecywać live w nagłówku karty.</p>
+    <p><b>Blokuje.</b> Karta Au Session otwarta, nie domknięta.</p>
+    
+  </article>
+<article class="exec" id="exec-policy">
+    <header class="seat-h"><div><h3>Policy / Compliance</h3><p class="role">paper-first · lekki audit</p></div><span class="pill ok">Reguły stoją</span></header>
+    <p><b>Robi.</b> Trzyma reguły firmy, nie opinię. Paper-first. Coin Bot nie ma accept(), bo to paper, nie dlatego że live jest dozwolony. Live tylko decyzją Kuby poza tym pulpitem. Audit trail to git biuro-status.json. Sekretów w repo nie ma i nie będzie.</p>
+    <p><b>Decyzja.</b> Live perp odrzucony. Zostaje w archiwum Scouta, nie w Fabryce.</p>
+    <p><b>Czeka.</b> Na Kubę wyłącznie przy realnych środkach — i nie na tej stronie.</p>
+    <p><b>Następny krok.</b> Przy każdej nowej karcie sprawdzić, czy ktoś nie wsunął klucza albo „tylko tymczasowego” live.</p>
+    <p><b>Blokuje.</b> Nic, dopóki reguły są na pulpicie, a nie w domyśle.</p>
+    
+  </article>
     </div>
-    <p class="src" id="src-note">CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.</p>
-  </div>
+  </section>
 
-  <div class="card blotter">
-    <h2>Status działów</h2>
-    <div class="row"><div><div class="t">CEO Agent</div><div class="d">Priorytety, raport, go/no-go</div></div><span class="pill acc">Plan</span></div>
-    <div class="row"><div><div class="t">Obserwator</div><div class="d" id="obs-detail">AURUM CI build · e812955 · snapshot</div></div><span class="pill" id="obs-pill">Snapshot</span></div>
-    <div class="row"><div><div class="t">Research bull/bear</div><div class="d">LangGraph · szablon</div></div><span class="pill acc">OK</span></div>
-    <div class="row"><div><div class="t">Data Ingest</div><div class="d">Symulowany feed · BTC/USDT · ETH/USDT</div></div><span class="pill ok">Paper</span></div>
-    <div class="row"><div><div class="t">Risk</div><div class="d" id="risk-row-detail">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok" id="risk-dept-pill">Kod</span></div>
-    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Origin main 4f06d3d · pętla paper sama · execute bez accept() · nie live</div></div><span class="pill ok" id="ship-pill">Autonomiczny paper</span></div>
-    <div class="row"><div><div class="t">Idea Scout / 3D</div><div class="d">Kolejka MVP</div></div><span class="pill">Później</span></div>
-  </div>
-
-  <div class="split">
-    <div class="card book">
-      <h2>Projekty</h2>
-      <div class="row"><div><div class="t">AURUM</div><div class="d">Gold Macro & Geo · Next.js</div></div><span class="pill ok">GitHub</span></div>
-      <div class="row"><div><div class="t">Coin Bot</div><div class="d">BTC/USDT · ETH/USDT · pętla sama · nie live</div></div><span class="pill ok">Autonomiczny paper</span></div>
-      <ul>
-        <li>AURUM nie składa zleceń — terminal makro.</li>
-        <li>Coin Bot: autonomiczny paper, bez accept() i bez giełdy live.</li>
-        <li>Oba piony osobne — bez wspólnych danych.</li>
-      </ul>
+  <section class="block" id="seats">
+    <div class="block-title"><p class="kicker" id="seat-count">15 foteli</p><h2 class="block-h">Deski firmy</h2></div>
+    <div class="seat-grid" id="seat-grid">
+      <article class="seat" id="seat-macro">
+    <header class="seat-h"><div><h3>Macro</h3><p class="role">fotel macro · tło złota</p></div><span class="pill ok">Pracuje</span></header>
+    
+    <p><b>Robi.</b> Czyta tło, które AURUM już liczy: realne rentowności, dolar, banki, GPR, chokepointy. Zostawia werdykt w terminalu. Ten fotel nie ma ścieżki do zlecenia — makro tu jest kontekstem, nie orderem.</p>
+    <p class="io"><b>Wejście.</b> FRED, GDELT, kalendarz CME, rezerwy <b>→ Wyjście.</b> Reżim tła na /. Zero orderów.</p>
+    <p><b>Następny krok.</b> Zostać przy terminalu. Do Au Session oddać tylko filtr sesji, gdy research o niego poprosi — nie wcześniej.</p>
+    <p><b>Blokuje.</b> Nic.</p>
+  </article>
+<article class="seat" id="seat-sentiment">
+    <header class="seat-h"><div><h3>Sentiment / News</h3><p class="role">fotel news · nagłówek to nie sygnał</p></div><span class="pill acc">Nasłuch</span></header>
+    
+    <p><b>Robi.</b> Zbiera nagłówki geo i kalendarz, które AURUM już pokazuje. Oddziela „tło się zmieniło” od „czas kupić”. FX News Alert wisi w kolejce właśnie dlatego, że ten fotel nie ma jeszcze progu szumu.</p>
+    <p class="io"><b>Wejście.</b> GDELT 24h, kalendarz strukturalny złota <b>→ Wyjście.</b> Notatka zmiany tła. Nie alert transakcyjny.</p>
+    <p><b>Następny krok.</b> Spisać, jaki high-impact spoza USD jest filtrem, a jaki plotką. Bez tego FX News nie dostaje szkieletu.</p>
+    <p><b>Blokuje.</b> Brak reguły szumu. To nie awaria feedu.</p>
+  </article>
+<article class="seat" id="seat-quant">
+    <header class="seat-h"><div><h3>Quant / TA</h3><p class="role">fotel technical · reguła jawna</p></div><span class="pill ok">Paper only</span></header>
+    
+    <p><b>Robi.</b> W Coin Bocie reguła jest krótka i zapisana: około 500 USD na barze wzrostowym BTC/USDT albo ETH/USDT, bar spadkowy to brak sygnału. Żadnych ukrytych wskaźników. Nowy bot nie dokłada indykatora, dopóki Sim Lab nie zrobi walk-forward.</p>
+    <p class="io"><b>Wejście.</b> Symulowany OHLCV <b>→ Wyjście.</b> Fill albo no_signal w blotterze.</p>
+    <p><b>Następny krok.</b> Nie ruszać reguły Coin Bota. Au Session, jeśli w ogóle powstanie, dostaje osobną regułę, nie łatkę na tym feedzie.</p>
+    <p><b>Blokuje.</b> Brak point-in-time dla pomysłów spoza Coin Bota.</p>
+  </article>
+<article class="seat" id="seat-price-map">
+    <header class="seat-h"><div><h3>Price Map</h3><p class="role">mapa położenia · nie trigger</p></div><span class="pill ok">Mapa</span></header>
+    
+    <p><b>Robi.</b> Trzyma, gdzie jesteśmy, nie kiedy strzelać. Dla złota mapą jest terminal AURUM. Dla crypto mapą jest numer baru w paperze: ostatni wpis to bar 42 o 06:20 UTC. Tick giełdy nie wchodzi na tę mapę.</p>
+    <p class="io"><b>Wejście.</b> Snapshot barów paperu i tło AURUM <b>→ Wyjście.</b> Położenie: bar 42, feed symulowany, nie live.</p>
+    <p><b>Następny krok.</b> Zostawić mapę na snapshocie. Odświeżenie = nowy asOf w pliku, nie websocket.</p>
+    <p><b>Blokuje.</b> Brak klucza rynkowego — i tak zostaje.</p>
+  </article>
+<article class="seat" id="seat-bull-bear">
+    <header class="seat-h"><div><h3>Bull / Bear Research</h3><p class="role">debata · karta przed szkieletem</p></div><span class="pill warn">Karta otwarta</span></header>
+    
+    <p><b>Robi.</b> Każdy pomysł, który ma zejść głębiej niż notatka, dostaje byka, niedźwiedzia i warunek unieważnienia zapisany przed testem. Aktywny temat: sesja azjatycka XAU. Byk: Azja domyka wyżej, gdy real yields spadają, a GPR milczy. Niedźwiedź: sesja to nie edge, a bez point-in-time łatwo o lookahead.</p>
+    <p class="io"><b>Wejście.</b> Teza ze Scouta <b>→ Wyjście.</b> Karta, którą CEO może ubić jednym „nie”.</p>
+    <p><b>Następny krok.</b> Domknąć kartę Au Session. Bez niej Fabryka nie rusza szkieletu dalej.</p>
+    <p><b>Blokuje.</b> Karta nie jest domknięta. Dlatego slot stoi.</p>
+  </article>
+<article class="seat" id="seat-onchain">
+    <header class="seat-h"><div><h3>On-chain</h3><p class="role">fotel crypto · świadomie pusty</p></div><span class="pill">Niepodłączony</span></header>
+    
+    <p><b>Robi.</b> Fotel jest, feedu nie ma. Coin Bot nie czyta łańcucha — tylko symulowane BTC/USDT i ETH/USDT. Puste krzesło jest tu decyzją: on-chain bez tezy i invalidation byłby fałszywym sygnałem.</p>
+    <p class="io"><b>Wejście.</b> Brak. Świadomie. <b>→ Wyjście.</b> Brak sygnału on-chain. Zero nie udaje tu neutralnej oceny.</p>
+    <p><b>Następny krok.</b> Nie podłączać API łańcucha. Najpierw karta w Scoucie, albo fotel zostaje pusty.</p>
+    <p><b>Blokuje.</b> Brak tezy. To nie jest awaria.</p>
+  </article>
+<article class="seat" id="seat-ingest">
+    <header class="seat-h"><div><h3>Data Ingest</h3><p class="role">feed · stub, nie giełda</p></div><span class="pill ok">Stub</span></header>
+    
+    <p><b>Robi.</b> Karmi Coin Bota symulowanym BTC/USDT i ETH/USDT. To stub zapisany w tym pliku, nie gniazdo giełdy. Świeżość: asOf 2026-10-28T06:40:00Z, ostatni bar 42 dwadzieścia minut wcześniej. Ciche bary feedu nie wchodzą do logu.</p>
+    <p class="io"><b>Wejście.</b> public/biuro-status.json <b>→ Wyjście.</b> Blotter paperu i metryki. Nic poza repo.</p>
+    <p><b>Następny krok.</b> Odświeżyć snapshot commitem na main. Nie wciągać prywatnego syncu coin-bot i nie wkładać kluczy.</p>
+    <p><b>Blokuje.</b> Nic, dopóki data snapshotu jest na karcie.</p>
+  </article>
+<article class="seat" id="seat-simlab">
+    <header class="seat-h"><div><h3>Sim Lab</h3><p class="role">backtest · zanim paper MVP</p></div><span class="pill acc">Czeka</span></header>
+    
+    <p><b>Robi.</b> Nowe deski nie przeskakują labu. Wejście to domknięta karta bull/bear i jawna reguła; wyjście to „przechodzi” albo „nie”. Coin Bot jest już za tą bramą — paper na main. Lab dziś nie ma zlecenia w kolejce.</p>
+    <p class="io"><b>Wejście.</b> Karta research + reguła point-in-time <b>→ Wyjście.</b> Przechodzi / nie przechodzi. Bez tego nie ma paper MVP.</p>
+    <p><b>Następny krok.</b> Pierwszy klient, jeśli CEO powie tak: Au Session. Dziś nie startować testu na niedomkniętej tezie.</p>
+    <p><b>Blokuje.</b> Brak domkniętej karty.</p>
+  </article>
+<article class="seat" id="seat-pm">
+    <header class="seat-h"><div><h3>Portfolio / PM</h3><p class="role">księga uwagi · nie dolary live</p></div><span class="pill ok">Uwaga rozdzielona</span></header>
+    
+    <p><b>Robi.</b> Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40%, inkubacja 20%. Dolary live są zerem. PM patrzy, czy któryś pion nie głoduje: terminal ma CI, paper ma blotter z tego ranka, inkubacja ma jeden szkielet i nic więcej.</p>
+    <p class="io"><b>Wejście.</b> Stan pionów i werdykt CIO <b>→ Wyjście.</b> Kto dostaje czas w tym tygodniu. Nie alokacja środków.</p>
+    <p><b>Następny krok.</b> Nie oddawać inkubacji drugiego slotu. Au Session albo schodzi z karty, albo wraca do kolejki.</p>
+    <p><b>Blokuje.</b> Nic finansowego. Live $ = 0.</p>
+  </article>
+<article class="seat" id="seat-ship">
+    <header class="seat-h"><div><h3>Execution / Ship Paper</h3><p class="role">egzekucja paper · bez accept()</p></div><span class="pill ok" id="ship-pill">Autonomiczny paper</span></header>
+    <p class="signal" id="ship-detail">Origin main 4f06d3d · pętla paper sama · execute bez accept() · kill-switch niezbity · nie live</p>
+    <p><b>Robi.</b> Pętla Coin Bota na Origin main 4f06d3d. Execute nie czeka na accept() — to paper, nie giełda. Ostatni fill: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, otwarte, marked +12,40. Log decyzji tego snapshotu: 6 filli i 4 braki sygnału.</p>
+    <p class="io"><b>Wejście.</b> Reguła quant + limit CRO <b>→ Wyjście.</b> Fill albo no_signal w blotterze. Nigdy zlecenie na giełdę.</p>
+    <p><b>Następny krok.</b> Utrzymać pętlę w paperze. Live nie jest następnym krokiem tego fotela.</p>
+    <p><b>Blokuje.</b> Kill-switch, gdyby DD albo cap padły. Teraz niezbity.</p>
+  </article>
+<article class="seat" id="seat-audit">
+    <header class="seat-h"><div><h3>Audit / Journal</h3><p class="role">ślad · git, nie czat</p></div><span class="pill ok">Ślad w gicie</span></header>
+    
+    <p><b>Robi.</b> Dziennik firmy to historia tego pliku i pulpit, który go czyta. Każdy snapshot ma asOf. W repo nie ma kluczy, nie ma syncu prywatnego coin-bot i nie ma orderów live. Za miesiąc da się powiedzieć, co paper pokazywał 28.10 o 06:40 UTC.</p>
+    <p class="io"><b>Wejście.</b> Blotter, CI, decyzje CEO, karty Scouta <b>→ Wyjście.</b> Commit na main. To jest audit trail.</p>
+    <p><b>Następny krok.</b> Przy każdej zmianie paperu ruszyć asOf i updatedAt. Nie dopisywać sekretów „na chwilę”.</p>
+    <p><b>Blokuje.</b> Nic.</p>
+  </article>
+<article class="seat" id="seat-obs-aurum">
+    <header class="seat-h"><div><h3>Obserwator AURUM</h3><p class="role">CI publiczne · job build na main</p></div><span class="pill" id="obs-pill">Snapshot</span></header>
+    <p class="signal" id="obs-detail">AURUM CI build · e812955 · snapshot</p>
+    <p><b>Robi.</b> Patrzy wyłącznie na publiczne GitHub Actions AURUM (job build, gałąź main). Nie ma klucza i nie czyta sekretów. Ostatni znany wynik to sukces, skrót e812955. Dopóki API nie odpowie, pill zostaje Snapshot; po odpowiedzi przechodzi na Live.</p>
+    <p class="io"><b>Wejście.</b> GitHub API, workflow ci.yml, job build <b>→ Wyjście.</b> Pill CI i flaga uwagi. Czerwony build = uwaga. Zielony = bez uwagi.</p>
+    <p><b>Następny krok.</b> Nic nie eskalować. Gdy fetch padnie, zostaje snapshot z aurumCiFallback — pulpit się nie zgaduje.</p>
+    <p><b>Blokuje.</b> Nic. Brak wglądu w prywatne logi jest celowy.</p>
+  </article>
+<article class="seat" id="seat-obs-coin">
+    <header class="seat-h"><div><h3>Obserwator Coin Bot</h3><p class="role">Origin main · paper, nie prywatne API</p></div><span class="pill ok">Paper na main</span></header>
+    
+    <p><b>Robi.</b> Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla paper chodzi sama, execute nie czeka na accept(). Ostatni fill w logu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, pozycja otwarta. PR-ów stąd nie widać — stan to „paper na main”, bez syncu.</p>
+    <p class="io"><b>Wejście.</b> paperBlotter w biuro-status.json <b>→ Wyjście.</b> Werdykt: pętla żyje, kill-switch niezbity, DD 0,41% przy limicie 2%, ekspozycja 1 500 / 5 000.</p>
+    <p><b>Następny krok.</b> Krzyczeć dopiero przy zbitym kill-switchu, DD powyżej 1% albo snapshocie starszym niż tydzień. Dziś cicho.</p>
+    <p><b>Blokuje.</b> Brak prywatnego API Origin. Świadomie — na publicznym pulpicie nie ma kluczy.</p>
+  </article>
+<article class="seat" id="seat-factory">
+    <header class="seat-h"><div><h3>Fabryka botów</h3><p class="role">składanie desek · live wyłączone</p></div><span class="pill acc">Składa</span></header>
+    
+    <p><b>Robi.</b> Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka jest jedna: pomysł, szkielet, paper MVP, autonomiczny paper. Etap live jest narysowany i wyłączony — nie da się go tu włączyć.</p>
+    <p class="io"><b>Wejście.</b> Karta z Idea Scout po słowie CEO (tak albo nie) <b>→ Wyjście.</b> Slot w portfolio. Dziś jeden szkielet (Au Session) i dwa piony, które fabryka już nie buduje: AURUM jako terminal, Coin Bot jako paper.</p>
+    <p><b>Następny krok.</b> Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.</p>
+    <p><b>Blokuje.</b> Niedomknięta karta bull/bear. Live wyłączone niezależnie od karty — decyzja Kuby, poza pulpitem.</p>
+  </article>
+<article class="seat" id="seat-idea-scout">
+    <header class="seat-h"><div><h3>Idea Scout</h3><p class="role">kolejka tez · invalidation obowiązkowa</p></div><span class="pill acc">2 otwarte · 1 odrzucone</span></header>
+    
+    <p><b>Robi.</b> Siedzi nad nowymi deskami, zanim Fabryka cokolwiek złoży. Karta bez tezy, źródła i warunku unieważnienia nie wchodzi do kolejki. Scout nie buduje botów i nie składa zleceń — oddaje kartę CEO, a po „tak” Fabryce.</p>
+    <p class="io"><b>Wejście.</b> Obserwacja AURUM, blotter Coin Bota, tło makro <b>→ Wyjście.</b> Karta: status kolejka / research / odrzucone, teza, invalidation, źródło, następny krok.</p>
+    <p><b>Następny krok.</b> Dowieźć tezę Au Session do fotela bull/bear. FX News i ETH/BTC relative zostają w kolejce, bez slotu budowy.</p>
+    <p><b>Blokuje.</b> Pomysł bez invalidation. Live perp jest już odrzucony i nie wraca tylnymi drzwiami.</p>
+  </article>
     </div>
+  </section>
 
+  <section class="block" id="paper-desk">
+    <div class="block-title"><p class="kicker">03 · Coin Bot</p><h2 class="block-h">Paper · blotter i skuteczność</h2></div>
+    <p class="panel-sub" id="cb-origin">Origin main 4f06d3d · feed symulowany · nie live</p>
+    <p class="hint" id="cb-symbols">BTC/USDT · ETH/USDT</p>
+    <div class="scan">
+      <section class="panel panel-cb" aria-label="Metryki paper">
+        <h2 class="panel-title"><span class="k">Wynik</span><span>snapshot, nie giełda</span></h2>
+        <div class="metrics">
+          <div class="metric metric-ok" id="m-pnl"><b id="pnl-value">+36,20</b><span id="pnl-kind">P&amp;L marked · USD</span></div>
+          <div class="metric metric-cb" id="m-exp"><b id="exposure-value">1500</b><span>Ekspozycja USD · cap <span id="cap-value">5000</span></span></div>
+          <div class="metric metric-ok" id="m-dd"><b id="dd-now">0,41%</b><span>DD teraz · max <span id="dd-max">0,86%</span> · limit <span id="dd-value">2%</span></span></div>
+          <div class="metric metric-ok" id="m-kill"><b class="word" id="kill-value">Niezbity</b><span>Kill-switch</span></div>
+        </div>
+      </section>
+    </div>
+    <div class="work">
+      <section class="card blotter">
+        <div class="blotter-head">
+          <div>
+            <h2>Działanie · blotter paper</h2>
+            <p class="hint" id="blotter-stats">6 fill · 4 brak sygnału · pełny log snapshotu</p>
+          </div>
+          <div class="blotter-pnl">
+            <b class="pos" id="blotter-pnl">+36,20</b>
+            <span id="blotter-pnl-kind">P&amp;L marked · USD</span>
+          </div>
+        </div>
+        <div class="snap" id="snap-badge">Paper snapshot · 28.10.2026, 06:40 UTC</div>
+        <p class="hint" id="blotter-note">Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&amp;L marked = suma filli w tym logu, nie notowanie z giełdy.</p>
+        <div class="tape-wrap">
+          <table class="tape">
+            <caption class="vh">Ostatnie decyzje paper Coin Bot</caption>
+            <thead>
+              <tr>
+                <th>Czas</th><th>Bar</th><th>Symbol</th><th>Strona</th>
+                <th class="num">Nominał</th><th>Wynik</th><th class="num">P&amp;L</th>
+              </tr>
+            </thead>
+            <tbody id="fills-body">
+              <tr>
+    <td title="2026-10-28T06:20:00Z">28.10 06:20</td>
+    <td>42 · t−0</td>
+    <td class="sym">BTC/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill · otwarte ↑</td>
+    <td class="num pos">+12,40</td>
+  </tr>
+<tr class="ns">
+    <td title="2026-10-28T05:20:00Z">28.10 05:20</td>
+    <td>41 · t−1</td>
+    <td class="sym">ETH/USDT</td>
+    <td>—</td>
+    <td class="num">—</td>
+    <td>brak sygnału ↓</td>
+    <td class="num">—</td>
+  </tr>
+<tr>
+    <td title="2026-10-28T04:20:00Z">28.10 04:20</td>
+    <td>40 · t−2</td>
+    <td class="sym">ETH/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill · otwarte ↑</td>
+    <td class="num pos">+8,15</td>
+  </tr>
+<tr class="ns">
+    <td title="2026-10-28T03:20:00Z">28.10 03:20</td>
+    <td>39 · t−3</td>
+    <td class="sym">BTC/USDT</td>
+    <td>—</td>
+    <td class="num">—</td>
+    <td>brak sygnału ↓</td>
+    <td class="num">—</td>
+  </tr>
+<tr>
+    <td title="2026-10-28T02:20:00Z">28.10 02:20</td>
+    <td>38 · t−4</td>
+    <td class="sym">BTC/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill ↑</td>
+    <td class="num neg">−3,80</td>
+  </tr>
+<tr class="ns">
+    <td title="2026-10-27T22:20:00Z">27.10 22:20</td>
+    <td>37 · t−5</td>
+    <td class="sym">ETH/USDT</td>
+    <td>—</td>
+    <td class="num">—</td>
+    <td>brak sygnału ↓</td>
+    <td class="num">—</td>
+  </tr>
+<tr>
+    <td title="2026-10-27T18:20:00Z">27.10 18:20</td>
+    <td>36 · t−6</td>
+    <td class="sym">ETH/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill · otwarte ↑</td>
+    <td class="num pos">+21,05</td>
+  </tr>
+<tr>
+    <td title="2026-10-27T14:20:00Z">27.10 14:20</td>
+    <td>34 · t−8</td>
+    <td class="sym">BTC/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill ↑</td>
+    <td class="num pos">+4,60</td>
+  </tr>
+<tr class="ns">
+    <td title="2026-10-27T12:20:00Z">27.10 12:20</td>
+    <td>33 · t−9</td>
+    <td class="sym">BTC/USDT</td>
+    <td>—</td>
+    <td class="num">—</td>
+    <td>brak sygnału ↓</td>
+    <td class="num">—</td>
+  </tr>
+<tr>
+    <td title="2026-10-27T08:20:00Z">27.10 08:20</td>
+    <td>32 · t−10</td>
+    <td class="sym">ETH/USDT</td>
+    <td><span class="tag">Kupno</span></td>
+    <td class="num">500</td>
+    <td>fill ↑</td>
+    <td class="num neg">−6,20</td>
+  </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="card effect" aria-label="Skuteczność paper">
+        <h2>Skuteczność</h2>
+        <p class="hint">Paper snapshot · limity z kodu, nie z giełdy.</p>
+        <div class="stat"><div class="stat-top"><span>Trafienia</span><b id="eff-win">66,7%</b></div><p class="hint" id="eff-win-sub">4 z 6 filli na plusie</p></div>
+        <div class="stat"><div class="stat-top"><span>Fill / brak sygnału</span><b id="eff-ratio">6 / 4</b></div></div>
+        <div class="stat"><div class="stat-top"><span>Drawdown teraz</span><b id="eff-dd">0,41% / 2%</b></div><div class="meter dd"><i id="meter-dd" style="width:20.5%"></i></div></div>
+        <div class="stat"><div class="stat-top"><span>Drawdown max</span><b id="eff-ddmax">0,86% / 2%</b></div><div class="meter dd"><i id="meter-ddmax" style="width:43.0%"></i></div></div>
+        <div class="stat"><div class="stat-top"><span>Ekspozycja</span><b id="eff-exp">1500 / 5000 USD</b></div><div class="meter"><i id="meter-exp" style="width:30.0%"></i></div><p class="hint" id="book-line">Otwarte: BTC/USDT 500 · ETH/USDT 1 000</p></div>
+        <div class="stat"><div class="stat-top"><span>Czas na paperze</span><b id="eff-days">6 dni · 42 barów feedu</b></div></div>
+        <div class="stat"><div class="stat-top"><span>Kill-switch</span><b id="eff-kill">Niezbity</b></div><p class="hint">Uzbrojony w kodzie. Paper leci, póki limit nie zbije pętli.</p></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="block" id="ideas">
+    <div class="block-title"><p class="kicker">04 · Idea Scout</p><h2 class="block-h">Kolejka pomysłów</h2></div>
+    <p class="hint">Karta bez tezy, źródła i unieważnienia nie wchodzi. Scout nie buduje — po „tak” CEO karta idzie do Fabryki. Live perp już odpadł.</p>
+    <div class="idea-grid" id="idea-grid">
+      <article class="idea">
+  <header class="seat-h"><div><h3>Sesja azjatycka XAU</h3><p class="role">Macro · AURUM, tło, nie tick</p></div><span class="pill warn">research</span></header>
+  <p><b>Teza.</b> Gdy realne rentowności spadają, a GPR milczy, azjatycka sesja złota częściej domyka się wyżej. To filtr czasu na danych, które terminal już ma — nie nowy model i nie zlecenie.</p>
+  <p><b>Unieważnienie.</b> Trzy kolejne okna paper na minusie, albo brak reguły point-in-time. Lookahead kasuje kartę od razu.</p>
+  <p><b>Następny krok.</b> Bull/Bear domyka kartę. CEO mówi tak albo nie. Fabryka nie schodzi poniżej szkieletu bez tego.</p>
+  <p><b>Dokąd.</b> Fabryka botów · slot Au Session</p>
+</article>
+<article class="idea">
+  <header class="seat-h"><div><h3>FX News Alert</h3><p class="role">Sentiment / News · kalendarz, nie giełda</p></div><span class="pill acc">kolejka</span></header>
+  <p><b>Teza.</b> High-impact spoza USD, który AURUM już klasyfikuje, może być osobną deską powiadomień. Alert, nie order. Ma sens tylko z progiem, co jest szumem.</p>
+  <p><b>Unieważnienie.</b> Brak progu szumu — karta odpada. Dopięcie orderu do alertu — karta odpada.</p>
+  <p><b>Następny krok.</b> Czeka. Drugi slot Fabryki jest zamknięty, dopóki Au Session nie wyjdzie ze szkieletu.</p>
+  <p><b>Dokąd.</b> Fabryka botów · slot zarezerwowany, nieotwarty</p>
+</article>
+<article class="idea">
+  <header class="seat-h"><div><h3>ETH/BTC relative paper</h3><p class="role">Quant / TA · blotter Coin Bota</p></div><span class="pill acc">kolejka</span></header>
+  <p><b>Teza.</b> Coin Bot papieruje BTC i ETH osobno, po 500 USD na barze w górę. Spread mógłby użyć tego samego symulowanego feedu i tej samej skorupy 5000 / 2%.</p>
+  <p><b>Unieważnienie.</b> Korelacja na oknie snapshotu zbyt wysoka, żeby spread miał znak, albo wspólny stan z Coin Botem. Piony zostają osobne.</p>
+  <p><b>Następny krok.</b> Zostaje w kolejce. Nie ma slotu i nie dostaje go w tym tygodniu.</p>
+  <p><b>Dokąd.</b> Brak slotu w Fabryce</p>
+</article>
+<article class="idea">
+  <header class="seat-h"><div><h3>Live perp</h3><p class="role">Policy / Compliance</p></div><span class="pill bad">odrzucone</span></header>
+  <p><b>Teza.</b> Nie ma tezy rynkowej. Był skrót do giełdy.</p>
+  <p><b>Unieważnienie.</b> Firma nie włącza giełdy live z tego pulpitu. Brak kluczy. Decyzja o realnych środkach należy do Kuby i nie zapada tutaj.</p>
+  <p><b>Następny krok.</b> Archiwum. Nie wchodzi do Fabryki i nie dostaje slota.</p>
+  <p><b>Dokąd.</b> Nigdzie</p>
+</article>
+    </div>
+  </section>
+
+  <section class="block" id="factory">
+    <div class="block-title"><p class="kicker">05 · Fabryka botów</p><h2 class="block-h">Ścieżka budowy</h2></div>
+    <p class="hint">Pomysł, który CEO przepuścił, schodzi: szkielet, paper MVP, autonomiczny paper. Live jest na tablicy i jest wyłączone. AURUM nie jest botem zleceń — stoi obok jako terminal.</p>
+    <div class="card" id="factory-board">
+      <div class="stages"><span class="stage done">Pomysł</span><span class="stage now">Szkielet</span><span class="stage ahead">Paper MVP</span><span class="stage ahead">Autonomiczny paper</span><span class="stage off" title="Wyłączone. Tylko decyzja Kuby poza tym pulpitem.">Live · wyłączone</span></div>
+      <p class="hint">Wyłączone. Tylko decyzja Kuby poza tym pulpitem.</p>
+      <div class="roster"><div class="row"><div><div class="t">AURUM · Terminal makro</div><div class="d">Poza fabryką zleceń — Produkt na /. Nie składa zleceń. Nie jest botem egzekucji.</div></div><span class="pill ok">Pilnowany</span></div><div class="row"><div><div class="t">Coin Bot · BTC/ETH paper</div><div class="d">Autonomiczny paper — Pętla sama, bez accept(), feed symulowany. Nie live.</div></div><span class="pill ok">Na main 4f06d3d</span></div><div class="row"><div><div class="t">Au Session · Sygnał złota · sesja azjatycka</div><div class="d">Szkielet — Stoi. Czeka na kartę bull/bear i słowo CEO. Nie papieruje.</div></div><span class="pill acc">W budowie</span></div><div class="row"><div><div class="t">FX News Alert · Alert, nie order</div><div class="d">Pomysł — W kolejce Idea Scout. Drugi szkielet się nie otwiera.</div></div><span class="pill">Slot zamknięty</span></div></div>
+    </div>
+  </section>
+
+  <section class="block" id="firm-pipeline">
+    <div class="block-title"><p class="kicker">06 · Firma</p><h2 class="block-h">Od pomysłu do ops</h2></div>
     <div class="card flow">
       <h2>Pipeline</h2>
-      <ol class="steps">
-        <li><b>Pomysł</b> — karta ze źródłami</li>
-        <li><b>Selekcja</b> — CEO + Twoja akceptacja</li>
-        <li><b>Research</b> — bull/bear, kryteria odrzucenia</li>
-        <li><b>Dane</b> — OHLCV / cechy point-in-time</li>
-        <li><b>Test</b> — backtest + walk-forward</li>
-        <li><b>Risk</b> — twarde limity w kodzie</li>
-        <li><b>Paper</b> — 2–4 tyg., potem canary</li>
-        <li><b>Ops</b> — drift, kill-switch, retest</li>
+      <ol class="steps" id="pipe-list">
+        <li><b>Pomysł.</b> Idea Scout — Teza, źródło, invalidation. Bez tego karty nie ma.</li>
+<li><b>Selekcja.</b> CEO — Najcenniejsze słowo: nie. To nie jest bramka accept() na paperze Coin Bota.</li>
+<li><b>Research.</b> Bull / Bear — Byk, niedźwiedź, warunek unieważnienia przed testem.</li>
+<li><b>Dane.</b> Data Ingest — Point-in-time. Stub, dopóki nie ma tezy. Bez klucza giełdy.</li>
+<li><b>Test.</b> Sim Lab — Backtest i walk-forward. Nowa deska nie przeskakuje labu.</li>
+<li><b>Risk.</b> CRO — 5000 USD, 2% daily DD, kill-switch. Veto jest prawdziwe.</li>
+<li><b>Paper.</b> Ship — Autonomiczna pętla, bez accept(). Coin Bot już tu stoi.</li>
+<li><b>Ops.</b> COO — CI, journal, drift. Live jest poza firmą — tylko decyzja Kuby.</li>
       </ol>
     </div>
+  </section>
+
+  <div class="card signals" style="margin-top:.85rem">
+    <h2>Źródła stanu</h2>
+    <p class="src" id="src-note">Odświeżenie: edytuj public/biuro-status.json (firm, projects, executives, departments, observers, ideas, botFactory, paperBlotter, metrics, risk) i wgraj na main. Nowy pomysł: obiekt w ideas[] z title, status (kolejka | research | odrzucone), thesis, invalidation, source, next. Bez tezy i invalidation Scout nie przyjmuje karty. Pulpit robi fetch /biuro-status.json i podmienia firmę; gdy plik nie dojdzie, zostaje snapshot w public/biuro.html. CI AURUM: publiczne GitHub API, job build na main, bez klucza. Bez syncu prywatnego coin-bot, bez sekretów, bez giełdy live.</p>
   </div>
 
   <section class="links">
@@ -442,11 +1107,11 @@ body:has(.biuro){
       <a class="btn primary" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal"><strong>AURUM na GitHubie</strong><span>kubawitek132-rgb/aurum-gold-terminal</span></a>
       <a class="btn" href="https://github.com/kubawitek132-rgb/coin-bot"><strong>Coin Bot na GitHubie</strong><span>kubawitek132-rgb/coin-bot (private)</span></a>
       <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>autonomiczny paper desk</span></a>
-      <a class="btn" href="https://cursor.com/canvas/store-b2eab6f9-4f23-4656-813e-e2342677b155/720d6e24-4a95-48d5-baa0-db32157b4686"><strong>Page w Cursor</strong><span>ta sama treść jako Page (wymaga logowania)</span></a>
+      <a class="btn" href="/"><strong>Terminal AURUM</strong><span>makro, bez zleceń</span></a>
     </div>
   </section>
 
-  <footer>Biuro AI · Grok Bot · plik działa offline w Safari / Chrome · CI z publicznego API, Risk ze snapshotu</footer>
+  <footer>Biuro AI · Trading Firm · CI AURUM z publicznego API · paper Coin Bot ze snapshotu public/biuro-status.json · live wyłączone</footer>
 </main>
 </div>
 <script>
@@ -475,22 +1140,556 @@ body:has(.biuro){
     return d + ' dni temu';
   }
 
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function clock(iso) {
+    var t = new Date(iso);
+    if (isNaN(t.getTime())) return '—';
+    return pad(t.getUTCDate()) + '.' + pad(t.getUTCMonth() + 1) + ' ' + pad(t.getUTCHours()) + ':' + pad(t.getUTCMinutes());
+  }
+
+  function stamp(iso) {
+    var t = new Date(iso);
+    if (isNaN(t.getTime())) return '—';
+    return pad(t.getUTCDate()) + '.' + pad(t.getUTCMonth() + 1) + '.' + t.getUTCFullYear() + ', ' + pad(t.getUTCHours()) + ':' + pad(t.getUTCMinutes()) + ' UTC';
+  }
+
+  function usd(n, digits) {
+    var v = Number(n);
+    if (!isFinite(v)) return '—';
+    var d = digits == null ? 0 : digits;
+    return v.toLocaleString('pl-PL', { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+
+  function usdSigned(n) {
+    var v = Number(n);
+    if (!isFinite(v)) return '—';
+    var body = Math.abs(v).toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    if (v > 0) return '+' + body;
+    if (v < 0) return '\u2212' + body;
+    return body;
+  }
+
+  function pct(n, digits) {
+    var v = Number(n);
+    if (!isFinite(v)) return '—';
+    var d = digits == null ? 2 : digits;
+    return v.toLocaleString('pl-PL', { minimumFractionDigits: d, maximumFractionDigits: d }) + '%';
+  }
+
   function paperKind(paper) {
     if (paper === 'Pauza') return 'warn';
     if (paper === 'Paper' || paper === 'OK' || paper === 'Live' || paper === 'Autonomiczny paper' || paper === 'Paper auto') return 'ok';
     return '';
   }
 
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function labeled(parent, label, text) {
+    if (!text) return;
+    var p = el('p');
+    var b = el('b', '', label + ' ');
+    p.appendChild(b);
+    p.appendChild(document.createTextNode(text));
+    parent.appendChild(p);
+  }
+
+  function mount(id, nodes) {
+    var host = byId(id);
+    if (!host || !nodes) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < nodes.length; i++) frag.appendChild(nodes[i]);
+    while (host.firstChild) host.removeChild(host.firstChild);
+    host.appendChild(frag);
+  }
+
+  function safeHref(href) {
+    if (!href) return '#';
+    if (href.charAt(0) === '#' || href.charAt(0) === '/') return href;
+    if (/^https:\/\//.test(href)) return href;
+    return '#';
+  }
+
+  function linkRow(links) {
+    var row = el('div', 'mini-row');
+    var list = links || [];
+    for (var i = 0; i < list.length; i++) {
+      var a = el('a', 'mini', list[i].label || 'Link');
+      a.href = safeHref(list[i].href);
+      row.appendChild(a);
+    }
+    return row;
+  }
+
+  function renderMission(firm) {
+    if (!firm || !firm.mission) return;
+    var items = [];
+    for (var i = 0; i < firm.mission.length; i++) items.push(el('li', '', firm.mission[i]));
+    mount('mission', items);
+  }
+
+  function renderProjects(list) {
+    if (!list || !list.length) return;
+    var nodes = [];
+    for (var i = 0; i < list.length; i++) nodes.push(projectCard(list[i]));
+    mount('portfolio-grid', nodes);
+  }
+
+  function projectCard(p) {
+    var lane = p.lane === 'au' ? 'sleeve-au' : (p.lane === 'cb' ? 'sleeve-cb' : 'sleeve-incub');
+    var art = el('article', 'sleeve ' + lane);
+    if (p.id === 'aurum') art.id = 'sleeve-aurum';
+    if (p.id === 'coin-bot') art.id = 'sleeve-coin';
+    var head = el('header', 'seat-h');
+    var titles = el('div');
+    titles.appendChild(el('p', 'kicker', 'Pion'));
+    titles.appendChild(el('h3', '', p.name));
+    titles.appendChild(el('p', 'role', p.kind || ''));
+    head.appendChild(titles);
+    var status = el('span', 'pill' + (p.stateKind ? ' ' + p.stateKind : ''), p.state || '');
+    if (p.id === 'aurum') status.id = 'ci-pill';
+    if (p.id === 'coin-bot') status.id = 'ship-sleeve-pill';
+    head.appendChild(status);
+    art.appendChild(head);
+    var attnKind = p.attention === 'alert' ? 'alert' : (p.attention === 'watch' ? 'watch' : 'ok');
+    var attn = el('p', 'attn ' + attnKind, p.attentionLabel || '');
+    if (p.id === 'aurum') attn.id = 'aurum-attn';
+    art.appendChild(attn);
+    if (p.id === 'aurum') {
+      var metric = el('div', 'metric metric-ok');
+      metric.id = 'm-ci';
+      var b = el('b', '', 'Sukces');
+      b.id = 'ci-value';
+      var span = el('span', '', 'CI · e812955 · snapshot');
+      span.id = 'ci-label';
+      metric.appendChild(b);
+      metric.appendChild(span);
+      art.appendChild(metric);
+      var sig = el('p', 'signal');
+      var a = el('a', 'quiet', 'Ostatni znany: sukces · e812955');
+      a.id = 'ci-link';
+      a.href = 'https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml';
+      sig.appendChild(a);
+      art.appendChild(sig);
+    } else if (p.id === 'coin-bot') {
+      var fill = el('p', 'signal', p.signal || '');
+      fill.id = 'cb-last-fill';
+      art.appendChild(fill);
+      var pnl = el('p', 'signal');
+      pnl.appendChild(document.createTextNode('P&L marked '));
+      var nb = el('b', 'pos', '');
+      nb.id = 'sleeve-pnl';
+      pnl.appendChild(nb);
+      art.appendChild(pnl);
+    } else {
+      art.appendChild(el('p', 'signal', p.signal || ''));
+    }
+    art.appendChild(el('p', '', p.summary || ''));
+    var slots = p.slots || [];
+    for (var s = 0; s < slots.length; s++) {
+      var slot = el('div', 'slot');
+      var top = el('b', '', slots[s].name + ' · ' + (slots[s].status || ''));
+      slot.appendChild(top);
+      slot.appendChild(el('span', '', slots[s].note || ''));
+      art.appendChild(slot);
+    }
+    if (p.links && p.links.length) art.appendChild(linkRow(p.links));
+    return art;
+  }
+
+  function renderExec(list) {
+    if (!list || !list.length) return;
+    var nodes = [];
+    for (var i = 0; i < list.length; i++) nodes.push(execCard(list[i]));
+    mount('exec-grid', nodes);
+  }
+
+  function execCard(e) {
+    var art = el('article', 'exec');
+    art.id = 'exec-' + e.id;
+    var head = el('header', 'seat-h');
+    var titles = el('div');
+    titles.appendChild(el('h3', '', e.name));
+    titles.appendChild(el('p', 'role', e.role || ''));
+    head.appendChild(titles);
+    head.appendChild(el('span', 'pill' + (e.statusKind ? ' ' + e.statusKind : ''), e.status || ''));
+    art.appendChild(head);
+    labeled(art, 'Robi.', e.does);
+    labeled(art, 'Decyzja.', e.decision);
+    labeled(art, 'Czeka.', e.waiting);
+    labeled(art, 'Następny krok.', e.next);
+    labeled(art, 'Blokuje.', e.blocks);
+    if (e.id === 'cro') {
+      var tests = el('p', 'signal');
+      tests.appendChild(document.createTextNode('Testy Risk: '));
+      var tb = el('b', '', '27');
+      tb.id = 'tests-value';
+      tests.appendChild(tb);
+      tests.appendChild(document.createTextNode(' zielone'));
+      art.appendChild(tests);
+      var detail = el('p', 'signal', '');
+      detail.id = 'risk-detail';
+      art.appendChild(detail);
+      var row = el('p', 'signal', '');
+      row.id = 'risk-row-detail';
+      art.appendChild(row);
+      var paperLine = el('p', 'signal');
+      paperLine.appendChild(document.createTextNode('Stan paperu '));
+      var rp = el('span', 'pill ok', 'Autonomiczny paper');
+      rp.id = 'risk-pill';
+      paperLine.appendChild(rp);
+      art.appendChild(paperLine);
+    }
+    return art;
+  }
+
+  function renderSeats(list) {
+    if (!list || !list.length) return;
+    var nodes = [];
+    for (var i = 0; i < list.length; i++) nodes.push(seatCard(list[i]));
+    mount('seat-grid', nodes);
+    var count = byId('seat-count');
+    if (count) count.textContent = list.length + ' foteli';
+  }
+
+  function seatCard(d) {
+    var art = el('article', 'seat');
+    art.id = 'seat-' + d.id;
+    var head = el('header', 'seat-h');
+    var titles = el('div');
+    titles.appendChild(el('h3', '', d.name));
+    titles.appendChild(el('p', 'role', d.role || ''));
+    head.appendChild(titles);
+    var status = el('span', 'pill' + (d.statusKind ? ' ' + d.statusKind : ''), d.status || '');
+    if (d.id === 'obs-aurum') status.id = 'obs-pill';
+    if (d.id === 'ship') status.id = 'ship-pill';
+    head.appendChild(status);
+    art.appendChild(head);
+    if (d.id === 'obs-aurum') {
+      var obs = el('p', 'signal', 'AURUM CI build · e812955 · snapshot');
+      obs.id = 'obs-detail';
+      art.appendChild(obs);
+    }
+    if (d.id === 'ship') {
+      var ship = el('p', 'signal', '');
+      ship.id = 'ship-detail';
+      art.appendChild(ship);
+    }
+    labeled(art, 'Robi.', d.does);
+    var io = el('p', 'io');
+    var bin = el('b', '', 'Wejście. ');
+    io.appendChild(bin);
+    io.appendChild(document.createTextNode(d.input || '—'));
+    var bout = el('b', '', ' → Wyjście. ');
+    io.appendChild(bout);
+    io.appendChild(document.createTextNode(d.output || '—'));
+    art.appendChild(io);
+    labeled(art, 'Następny krok.', d.next);
+    labeled(art, 'Blokuje.', d.blocks);
+    return art;
+  }
+
+  function renderIdeas(list) {
+    if (!list) return;
+    var nodes = [];
+    for (var i = 0; i < list.length; i++) {
+      var idea = list[i];
+      var art = el('article', 'idea');
+      var head = el('header', 'seat-h');
+      var titles = el('div');
+      titles.appendChild(el('h3', '', idea.title));
+      titles.appendChild(el('p', 'role', idea.source || ''));
+      head.appendChild(titles);
+      head.appendChild(el('span', 'pill' + (idea.statusKind ? ' ' + idea.statusKind : ''), idea.status || ''));
+      art.appendChild(head);
+      labeled(art, 'Teza.', idea.thesis);
+      labeled(art, 'Unieważnienie.', idea.invalidation);
+      labeled(art, 'Następny krok.', idea.next);
+      labeled(art, 'Dokąd.', idea.feeds);
+      nodes.push(art);
+    }
+    mount('idea-grid', nodes);
+  }
+
+  function renderFactory(factory) {
+    if (!factory) return;
+    var board = byId('factory-board');
+    if (!board) return;
+    var frag = document.createDocumentFragment();
+    var stages = el('div', 'stages');
+    var list = factory.stages || [];
+    for (var i = 0; i < list.length; i++) {
+      var st = list[i];
+      var cls = 'stage' + (st.state ? ' ' + st.state : '');
+      var label = st.name;
+      if (st.state === 'off') label += ' · wyłączone';
+      var node = el('span', cls, label);
+      if (st.note) node.title = st.note;
+      stages.appendChild(node);
+    }
+    frag.appendChild(stages);
+    if (factory.stages) {
+      var live = null;
+      for (var j = 0; j < factory.stages.length; j++) if (factory.stages[j].state === 'off') live = factory.stages[j];
+      if (live && live.note) frag.appendChild(el('p', 'hint', live.note));
+    }
+    var roster = el('div', 'roster');
+    var bots = factory.bots || [];
+    for (var b = 0; b < bots.length; b++) {
+      var row = el('div', 'row');
+      var left = el('div');
+      left.appendChild(el('div', 't', bots[b].name + ' · ' + (bots[b].role || '')));
+      left.appendChild(el('div', 'd', (bots[b].stage || '') + ' — ' + (bots[b].note || '')));
+      row.appendChild(left);
+      row.appendChild(el('span', 'pill' + (bots[b].kind ? ' ' + bots[b].kind : ''), bots[b].state || ''));
+      roster.appendChild(row);
+    }
+    frag.appendChild(roster);
+    while (board.firstChild) board.removeChild(board.firstChild);
+    board.appendChild(frag);
+  }
+
+  function renderPipeline(list) {
+    if (!list || !list.length) return;
+    var nodes = [];
+    for (var i = 0; i < list.length; i++) {
+      var li = el('li');
+      li.appendChild(el('b', '', list[i].step + '. '));
+      li.appendChild(document.createTextNode((list[i].owner ? list[i].owner + ' — ' : '') + (list[i].note || '')));
+      nodes.push(li);
+    }
+    mount('pipe-list', nodes);
+  }
+
+  function renderDesk(data) {
+    if (!data) return;
+    try { renderMission(data.firm); } catch (e) {}
+    try { renderProjects(data.projects); } catch (e2) {}
+    try { renderExec(data.executives); } catch (e3) {}
+    try { renderSeats(data.departments); } catch (e4) {}
+    try { renderIdeas(data.ideas); } catch (e5) {}
+    try { renderFactory(data.botFactory); } catch (e6) {}
+    try { renderPipeline(data.pipeline); } catch (e7) {}
+  }
+
+  function setMeter(id, value, limit) {
+    var node = byId(id);
+    if (!node || !limit) return;
+    var w = Math.max(0, Math.min(100, (Number(value) / Number(limit)) * 100));
+    node.style.width = w.toFixed(1) + '%';
+    var wrap = node.parentNode;
+    if (!wrap || !wrap.classList) return;
+    wrap.classList.remove('warn', 'bad');
+    if (w >= 80) wrap.classList.add('bad');
+    else if (w >= 50) wrap.classList.add('warn');
+  }
+
+  function paintPnl(node, v) {
+    if (!node) return;
+    node.textContent = usdSigned(v);
+    node.classList.remove('pos', 'neg');
+    if (v > 0) node.classList.add('pos');
+    else if (v < 0) node.classList.add('neg');
+  }
+
+  function sideLabel(side) {
+    if (side === 'buy' || side === 'long') return 'Kupno';
+    if (side === 'sell' || side === 'short') return 'Sprzedaż';
+    return '—';
+  }
+
+  function resultLabel(f) {
+    var bias = f.bias === 'up' ? ' \u2191' : (f.bias === 'down' ? ' \u2193' : '');
+    if (f.result === 'no_signal') return 'brak sygnału' + bias;
+    if (f.result === 'fill') return (f.open ? 'fill · otwarte' : 'fill') + bias;
+    return (f.result || '—') + bias;
+  }
+
+  function renderFills(fills) {
+    var body = byId('fills-body');
+    if (!body) return;
+    while (body.firstChild) body.removeChild(body.firstChild);
+    function cell(text, cls) {
+      var td = document.createElement('td');
+      if (cls) td.className = cls;
+      td.textContent = text;
+      return td;
+    }
+    if (!fills || !fills.length) {
+      var empty = document.createElement('tr');
+      var td = document.createElement('td');
+      td.colSpan = 7;
+      td.textContent = 'Brak zdarzeń w snapshocie.';
+      empty.appendChild(td);
+      body.appendChild(empty);
+      return;
+    }
+    for (var i = 0; i < fills.length; i++) {
+      var f = fills[i];
+      var tr = document.createElement('tr');
+      if (f.result === 'no_signal') tr.className = 'ns';
+      var time = cell(clock(f.at), '');
+      if (f.at) time.title = f.at;
+      tr.appendChild(time);
+      var barTxt = f.bar != null ? String(f.bar) : '—';
+      if (f.barOffset != null) barTxt += ' · t\u2212' + f.barOffset;
+      tr.appendChild(cell(barTxt, ''));
+      tr.appendChild(cell(f.symbol || '—', 'sym'));
+      var sideTd = document.createElement('td');
+      if (f.result === 'fill' && f.side) {
+        var tag = document.createElement('span');
+        tag.className = 'tag' + ((f.side === 'sell' || f.side === 'short') ? ' sell' : '');
+        tag.textContent = sideLabel(f.side);
+        sideTd.appendChild(tag);
+      } else sideTd.textContent = '—';
+      tr.appendChild(sideTd);
+      tr.appendChild(cell(f.result === 'fill' ? usd(f.notionalUsd, 0) : '—', 'num'));
+      tr.appendChild(cell(resultLabel(f), ''));
+      var pnlClass = 'num';
+      if (f.result === 'fill' && Number(f.pnlUsd) > 0) pnlClass += ' pos';
+      if (f.result === 'fill' && Number(f.pnlUsd) < 0) pnlClass += ' neg';
+      tr.appendChild(cell(f.result === 'fill' && f.pnlUsd != null ? usdSigned(f.pnlUsd) : '—', pnlClass));
+      body.appendChild(tr);
+    }
+  }
+
+  function killTripped(paper) {
+    if (paper.killSwitchTripped === true) return true;
+    if (paper.killSwitchTripped === false) return false;
+    return paper.killSwitch === 'tripped' || paper.killSwitch === 'on';
+  }
+
+  function setStamp(iso, label) {
+    if (!iso) return;
+    var text = (label || 'Paper snapshot') + ' · ' + stamp(iso);
+    if (byId('snap-badge')) byId('snap-badge').textContent = text;
+    if (byId('snap-time')) {
+      byId('snap-time').textContent = 'snapshot ' + stamp(iso);
+      byId('snap-time').setAttribute('datetime', iso);
+    }
+  }
+
+  function lastFillLine(fills) {
+    for (var i = 0; i < (fills || []).length; i++) {
+      var f = fills[i];
+      if (f.result === 'fill') {
+        return 'Ostatni fill: ' + (f.symbol || '—') + ' · ' + sideLabel(f.side) + ' · ' + usd(f.notionalUsd, 0) + ' USD · bar ' + f.bar;
+      }
+    }
+    return 'Brak fillu w logu';
+  }
+
+  function renderPaper(paper) {
+    if (!paper) return;
+    setStamp(paper.asOf, paper.label || 'Paper snapshot');
+    if (byId('blotter-note') && paper.note) byId('blotter-note').textContent = paper.note;
+    if (byId('cb-origin')) {
+      var originBits = [];
+      if (paper.origin) originBits.push('Origin ' + paper.origin);
+      if (paper.feed === 'simulated') originBits.push('feed symulowany');
+      originBits.push('nie live');
+      byId('cb-origin').textContent = originBits.join(' · ');
+    }
+    if (byId('cb-symbols') && paper.symbols && paper.symbols.length) {
+      byId('cb-symbols').textContent = paper.symbols.join(' · ');
+    }
+    var pnl = Number(paper.pnlUsd);
+    paintPnl(byId('pnl-value'), pnl);
+    paintPnl(byId('blotter-pnl'), pnl);
+    paintPnl(byId('sleeve-pnl'), pnl);
+    var kind = paper.pnlKind === 'marked' ? 'P&L marked · USD' : 'P&L paper · USD';
+    if (byId('pnl-kind')) byId('pnl-kind').textContent = kind;
+    if (byId('blotter-pnl-kind')) byId('blotter-pnl-kind').textContent = kind;
+    var pnlCard = byId('m-pnl');
+    if (pnlCard) {
+      pnlCard.classList.remove('metric-ok', 'metric-bad', 'metric-gold', 'metric-warn', 'metric-cb', 'metric-acc');
+      pnlCard.classList.add(pnl < 0 ? 'metric-bad' : 'metric-ok');
+    }
+    var exp = Number(paper.exposureUsd);
+    var cap = Number(paper.exposureCapUsd);
+    if (byId('exposure-value') && isFinite(exp)) byId('exposure-value').textContent = usd(exp, 0);
+    if (byId('cap-value') && isFinite(cap)) byId('cap-value').textContent = usd(cap, 0);
+    if (byId('eff-exp') && isFinite(exp) && isFinite(cap)) byId('eff-exp').textContent = usd(exp, 0) + ' / ' + usd(cap, 0) + ' USD';
+    setMeter('meter-exp', exp, cap);
+    var expCard = byId('m-exp');
+    if (expCard && cap) {
+      var expRatio = exp / cap;
+      expCard.classList.remove('metric-ok', 'metric-bad', 'metric-gold', 'metric-warn', 'metric-cb', 'metric-acc');
+      expCard.classList.add(expRatio >= 0.9 ? 'metric-bad' : expRatio >= 0.75 ? 'metric-warn' : 'metric-cb');
+    }
+    var fills = paper.fills || [];
+    if (byId('cb-last-fill')) byId('cb-last-fill').textContent = lastFillLine(fills);
+    var book = {};
+    var order = [];
+    for (var i = 0; i < fills.length; i++) {
+      var f = fills[i];
+      if (f.result === 'fill' && f.open) {
+        if (book[f.symbol] == null) order.push(f.symbol);
+        book[f.symbol] = (book[f.symbol] || 0) + Number(f.notionalUsd || 0);
+      }
+    }
+    var parts = [];
+    for (var s = 0; s < order.length; s++) parts.push(order[s] + ' ' + usd(book[order[s]], 0));
+    if (byId('book-line')) byId('book-line').textContent = parts.length ? ('Otwarte: ' + parts.join(' · ')) : 'Brak otwartej ekspozycji';
+    var dd = Number(paper.drawdownPct);
+    var ddMax = Number(paper.maxDrawdownPct);
+    var ddLim = Number(paper.drawdownLimitPct);
+    var limDigits = isFinite(ddLim) && ddLim % 1 === 0 ? 0 : 2;
+    if (byId('dd-now') && isFinite(dd)) byId('dd-now').textContent = pct(dd);
+    if (byId('dd-max') && isFinite(ddMax)) byId('dd-max').textContent = pct(ddMax);
+    if (byId('dd-value') && isFinite(ddLim)) byId('dd-value').textContent = pct(ddLim, limDigits);
+    if (byId('eff-dd') && isFinite(dd) && isFinite(ddLim)) byId('eff-dd').textContent = pct(dd) + ' / ' + pct(ddLim, limDigits);
+    if (byId('eff-ddmax') && isFinite(ddMax) && isFinite(ddLim)) byId('eff-ddmax').textContent = pct(ddMax) + ' / ' + pct(ddLim, limDigits);
+    setMeter('meter-dd', dd, ddLim);
+    setMeter('meter-ddmax', ddMax, ddLim);
+    var ddCard = byId('m-dd');
+    if (ddCard && ddLim) {
+      var ddRatio = dd / ddLim;
+      ddCard.classList.remove('metric-ok', 'metric-bad', 'metric-gold', 'metric-warn', 'metric-cb', 'metric-acc');
+      ddCard.classList.add(ddRatio >= 0.8 ? 'metric-bad' : ddRatio >= 0.5 ? 'metric-warn' : 'metric-ok');
+    }
+    var tripped = killTripped(paper);
+    if (byId('kill-value')) byId('kill-value').textContent = tripped ? 'Zbity' : 'Niezbity';
+    if (byId('eff-kill')) byId('eff-kill').textContent = tripped ? 'Zbity' : 'Niezbity';
+    var killCard = byId('m-kill');
+    if (killCard) {
+      killCard.classList.remove('metric-ok', 'metric-bad', 'metric-warn');
+      killCard.classList.add(tripped ? 'metric-bad' : 'metric-ok');
+    }
+    var filled = Number(paper.filled);
+    var wins = Number(paper.wins);
+    var noSig = Number(paper.noSignal);
+    if (!isFinite(filled)) filled = 0;
+    if (!isFinite(wins)) wins = 0;
+    if (!isFinite(noSig)) noSig = 0;
+    var rate = filled > 0 ? (100 * wins) / filled : NaN;
+    if (byId('eff-win') && isFinite(rate)) byId('eff-win').textContent = pct(rate, 1);
+    if (byId('eff-win-sub')) byId('eff-win-sub').textContent = wins + ' z ' + filled + ' filli na plusie';
+    if (byId('eff-ratio')) byId('eff-ratio').textContent = filled + ' / ' + noSig;
+    if (byId('blotter-stats')) byId('blotter-stats').textContent = filled + ' fill · ' + noSig + ' brak sygnału · pełny log snapshotu';
+    if (byId('eff-days')) {
+      var days = paper.daysInPaper != null ? paper.daysInPaper : '—';
+      var bars = paper.barsInPaper != null ? paper.barsInPaper : '—';
+      byId('eff-days').textContent = days + ' dni · ' + bars + ' barów feedu';
+    }
+    renderFills(fills);
+  }
+
   function applyRisk(risk) {
     if (!risk) return;
     if (byId('tests-value') && risk.testsGreen != null) byId('tests-value').textContent = String(risk.testsGreen);
-    if (byId('cap-value') && risk.exposureCapUsd != null) byId('cap-value').textContent = String(risk.exposureCapUsd);
+    if (byId('cap-value') && risk.exposureCapUsd != null) byId('cap-value').textContent = usd(risk.exposureCapUsd, 0);
     if (byId('dd-value') && risk.dailyDrawdownPct) byId('dd-value').textContent = String(risk.dailyDrawdownPct);
     var bits = [];
     if (risk.testsGreen != null) bits.push(risk.testsGreen + ' testów zielonych');
     if (risk.exposureCapUsd != null) bits.push(risk.exposureCapUsd + ' USD cap');
     if (risk.dailyDrawdownPct) bits.push(risk.dailyDrawdownPct + ' DD');
-    if (risk.killSwitch) bits.push('kill-switch');
+    if (risk.killSwitch) bits.push('kill-switch uzbrojony');
     if (byId('risk-detail')) byId('risk-detail').textContent = bits.join(' · ');
     if (byId('risk-row-detail') && risk.summary) byId('risk-row-detail').textContent = risk.summary;
     if (byId('ship-detail') && risk.paperDetail) byId('ship-detail').textContent = risk.paperDetail;
@@ -515,7 +1714,7 @@ body:has(.biuro){
     if (value) value.textContent = row[0];
     var card = byId('m-ci');
     if (card) {
-      card.classList.remove('metric-ok', 'metric-gold', 'metric-bad', 'metric-acc');
+      card.classList.remove('metric-ok', 'metric-gold', 'metric-bad', 'metric-acc', 'metric-warn', 'metric-cb');
       if (conclusion === 'success') card.classList.add('metric-ok');
       else if (conclusion === 'failure' || conclusion === 'timed_out') card.classList.add('metric-bad');
       else if (conclusion === 'in_progress' || conclusion === 'queued') card.classList.add('metric-acc');
@@ -542,6 +1741,12 @@ body:has(.biuro){
     pill(byId('obs-pill'), kind, badge);
     var obs = byId('obs-detail');
     if (obs) obs.textContent = 'AURUM CI build · ' + (sha || 'main') + (when ? ' · ' + when : '') + (live ? '' : ' · snapshot');
+    var attn = byId('aurum-attn');
+    if (attn) {
+      var bad = conclusion === 'failure' || conclusion === 'timed_out';
+      attn.className = 'attn ' + (bad ? 'alert' : 'ok');
+      attn.textContent = bad ? 'Wymaga uwagi' : 'Bez uwagi';
+    }
   }
 
   function markApiDown() {
@@ -557,7 +1762,10 @@ body:has(.biuro){
       if (!res.ok) throw new Error('status');
       return res.json();
     }).then(function (data) {
-      applyRisk(data.risk);
+      try { renderDesk(data); } catch (e) {}
+      try { applyRisk(data.risk); } catch (e1) {}
+      try { renderPaper(data.paperBlotter || data.paper); } catch (e2) {}
+      if (!(data.paperBlotter || data.paper) && data.updatedAt) setStamp(data.updatedAt, 'Paper snapshot');
       if (byId('src-note') && data.update) byId('src-note').textContent = data.update;
       var fb = data.aurumCiFallback;
       if (fb) {
@@ -606,6 +1814,7 @@ body:has(.biuro){
 
   loadStatus().then(loadCi, loadCi);
 })();
+
 </script>
 </body>
 </html>

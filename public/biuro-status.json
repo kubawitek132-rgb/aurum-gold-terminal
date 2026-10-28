@@ -1,20 +1,881 @@
 {
-  "updatedAt": "2026-10-28T05:04:00Z",
-  "update": "CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.",
+  "schemaVersion": 3,
+  "updatedAt": "2026-10-28T06:40:00Z",
+  "firm": {
+    "name": "Biuro AI — Trading Firm",
+    "office": "Biuro AI Kuby",
+    "mission": [
+      "Pilnuje istniejących pionów: AURUM (terminal makro) i Coin Bot (autonomiczny paper).",
+      "Myśli i kolejkuje nowe pomysły — z tezą, źródłem i warunkiem unieważnienia.",
+      "Fabryka botów składa kolejne deski, co najwyżej do autonomicznego paperu.",
+      "Tam, gdzie paper już chodzi sam (Coin Bot), nie wkłada bramki accept()."
+    ]
+  },
+  "update": "Odświeżenie: edytuj public/biuro-status.json (firm, projects, executives, departments, observers, ideas, botFactory, paperBlotter, metrics, risk) i wgraj na main. Nowy pomysł: obiekt w ideas[] z title, status (kolejka | research | odrzucone), thesis, invalidation, source, next. Bez tezy i invalidation Scout nie przyjmuje karty. Pulpit robi fetch /biuro-status.json i podmienia firmę; gdy plik nie dojdzie, zostaje snapshot w public/biuro.html. CI AURUM: publiczne GitHub API, job build na main, bez klucza. Bez syncu prywatnego coin-bot, bez sekretów, bez giełdy live.",
   "risk": {
     "testsGreen": 27,
     "exposureCapUsd": 5000,
     "dailyDrawdownPct": "2%",
     "killSwitch": true,
     "paper": "Autonomiczny paper",
-    "paperDetail": "Origin main 4f06d3d · pętla paper sama · execute bez accept() · nie live",
-    "origin": { "ref": "main", "commit": "4f06d3d", "note": "Autonomiczny paper na Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Pętla paper działa sama — execute nie czeka na accept(). BTC/USDT i ETH/USDT, feed symulowany. Risk dalej bramkuje: 5000 USD, 2% daily DD, kill-switch. Brak giełdy live." },
-    "summary": "5000 USD · 2% DD · kill-switch"
+    "paperDetail": "Origin main 4f06d3d · pętla paper sama · execute bez accept() · kill-switch niezbity · nie live",
+    "origin": {
+      "ref": "main",
+      "commit": "4f06d3d",
+      "note": "Autonomiczny paper na Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Pętla paper działa sama — execute nie czeka na accept(). BTC/USDT i ETH/USDT, feed symulowany. Risk dalej bramkuje: 5000 USD, 2% daily DD, kill-switch. Brak giełdy live."
+    },
+    "summary": "5000 USD · 2% DD · kill-switch niezbity"
+  },
+  "metrics": {
+    "winrate": 0.6666666666666666,
+    "wins": 4,
+    "filled": 6,
+    "noSignal": 4,
+    "pnlUsd": 36.2,
+    "pnlKind": "marked",
+    "exposureUsd": 1500,
+    "exposureCapUsd": 5000,
+    "drawdownPct": 0.41,
+    "maxDrawdownPct": 0.86,
+    "drawdownLimitPct": 2,
+    "daysInPaper": 6,
+    "barsInPaper": 42,
+    "killSwitch": "off",
+    "killSwitchTripped": false,
+    "testsGreen": 27
+  },
+  "paperBlotter": {
+    "label": "Paper snapshot",
+    "asOf": "2026-10-28T06:40:00Z",
+    "mode": "autonomous",
+    "origin": "main 4f06d3d",
+    "feed": "simulated",
+    "symbols": [
+      "BTC/USDT",
+      "ETH/USDT"
+    ],
+    "notionalUsd": 500,
+    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "killSwitch": "off",
+    "killSwitchTripped": false,
+    "exposureUsd": 1500,
+    "exposureCapUsd": 5000,
+    "pnlUsd": 36.2,
+    "pnlKind": "marked",
+    "wins": 4,
+    "filled": 6,
+    "noSignal": 4,
+    "daysInPaper": 6,
+    "barsInPaper": 42,
+    "drawdownPct": 0.41,
+    "maxDrawdownPct": 0.86,
+    "drawdownLimitPct": 2,
+    "fills": [
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 42,
+        "barOffset": 0,
+        "at": "2026-10-28T06:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 12.4,
+        "open": true
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 41,
+        "barOffset": 1,
+        "at": "2026-10-28T05:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 40,
+        "barOffset": 2,
+        "at": "2026-10-28T04:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 8.15,
+        "open": true
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 39,
+        "barOffset": 3,
+        "at": "2026-10-28T03:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 38,
+        "barOffset": 4,
+        "at": "2026-10-28T02:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": -3.8,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 37,
+        "barOffset": 5,
+        "at": "2026-10-27T22:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 36,
+        "barOffset": 6,
+        "at": "2026-10-27T18:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 21.05,
+        "open": true
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 34,
+        "barOffset": 8,
+        "at": "2026-10-27T14:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 4.6,
+        "open": false
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 33,
+        "barOffset": 9,
+        "at": "2026-10-27T12:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 32,
+        "barOffset": 10,
+        "at": "2026-10-27T08:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": -6.2,
+        "open": false
+      }
+    ]
+  },
+  "paper": {
+    "label": "Paper snapshot",
+    "asOf": "2026-10-28T06:40:00Z",
+    "mode": "autonomous",
+    "origin": "main 4f06d3d",
+    "feed": "simulated",
+    "symbols": [
+      "BTC/USDT",
+      "ETH/USDT"
+    ],
+    "notionalUsd": 500,
+    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "killSwitch": "off",
+    "killSwitchTripped": false,
+    "exposureUsd": 1500,
+    "exposureCapUsd": 5000,
+    "pnlUsd": 36.2,
+    "pnlKind": "marked",
+    "wins": 4,
+    "filled": 6,
+    "noSignal": 4,
+    "daysInPaper": 6,
+    "barsInPaper": 42,
+    "drawdownPct": 0.41,
+    "maxDrawdownPct": 0.86,
+    "drawdownLimitPct": 2,
+    "fills": [
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 42,
+        "barOffset": 0,
+        "at": "2026-10-28T06:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 12.4,
+        "open": true
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 41,
+        "barOffset": 1,
+        "at": "2026-10-28T05:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 40,
+        "barOffset": 2,
+        "at": "2026-10-28T04:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 8.15,
+        "open": true
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 39,
+        "barOffset": 3,
+        "at": "2026-10-28T03:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 38,
+        "barOffset": 4,
+        "at": "2026-10-28T02:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": -3.8,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 37,
+        "barOffset": 5,
+        "at": "2026-10-27T22:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 36,
+        "barOffset": 6,
+        "at": "2026-10-27T18:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 21.05,
+        "open": true
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 34,
+        "barOffset": 8,
+        "at": "2026-10-27T14:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": 4.6,
+        "open": false
+      },
+      {
+        "symbol": "BTC/USDT",
+        "side": null,
+        "notionalUsd": 0,
+        "bar": 33,
+        "barOffset": 9,
+        "at": "2026-10-27T12:20:00Z",
+        "result": "no_signal",
+        "bias": "down",
+        "pnlUsd": null,
+        "open": false
+      },
+      {
+        "symbol": "ETH/USDT",
+        "side": "buy",
+        "notionalUsd": 500,
+        "bar": 32,
+        "barOffset": 10,
+        "at": "2026-10-27T08:20:00Z",
+        "result": "fill",
+        "bias": "up",
+        "pnlUsd": -6.2,
+        "open": false
+      }
+    ]
   },
   "aurumCiFallback": {
     "conclusion": "success",
     "sha": "e812955",
     "at": "2026-10-28T02:16:04Z",
     "runUrl": "https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/runs/40619776944/job/122590723336"
-  }
+  },
+  "projects": [
+    {
+      "id": "aurum",
+      "name": "AURUM",
+      "lane": "au",
+      "kind": "Terminal makro · złoto",
+      "state": "Pilnowany",
+      "stateKind": "ok",
+      "attention": "ok",
+      "attentionLabel": "Bez uwagi",
+      "signal": "CI build · sukces · e812955 · snapshot, dopóki API nie poda Live",
+      "summary": "Publiczny terminal na /. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.",
+      "links": [
+        {
+          "label": "Terminal",
+          "href": "/"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/kubawitek132-rgb/aurum-gold-terminal"
+        },
+        {
+          "label": "Actions",
+          "href": "https://github.com/kubawitek132-rgb/aurum-gold-terminal/actions/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "id": "coin-bot",
+      "name": "Coin Bot",
+      "lane": "cb",
+      "kind": "BTC/ETH · autonomiczny paper",
+      "state": "Autonomiczny paper",
+      "stateKind": "ok",
+      "attention": "ok",
+      "attentionLabel": "Bez uwagi",
+      "signal": "Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40",
+      "summary": "Origin main 4f06d3d. Pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda.",
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/kubawitek132-rgb/coin-bot"
+        },
+        {
+          "label": "Agent",
+          "href": "https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"
+        }
+      ]
+    },
+    {
+      "id": "incubation",
+      "name": "Inkubacja",
+      "lane": "incub",
+      "kind": "Następne deski",
+      "state": "1 szkielet",
+      "stateKind": "acc",
+      "attention": "watch",
+      "attentionLabel": "Czeka na kartę",
+      "signal": "Au Session stoi na szkielecie. Dwa pomysły bez slotu budowy.",
+      "summary": "Fabryka trzyma jeden otwarty szkielet. Drugi nie startuje, dopóki Au Session nie dostanie karty bull/bear i słowa CEO. Live nie jest slotem.",
+      "slots": [
+        {
+          "name": "Au Session",
+          "status": "Szkielet",
+          "kind": "acc",
+          "note": "Sygnał złota, sesja azjatycka. Czeka na bull/bear. Nie papieruje."
+        },
+        {
+          "name": "FX News Alert",
+          "status": "Kolejka",
+          "kind": "",
+          "note": "Alert bez zlecenia. Slot budowy zamknięty."
+        },
+        {
+          "name": "ETH/BTC relative",
+          "status": "Kolejka",
+          "kind": "",
+          "note": "Spread na tym samym feedzie. Bez slotu — piony zostają osobne."
+        }
+      ],
+      "links": [
+        {
+          "label": "Fabryka",
+          "href": "#factory-board"
+        }
+      ]
+    }
+  ],
+  "executives": [
+    {
+      "id": "ceo",
+      "name": "CEO / Head Trader",
+      "role": "orkiestracja · go / no-go",
+      "status": "Na warcie",
+      "statusKind": "ok",
+      "does": "Ustawia kolejność firmy i mówi nie. Priorytety na ten tydzień: pilnować CI AURUM, trzymać Coin Bota w paperze, nie otwierać drugiego szkieletu. Najcenniejsze słowo wobec nowego pomysłu: nie.",
+      "decision": "Coin Bot zostaje autonomicznym paperem na main 4f06d3d. Execute bez accept() jest zgodą na paper, nie na giełdę. Live z tego fotela nie wychodzi.",
+      "waiting": "Na Kubę nie czeka awaria. Czeka ewentualne słowo przy Au Session, gdy karta bull/bear będzie domknięta. Do tego czasu firma nie stoi.",
+      "next": "Nie promować Au Session do Sim Lab, dopóki karta nie ma invalidation zapisanej przed testem.",
+      "blocks": "Nic nie blokuje biegu paperu ani terminala."
+    },
+    {
+      "id": "cro",
+      "name": "CRO / Risk",
+      "role": "veto · 5000 / 2% / kill-switch",
+      "status": "Veto uzbrojone",
+      "statusKind": "ok",
+      "does": "Ma prawo zatrzymać deskę. Cap ekspozycji 5000 USD, dzienny drawdown 2%, kill-switch w kodzie. Dziś: ekspozycja 1 500, DD 0,41% (max w snapshocie 0,86%), kill-switch niezbity, 27 testów Risk zielonych. Veto stoi na live, na nominale powyżej 500 USD w tym paperze i na przebiciu limitu.",
+      "decision": "Veto nie jest użyte. Paper może lecieć.",
+      "waiting": "Na nic. Eskalacja do Kuby dopiero po zbiciu kill-switcha.",
+      "next": "Zostawić limity. Nie poluzować capu pod inkubację.",
+      "blocks": "Nic dziś. Próg jest w kodzie, nie w rozmowie."
+    },
+    {
+      "id": "coo",
+      "name": "COO / Ops",
+      "role": "zdrowie biura · CI · journal",
+      "status": "Spokój",
+      "statusKind": "ok",
+      "does": "Patrzy, czy firma oddycha: CI AURUM, świeżość snapshotu, degradacje. Degradacji brak. CI ostatnio zielone (e812955, pill Snapshot aż API powie Live). Journal tego ranka: paper asOf 2026-10-28T06:40:00Z.",
+      "decision": "Nie ma incydentu. Nie ma czego eskalować.",
+      "waiting": "Na Kubę nic. Gdy CI spadnie albo snapshot przekroczy tydzień, uwaga idzie na pulpit, nie w cichy kanał.",
+      "next": "Zostawić fetch CI tak, jak jest: publiczny job build, bez klucza.",
+      "blocks": "Nic."
+    },
+    {
+      "id": "cio",
+      "name": "CIO / Alokacja",
+      "role": "kapitał uwagi · nie live $",
+      "status": "40 / 40 / 20",
+      "statusKind": "ok",
+      "does": "Dzieli uwagę, nie środki. AURUM 40% — to produkt publiczny. Coin Bot 40% — paper, który już chodzi sam. Inkubacja 20% — jeden szkielet. Dolary live: zero. Drugi bot w budowie zjadłby uwagę terminala.",
+      "decision": "Slot budowy jest jeden. FX News i ETH/BTC relative nie dostają czasu Fabryki.",
+      "waiting": "Na nic finansowego. Kuba nie alokuje tu kapitału.",
+      "next": "Przesunąć uwagę na Sim Lab dopiero po „tak” CEO dla Au Session. Inaczej 20% zostaje przy karcie, nie przy kodzie.",
+      "blocks": "Live $ jest zerem i nie ma z czego poluzować."
+    },
+    {
+      "id": "research-director",
+      "name": "Research Director",
+      "role": "promocja research → paper",
+      "status": "Jedna karta",
+      "statusKind": "warn",
+      "does": "Decyduje, co wolno przenieść z researchu do paperu. Ścieżka promocji: research, potem paper MVP, potem autonomiczny paper. Brama shadow/live jest zamknięta z tego fotela — nawet dobre paper nie awansuje samo na giełdę. Aktywna karta: sesja azjatycka XAU.",
+      "decision": "Au Session zostaje w researchu. Coin Bot już jest za bramą paperu i nie wraca do labu.",
+      "waiting": "Na domknięcie byka i niedźwiedzia. Potem CEO, nie dyrektor, mówi tak albo nie.",
+      "next": "Nie otwierać paper MVP bez karty. Nie obiecywać live w nagłówku karty.",
+      "blocks": "Karta Au Session otwarta, nie domknięta."
+    },
+    {
+      "id": "policy",
+      "name": "Policy / Compliance",
+      "role": "paper-first · lekki audit",
+      "status": "Reguły stoją",
+      "statusKind": "ok",
+      "does": "Trzyma reguły firmy, nie opinię. Paper-first. Coin Bot nie ma accept(), bo to paper, nie dlatego że live jest dozwolony. Live tylko decyzją Kuby poza tym pulpitem. Audit trail to git biuro-status.json. Sekretów w repo nie ma i nie będzie.",
+      "decision": "Live perp odrzucony. Zostaje w archiwum Scouta, nie w Fabryce.",
+      "waiting": "Na Kubę wyłącznie przy realnych środkach — i nie na tej stronie.",
+      "next": "Przy każdej nowej karcie sprawdzić, czy ktoś nie wsunął klucza albo „tylko tymczasowego” live.",
+      "blocks": "Nic, dopóki reguły są na pulpicie, a nie w domyśle."
+    }
+  ],
+  "departments": [
+    {
+      "id": "macro",
+      "name": "Macro",
+      "role": "fotel macro · tło złota",
+      "status": "Pracuje",
+      "statusKind": "ok",
+      "does": "Czyta tło, które AURUM już liczy: realne rentowności, dolar, banki, GPR, chokepointy. Zostawia werdykt w terminalu. Ten fotel nie ma ścieżki do zlecenia — makro tu jest kontekstem, nie orderem.",
+      "input": "FRED, GDELT, kalendarz CME, rezerwy",
+      "output": "Reżim tła na /. Zero orderów.",
+      "next": "Zostać przy terminalu. Do Au Session oddać tylko filtr sesji, gdy research o niego poprosi — nie wcześniej.",
+      "blocks": "Nic."
+    },
+    {
+      "id": "sentiment",
+      "name": "Sentiment / News",
+      "role": "fotel news · nagłówek to nie sygnał",
+      "status": "Nasłuch",
+      "statusKind": "acc",
+      "does": "Zbiera nagłówki geo i kalendarz, które AURUM już pokazuje. Oddziela „tło się zmieniło” od „czas kupić”. FX News Alert wisi w kolejce właśnie dlatego, że ten fotel nie ma jeszcze progu szumu.",
+      "input": "GDELT 24h, kalendarz strukturalny złota",
+      "output": "Notatka zmiany tła. Nie alert transakcyjny.",
+      "next": "Spisać, jaki high-impact spoza USD jest filtrem, a jaki plotką. Bez tego FX News nie dostaje szkieletu.",
+      "blocks": "Brak reguły szumu. To nie awaria feedu."
+    },
+    {
+      "id": "quant",
+      "name": "Quant / TA",
+      "role": "fotel technical · reguła jawna",
+      "status": "Paper only",
+      "statusKind": "ok",
+      "does": "W Coin Bocie reguła jest krótka i zapisana: około 500 USD na barze wzrostowym BTC/USDT albo ETH/USDT, bar spadkowy to brak sygnału. Żadnych ukrytych wskaźników. Nowy bot nie dokłada indykatora, dopóki Sim Lab nie zrobi walk-forward.",
+      "input": "Symulowany OHLCV",
+      "output": "Fill albo no_signal w blotterze.",
+      "next": "Nie ruszać reguły Coin Bota. Au Session, jeśli w ogóle powstanie, dostaje osobną regułę, nie łatkę na tym feedzie.",
+      "blocks": "Brak point-in-time dla pomysłów spoza Coin Bota."
+    },
+    {
+      "id": "price-map",
+      "name": "Price Map",
+      "role": "mapa położenia · nie trigger",
+      "status": "Mapa",
+      "statusKind": "ok",
+      "does": "Trzyma, gdzie jesteśmy, nie kiedy strzelać. Dla złota mapą jest terminal AURUM. Dla crypto mapą jest numer baru w paperze: ostatni wpis to bar 42 o 06:20 UTC. Tick giełdy nie wchodzi na tę mapę.",
+      "input": "Snapshot barów paperu i tło AURUM",
+      "output": "Położenie: bar 42, feed symulowany, nie live.",
+      "next": "Zostawić mapę na snapshocie. Odświeżenie = nowy asOf w pliku, nie websocket.",
+      "blocks": "Brak klucza rynkowego — i tak zostaje."
+    },
+    {
+      "id": "bull-bear",
+      "name": "Bull / Bear Research",
+      "role": "debata · karta przed szkieletem",
+      "status": "Karta otwarta",
+      "statusKind": "warn",
+      "does": "Każdy pomysł, który ma zejść głębiej niż notatka, dostaje byka, niedźwiedzia i warunek unieważnienia zapisany przed testem. Aktywny temat: sesja azjatycka XAU. Byk: Azja domyka wyżej, gdy real yields spadają, a GPR milczy. Niedźwiedź: sesja to nie edge, a bez point-in-time łatwo o lookahead.",
+      "input": "Teza ze Scouta",
+      "output": "Karta, którą CEO może ubić jednym „nie”.",
+      "next": "Domknąć kartę Au Session. Bez niej Fabryka nie rusza szkieletu dalej.",
+      "blocks": "Karta nie jest domknięta. Dlatego slot stoi."
+    },
+    {
+      "id": "onchain",
+      "name": "On-chain",
+      "role": "fotel crypto · świadomie pusty",
+      "status": "Niepodłączony",
+      "statusKind": "",
+      "does": "Fotel jest, feedu nie ma. Coin Bot nie czyta łańcucha — tylko symulowane BTC/USDT i ETH/USDT. Puste krzesło jest tu decyzją: on-chain bez tezy i invalidation byłby fałszywym sygnałem.",
+      "input": "Brak. Świadomie.",
+      "output": "Brak sygnału on-chain. Zero nie udaje tu neutralnej oceny.",
+      "next": "Nie podłączać API łańcucha. Najpierw karta w Scoucie, albo fotel zostaje pusty.",
+      "blocks": "Brak tezy. To nie jest awaria."
+    },
+    {
+      "id": "ingest",
+      "name": "Data Ingest",
+      "role": "feed · stub, nie giełda",
+      "status": "Stub",
+      "statusKind": "ok",
+      "does": "Karmi Coin Bota symulowanym BTC/USDT i ETH/USDT. To stub zapisany w tym pliku, nie gniazdo giełdy. Świeżość: asOf 2026-10-28T06:40:00Z, ostatni bar 42 dwadzieścia minut wcześniej. Ciche bary feedu nie wchodzą do logu.",
+      "input": "public/biuro-status.json",
+      "output": "Blotter paperu i metryki. Nic poza repo.",
+      "next": "Odświeżyć snapshot commitem na main. Nie wciągać prywatnego syncu coin-bot i nie wkładać kluczy.",
+      "blocks": "Nic, dopóki data snapshotu jest na karcie."
+    },
+    {
+      "id": "simlab",
+      "name": "Sim Lab",
+      "role": "backtest · zanim paper MVP",
+      "status": "Czeka",
+      "statusKind": "acc",
+      "does": "Nowe deski nie przeskakują labu. Wejście to domknięta karta bull/bear i jawna reguła; wyjście to „przechodzi” albo „nie”. Coin Bot jest już za tą bramą — paper na main. Lab dziś nie ma zlecenia w kolejce.",
+      "input": "Karta research + reguła point-in-time",
+      "output": "Przechodzi / nie przechodzi. Bez tego nie ma paper MVP.",
+      "next": "Pierwszy klient, jeśli CEO powie tak: Au Session. Dziś nie startować testu na niedomkniętej tezie.",
+      "blocks": "Brak domkniętej karty."
+    },
+    {
+      "id": "pm",
+      "name": "Portfolio / PM",
+      "role": "księga uwagi · nie dolary live",
+      "status": "Uwaga rozdzielona",
+      "statusKind": "ok",
+      "does": "Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40%, inkubacja 20%. Dolary live są zerem. PM patrzy, czy któryś pion nie głoduje: terminal ma CI, paper ma blotter z tego ranka, inkubacja ma jeden szkielet i nic więcej.",
+      "input": "Stan pionów i werdykt CIO",
+      "output": "Kto dostaje czas w tym tygodniu. Nie alokacja środków.",
+      "next": "Nie oddawać inkubacji drugiego slotu. Au Session albo schodzi z karty, albo wraca do kolejki.",
+      "blocks": "Nic finansowego. Live $ = 0."
+    },
+    {
+      "id": "ship",
+      "name": "Execution / Ship Paper",
+      "role": "egzekucja paper · bez accept()",
+      "status": "Autonomiczny paper",
+      "statusKind": "ok",
+      "does": "Pętla Coin Bota na Origin main 4f06d3d. Execute nie czeka na accept() — to paper, nie giełda. Ostatni fill: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, otwarte, marked +12,40. Log decyzji tego snapshotu: 6 filli i 4 braki sygnału.",
+      "input": "Reguła quant + limit CRO",
+      "output": "Fill albo no_signal w blotterze. Nigdy zlecenie na giełdę.",
+      "next": "Utrzymać pętlę w paperze. Live nie jest następnym krokiem tego fotela.",
+      "blocks": "Kill-switch, gdyby DD albo cap padły. Teraz niezbity."
+    },
+    {
+      "id": "audit",
+      "name": "Audit / Journal",
+      "role": "ślad · git, nie czat",
+      "status": "Ślad w gicie",
+      "statusKind": "ok",
+      "does": "Dziennik firmy to historia tego pliku i pulpit, który go czyta. Każdy snapshot ma asOf. W repo nie ma kluczy, nie ma syncu prywatnego coin-bot i nie ma orderów live. Za miesiąc da się powiedzieć, co paper pokazywał 28.10 o 06:40 UTC.",
+      "input": "Blotter, CI, decyzje CEO, karty Scouta",
+      "output": "Commit na main. To jest audit trail.",
+      "next": "Przy każdej zmianie paperu ruszyć asOf i updatedAt. Nie dopisywać sekretów „na chwilę”.",
+      "blocks": "Nic."
+    },
+    {
+      "id": "obs-aurum",
+      "name": "Obserwator AURUM",
+      "role": "CI publiczne · job build na main",
+      "status": "Snapshot",
+      "statusKind": "",
+      "does": "Patrzy wyłącznie na publiczne GitHub Actions AURUM (job build, gałąź main). Nie ma klucza i nie czyta sekretów. Ostatni znany wynik to sukces, skrót e812955. Dopóki API nie odpowie, pill zostaje Snapshot; po odpowiedzi przechodzi na Live.",
+      "input": "GitHub API, workflow ci.yml, job build",
+      "output": "Pill CI i flaga uwagi. Czerwony build = uwaga. Zielony = bez uwagi.",
+      "next": "Nic nie eskalować. Gdy fetch padnie, zostaje snapshot z aurumCiFallback — pulpit się nie zgaduje.",
+      "blocks": "Nic. Brak wglądu w prywatne logi jest celowy."
+    },
+    {
+      "id": "obs-coin",
+      "name": "Obserwator Coin Bot",
+      "role": "Origin main · paper, nie prywatne API",
+      "status": "Paper na main",
+      "statusKind": "ok",
+      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla paper chodzi sama, execute nie czeka na accept(). Ostatni fill w logu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, pozycja otwarta. PR-ów stąd nie widać — stan to „paper na main”, bez syncu.",
+      "input": "paperBlotter w biuro-status.json",
+      "output": "Werdykt: pętla żyje, kill-switch niezbity, DD 0,41% przy limicie 2%, ekspozycja 1 500 / 5 000.",
+      "next": "Krzyczeć dopiero przy zbitym kill-switchu, DD powyżej 1% albo snapshocie starszym niż tydzień. Dziś cicho.",
+      "blocks": "Brak prywatnego API Origin. Świadomie — na publicznym pulpicie nie ma kluczy."
+    },
+    {
+      "id": "factory",
+      "name": "Fabryka botów",
+      "role": "składanie desek · live wyłączone",
+      "status": "Składa",
+      "statusKind": "acc",
+      "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka jest jedna: pomysł, szkielet, paper MVP, autonomiczny paper. Etap live jest narysowany i wyłączony — nie da się go tu włączyć.",
+      "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
+      "output": "Slot w portfolio. Dziś jeden szkielet (Au Session) i dwa piony, które fabryka już nie buduje: AURUM jako terminal, Coin Bot jako paper.",
+      "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
+      "blocks": "Niedomknięta karta bull/bear. Live wyłączone niezależnie od karty — decyzja Kuby, poza pulpitem."
+    },
+    {
+      "id": "idea-scout",
+      "name": "Idea Scout",
+      "role": "kolejka tez · invalidation obowiązkowa",
+      "status": "2 otwarte · 1 odrzucone",
+      "statusKind": "acc",
+      "does": "Siedzi nad nowymi deskami, zanim Fabryka cokolwiek złoży. Karta bez tezy, źródła i warunku unieważnienia nie wchodzi do kolejki. Scout nie buduje botów i nie składa zleceń — oddaje kartę CEO, a po „tak” Fabryce.",
+      "input": "Obserwacja AURUM, blotter Coin Bota, tło makro",
+      "output": "Karta: status kolejka / research / odrzucone, teza, invalidation, źródło, następny krok.",
+      "next": "Dowieźć tezę Au Session do fotela bull/bear. FX News i ETH/BTC relative zostają w kolejce, bez slotu budowy.",
+      "blocks": "Pomysł bez invalidation. Live perp jest już odrzucony i nie wraca tylnymi drzwiami."
+    }
+  ],
+  "observers": {
+    "aurum": {
+      "id": "obs-aurum",
+      "name": "Obserwator AURUM",
+      "role": "CI publiczne · job build na main",
+      "status": "Snapshot",
+      "statusKind": "",
+      "does": "Patrzy wyłącznie na publiczne GitHub Actions AURUM (job build, gałąź main). Nie ma klucza i nie czyta sekretów. Ostatni znany wynik to sukces, skrót e812955. Dopóki API nie odpowie, pill zostaje Snapshot; po odpowiedzi przechodzi na Live.",
+      "input": "GitHub API, workflow ci.yml, job build",
+      "output": "Pill CI i flaga uwagi. Czerwony build = uwaga. Zielony = bez uwagi.",
+      "next": "Nic nie eskalować. Gdy fetch padnie, zostaje snapshot z aurumCiFallback — pulpit się nie zgaduje.",
+      "blocks": "Nic. Brak wglądu w prywatne logi jest celowy."
+    },
+    "coinBot": {
+      "id": "obs-coin",
+      "name": "Obserwator Coin Bot",
+      "role": "Origin main · paper, nie prywatne API",
+      "status": "Paper na main",
+      "statusKind": "ok",
+      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla paper chodzi sama, execute nie czeka na accept(). Ostatni fill w logu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, pozycja otwarta. PR-ów stąd nie widać — stan to „paper na main”, bez syncu.",
+      "input": "paperBlotter w biuro-status.json",
+      "output": "Werdykt: pętla żyje, kill-switch niezbity, DD 0,41% przy limicie 2%, ekspozycja 1 500 / 5 000.",
+      "next": "Krzyczeć dopiero przy zbitym kill-switchu, DD powyżej 1% albo snapshocie starszym niż tydzień. Dziś cicho.",
+      "blocks": "Brak prywatnego API Origin. Świadomie — na publicznym pulpicie nie ma kluczy."
+    }
+  },
+  "ideas": [
+    {
+      "id": "au-session",
+      "title": "Sesja azjatycka XAU",
+      "status": "research",
+      "statusKind": "warn",
+      "source": "Macro · AURUM, tło, nie tick",
+      "thesis": "Gdy realne rentowności spadają, a GPR milczy, azjatycka sesja złota częściej domyka się wyżej. To filtr czasu na danych, które terminal już ma — nie nowy model i nie zlecenie.",
+      "invalidation": "Trzy kolejne okna paper na minusie, albo brak reguły point-in-time. Lookahead kasuje kartę od razu.",
+      "next": "Bull/Bear domyka kartę. CEO mówi tak albo nie. Fabryka nie schodzi poniżej szkieletu bez tego.",
+      "feeds": "Fabryka botów · slot Au Session"
+    },
+    {
+      "id": "fx-news",
+      "title": "FX News Alert",
+      "status": "kolejka",
+      "statusKind": "acc",
+      "source": "Sentiment / News · kalendarz, nie giełda",
+      "thesis": "High-impact spoza USD, który AURUM już klasyfikuje, może być osobną deską powiadomień. Alert, nie order. Ma sens tylko z progiem, co jest szumem.",
+      "invalidation": "Brak progu szumu — karta odpada. Dopięcie orderu do alertu — karta odpada.",
+      "next": "Czeka. Drugi slot Fabryki jest zamknięty, dopóki Au Session nie wyjdzie ze szkieletu.",
+      "feeds": "Fabryka botów · slot zarezerwowany, nieotwarty"
+    },
+    {
+      "id": "eth-btc",
+      "title": "ETH/BTC relative paper",
+      "status": "kolejka",
+      "statusKind": "acc",
+      "source": "Quant / TA · blotter Coin Bota",
+      "thesis": "Coin Bot papieruje BTC i ETH osobno, po 500 USD na barze w górę. Spread mógłby użyć tego samego symulowanego feedu i tej samej skorupy 5000 / 2%.",
+      "invalidation": "Korelacja na oknie snapshotu zbyt wysoka, żeby spread miał znak, albo wspólny stan z Coin Botem. Piony zostają osobne.",
+      "next": "Zostaje w kolejce. Nie ma slotu i nie dostaje go w tym tygodniu.",
+      "feeds": "Brak slotu w Fabryce"
+    },
+    {
+      "id": "live-perp",
+      "title": "Live perp",
+      "status": "odrzucone",
+      "statusKind": "bad",
+      "source": "Policy / Compliance",
+      "thesis": "Nie ma tezy rynkowej. Był skrót do giełdy.",
+      "invalidation": "Firma nie włącza giełdy live z tego pulpitu. Brak kluczy. Decyzja o realnych środkach należy do Kuby i nie zapada tutaj.",
+      "next": "Archiwum. Nie wchodzi do Fabryki i nie dostaje slota.",
+      "feeds": "Nigdzie"
+    }
+  ],
+  "botFactory": {
+    "name": "Fabryka botów",
+    "status": "Składa",
+    "statusKind": "acc",
+    "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka jest jedna: pomysł, szkielet, paper MVP, autonomiczny paper. Etap live jest narysowany i wyłączony — nie da się go tu włączyć.",
+    "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
+    "output": "Slot w portfolio. Dziś jeden szkielet (Au Session) i dwa piony, które fabryka już nie buduje: AURUM jako terminal, Coin Bot jako paper.",
+    "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
+    "blocks": "Niedomknięta karta bull/bear. Live wyłączone niezależnie od karty — decyzja Kuby, poza pulpitem.",
+    "stages": [
+      {
+        "id": "idea",
+        "name": "Pomysł",
+        "state": "done"
+      },
+      {
+        "id": "skeleton",
+        "name": "Szkielet",
+        "state": "now"
+      },
+      {
+        "id": "mvp",
+        "name": "Paper MVP",
+        "state": "ahead"
+      },
+      {
+        "id": "auto",
+        "name": "Autonomiczny paper",
+        "state": "ahead"
+      },
+      {
+        "id": "live",
+        "name": "Live",
+        "state": "off",
+        "note": "Wyłączone. Tylko decyzja Kuby poza tym pulpitem."
+      }
+    ],
+    "bots": [
+      {
+        "name": "AURUM",
+        "role": "Terminal makro",
+        "stage": "Poza fabryką zleceń",
+        "state": "Pilnowany",
+        "kind": "ok",
+        "note": "Produkt na /. Nie składa zleceń. Nie jest botem egzekucji."
+      },
+      {
+        "name": "Coin Bot",
+        "role": "BTC/ETH paper",
+        "stage": "Autonomiczny paper",
+        "state": "Na main 4f06d3d",
+        "kind": "ok",
+        "note": "Pętla sama, bez accept(), feed symulowany. Nie live."
+      },
+      {
+        "name": "Au Session",
+        "role": "Sygnał złota · sesja azjatycka",
+        "stage": "Szkielet",
+        "state": "W budowie",
+        "kind": "acc",
+        "note": "Stoi. Czeka na kartę bull/bear i słowo CEO. Nie papieruje."
+      },
+      {
+        "name": "FX News Alert",
+        "role": "Alert, nie order",
+        "stage": "Pomysł",
+        "state": "Slot zamknięty",
+        "kind": "",
+        "note": "W kolejce Idea Scout. Drugi szkielet się nie otwiera."
+      }
+    ]
+  },
+  "pipeline": [
+    {
+      "step": "Pomysł",
+      "owner": "Idea Scout",
+      "note": "Teza, źródło, invalidation. Bez tego karty nie ma."
+    },
+    {
+      "step": "Selekcja",
+      "owner": "CEO",
+      "note": "Najcenniejsze słowo: nie. To nie jest bramka accept() na paperze Coin Bota."
+    },
+    {
+      "step": "Research",
+      "owner": "Bull / Bear",
+      "note": "Byk, niedźwiedź, warunek unieważnienia przed testem."
+    },
+    {
+      "step": "Dane",
+      "owner": "Data Ingest",
+      "note": "Point-in-time. Stub, dopóki nie ma tezy. Bez klucza giełdy."
+    },
+    {
+      "step": "Test",
+      "owner": "Sim Lab",
+      "note": "Backtest i walk-forward. Nowa deska nie przeskakuje labu."
+    },
+    {
+      "step": "Risk",
+      "owner": "CRO",
+      "note": "5000 USD, 2% daily DD, kill-switch. Veto jest prawdziwe."
+    },
+    {
+      "step": "Paper",
+      "owner": "Ship",
+      "note": "Autonomiczna pętla, bez accept(). Coin Bot już tu stoi."
+    },
+    {
+      "step": "Ops",
+      "owner": "COO",
+      "note": "CI, journal, drift. Live jest poza firmą — tylko decyzja Kuby."
+    }
+  ]
 }

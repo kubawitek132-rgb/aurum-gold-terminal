@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Biuro AI — Trading Desk',
-  description: 'Operacyjny pulpit Kuby · AURUM (złoto) + Coin Bot (crypto paper)',
+  description: 'Biuro AI — firma tradingowa Kuby. Pilnuje AURUM i Coin Bota, kolejkuje pomysły, składa deski. Paper-first, bez giełdy live.',
 };
 
 export const viewport: Viewport = {
