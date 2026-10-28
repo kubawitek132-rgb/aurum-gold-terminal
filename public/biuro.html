@@ -391,7 +391,7 @@ body:has(.biuro){
     <div class="row">
       <div>
         <div class="t">Risk / paper</div>
-        <div class="d" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch · Pauza przed execute</div>
+        <div class="d" id="risk-detail">27 testów zielonych · 5000 USD cap · 2% DD · kill-switch</div>
       </div>
       <span class="pill warn" id="risk-pill">Pauza</span>
     </div>
@@ -405,7 +405,7 @@ body:has(.biuro){
     <div class="row"><div><div class="t">Research bull/bear</div><div class="d">LangGraph · szablon</div></div><span class="pill acc">OK</span></div>
     <div class="row"><div><div class="t">Data Ingest</div><div class="d">OHLCV BTC/ETH stub</div></div><span class="pill ok">Paper</span></div>
     <div class="row"><div><div class="t">Risk</div><div class="d" id="risk-row-detail">5000 USD · 2% DD · kill-switch</div></div><span class="pill ok" id="risk-dept-pill">Kod</span></div>
-    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Pauza przed execute</div></div><span class="pill warn" id="ship-pill">Pauza</span></div>
+    <div class="row"><div><div class="t">Ship / Paper</div><div class="d" id="ship-detail">Paper MVP na Origin (165b3b1) · pauza przed execute · gate: tylko accept()</div></div><span class="pill warn" id="ship-pill">Pauza</span></div>
     <div class="row"><div><div class="t">Idea Scout / 3D</div><div class="d">Kolejka MVP</div></div><span class="pill">Później</span></div>
   </div>
 
@@ -413,7 +413,7 @@ body:has(.biuro){
     <div class="card book">
       <h2>Projekty</h2>
       <div class="row"><div><div class="t">AURUM</div><div class="d">Gold Macro & Geo · Next.js</div></div><span class="pill ok">GitHub</span></div>
-      <div class="row"><div><div class="t">Coin Bot</div><div class="d">Paper BTC/ETH · LangGraph + Risk</div></div><span class="pill acc">Szkielet</span></div>
+      <div class="row"><div><div class="t">Coin Bot</div><div class="d">Paper BTC/ETH · LangGraph + Risk</div></div><span class="pill ok">Paper MVP</span></div>
       <ul>
         <li>AURUM nie składa zleceń — terminal makro.</li>
         <li>Coin Bot: tylko paper string, bez kluczy giełd.</li>
@@ -441,7 +441,7 @@ body:has(.biuro){
     <div class="link-grid">
       <a class="btn primary" href="https://github.com/kubawitek132-rgb/aurum-gold-terminal"><strong>AURUM na GitHubie</strong><span>kubawitek132-rgb/aurum-gold-terminal</span></a>
       <a class="btn" href="https://github.com/kubawitek132-rgb/coin-bot"><strong>Coin Bot na GitHubie</strong><span>kubawitek132-rgb/coin-bot (private)</span></a>
-      <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>szkielet trading desk</span></a>
+      <a class="btn" href="https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"><strong>Agent Coin Bot</strong><span>paper MVP trading desk</span></a>
       <a class="btn" href="https://cursor.com/canvas/store-b2eab6f9-4f23-4656-813e-e2342677b155/720d6e24-4a95-48d5-baa0-db32157b4686"><strong>Page w Cursor</strong><span>ta sama treść jako Page (wymaga logowania)</span></a>
     </div>
   </section>
@@ -491,7 +491,6 @@ body:has(.biuro){
     if (risk.exposureCapUsd != null) bits.push(risk.exposureCapUsd + ' USD cap');
     if (risk.dailyDrawdownPct) bits.push(risk.dailyDrawdownPct + ' DD');
     if (risk.killSwitch) bits.push('kill-switch');
-    if (risk.paperDetail) bits.push(risk.paperDetail);
     if (byId('risk-detail')) byId('risk-detail').textContent = bits.join(' · ');
     if (byId('risk-row-detail') && risk.summary) byId('risk-row-detail').textContent = risk.summary;
     if (byId('ship-detail') && risk.paperDetail) byId('ship-detail').textContent = risk.paperDetail;
