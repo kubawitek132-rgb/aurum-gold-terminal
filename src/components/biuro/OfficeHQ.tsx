@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import type { BiuroMarketsSnapshot } from "@/lib/biuroMarkets";
-import { MetaMaskWallet } from "./MetaMaskWallet";
+import { BotWalletPanel } from "./BotWalletPanel";
 import { CoinExplorer } from "./CoinExplorer";
 import {
   BIURO_STRUCTURE,
@@ -204,7 +204,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                 ?.scrollIntoView({ behavior: "smooth", block: "center" });
             }}
           >
-            <span className={styles.walletDiamond}>◇</span>MetaMask
+            <span className={styles.walletDiamond}>◇</span>Phantom
             <span>↗</span>
           </button>
           <div className={styles.avatar} title="Biuro Kuby">
@@ -565,7 +565,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
             <FloorInventory inventory={getFloorInventory(selected)} />
             {selected === "coin" && <CoinExplorer />}
             <div className={styles.detailDivider} />
-            <MetaMaskWallet />
+            <BotWalletPanel />
           </aside>
         </div>
         <footer className={styles.footer}>
