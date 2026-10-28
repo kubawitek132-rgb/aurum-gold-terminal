@@ -1,0 +1,58 @@
+.explorer { min-width: 0; margin-top: 26px; padding-top: 24px; border-top: 1px solid #2b3c46; color: #d9e8ed; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+.eyebrow { color: #7393a1; font-size: 7px; letter-spacing: .17em; }
+.heading h3 { margin: 4px 0 0 !important; color: #dbe9ed; font-size: 13px; font-weight: 500; letter-spacing: -.025em; }
+.sourceBadge { padding: 4px 6px; border: 1px solid #385049; border-radius: 4px; background: #20352e; color: #afd394; font-size: 7px; white-space: nowrap; }
+.description { margin-top: 11px !important; color: #809da9; font-size: 10px; line-height: 1.8; }
+.searchForm { margin-top: 17px; }
+.searchLabel { display: block; margin-bottom: 7px; color: #9db5c0; font-size: 9px; }
+.searchRow { display: flex; align-items: center; gap: 0; min-width: 0; border: 1px solid #3a5361; border-radius: 6px; overflow: hidden; background: #0b1922; }
+.searchRow:focus-within { border-color: #a2cc6a; box-shadow: 0 0 0 2px #b7e77d0a; }
+.searchRow input { min-width: 0; width: 100%; padding: 10px 11px; border: 0; outline: none; color: #d8e7ec; background: transparent; font: inherit; font-size: 11px; line-height: 1.5; }
+.searchRow input::placeholder { color: #526e7c; font-size: 9px; }
+.searchRow input::-webkit-search-cancel-button { cursor: pointer; }
+.searchRow button { display: grid; place-items: center; width: 36px; align-self: stretch; flex-shrink: 0; padding: 0; border: 0; background: #1b303c; color: #b9d698; font: inherit; font-size: 23px; cursor: pointer; }
+.searchRow button:hover { background: #2d443e; }
+.filterRow { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.filterRow label { color: #708d9b; font-size: 9px; }
+.filterRow select { min-width: 0; max-width: 125px; padding: 7px 5px; border: 1px solid #2c4554; border-radius: 4px; color: #a9c1cb; background: #152733; font: inherit; font-size: 9px; cursor: pointer; }
+.filterRow button { margin-left: auto; padding: 8px 11px; border: 1px solid #7e9e59; border-radius: 4px; color: #c6e79d; background: #283a2c; font: inherit; font-size: 9px; cursor: pointer; white-space: nowrap; }
+.filterRow button:hover { border-color: #c1ed82; background: #344b35; }
+.explorer button:disabled { cursor: wait; opacity: .6; }
+.explorer :is(button, a, select):focus-visible { outline: 2px solid #c9f36a; outline-offset: 3px; }
+.feedback { min-width: 0; }
+.empty, .loading, .noMatches { display: flex; align-items: center; gap: 10px; margin-top: 17px !important; padding: 13px 11px; border: 1px dashed #2c4552; border-radius: 5px; color: #6f8e9d; font-size: 10px; line-height: 1.8; }
+.empty > span { flex-shrink: 0; color: #8ba776; font-size: 23px; line-height: 1; }
+.loading { border-style: solid; color: #8babba; }
+.noMatches { margin-top: 9px !important; border-style: solid; }
+.spinner { display: inline-block; flex-shrink: 0; width: 12px; height: 12px; border: 1px solid #506d62; border-top-color: #c9f36a; border-radius: 50%; animation: spin .8s linear infinite; }
+.error { margin-top: 13px !important; padding: 10px 11px; border: 1px solid #735351; border-radius: 5px; color: #e5b9ac; background: #3a272b; font-size: 10px; line-height: 1.7; overflow-wrap: anywhere; }
+.receipt { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 6px 10px; margin: 17px 0 11px; color: #8eabb7; font-size: 8px; }
+.receipt > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.receipt > span:last-child { color: #668894; font-size: 7px; white-space: nowrap; }
+.receipt .oldReceipt { color: #bea874 !important; }
+.results { display: flex; flex-direction: column; gap: 9px; }
+.pairCard { min-width: 0; padding: 13px; border: 1px solid #304652; border-radius: 6px; background: linear-gradient(115deg, #182c36, #14232e); }
+.pairHeading { display: flex; align-items: flex-start; justify-content: space-between; gap: 9px; }
+.pairHeading > div { min-width: 0; }
+.pairHeading h4 { margin: 0; color: #e0edf1; font-size: 12px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.pairHeading h4 > span { color: #688b9b; font-size: 10px; font-weight: 400; }
+.pairHeading p { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px !important; color: #738e9d; font-size: 9px; }
+.chainBadge, .solanaBadge { max-width: 90px; padding: 3px 6px; border: 1px solid #415060; border-radius: 4px; color: #99b0c1; background: #263341; font-size: 7px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.solanaBadge { color: #b4a6e5; border-color: #5b4c79; background: #302c46; }
+.pairPrice { display: flex; align-items: baseline; justify-content: space-between; gap: 9px; margin-top: 14px; }
+.pairPrice strong { color: #e0efed; font-size: 18px; font-weight: 400; letter-spacing: -.045em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pairPrice > span { min-width: 0; color: #6f919e; font-size: 7px; text-align: right; overflow-wrap: anywhere; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 13px 0 0; padding-top: 11px; border-top: 1px solid #29414b; }
+.metrics > div { min-width: 0; }
+.metrics dt { color: #658896; font-size: 8px; }
+.metrics dd { margin: 4px 0 0; color: #a8c0c8; font-size: 11px; font-variant-numeric: tabular-nums; }
+.pairFooter { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 13px; padding-top: 10px; border-top: 1px solid #263d48; }
+.pairFooter > span { color: #5f8393; font-size: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.pairFooter a { color: #b1d799 !important; text-decoration: none; font-size: 8px; }
+.pairFooter a:hover { color: #d6f6ae !important; }
+.pairFooter a > span { margin-left: 6px; }
+.note { margin-top: 13px !important; color: #5e7f8f; font-size: 8px; line-height: 1.8; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 650px) { .heading h3 { font-size: 14px; } .description, .searchLabel { font-size: 11px; } .searchRow input { font-size: 12px; padding: 12px; } .filterRow { gap: 9px; } .filterRow label, .filterRow select, .filterRow button { font-size: 10px; } .filterRow select { max-width: 145px; } .sourceBadge { font-size: 8px; } .pairCard { padding: 15px; } .pairHeading h4 { font-size: 13px; } .pairHeading p { font-size: 10px; } .pairPrice strong { font-size: 21px; } .pairPrice > span, .receipt { font-size: 9px; } .metrics dt, .pairFooter a, .pairFooter > span, .note { font-size: 9px; } .metrics dd { font-size: 12px; } .empty, .loading, .noMatches { font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
