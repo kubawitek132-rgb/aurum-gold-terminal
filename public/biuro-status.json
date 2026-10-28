@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T02:16:04Z",
+  "updatedAt": "2026-10-28T04:20:00Z",
   "update": "CI: publiczne GitHub API (job build na main), bez klucza. Gdy API milczy, zostaje snapshot. Risk i paper: edytuj public/biuro-status.json w tym repo i wgraj na main — bez syncu prywatnego coin-bot i bez sekretów.",
   "risk": {
     "testsGreen": 27,
@@ -7,7 +7,8 @@
     "dailyDrawdownPct": "2%",
     "killSwitch": true,
     "paper": "Pauza",
-    "paperDetail": "Pauza przed execute",
+    "paperDetail": "Paper MVP na Origin (165b3b1) · pauza przed execute · gate: tylko accept()",
+    "origin": { "ref": "main", "commit": "165b3b1", "note": "Paper MVP jest na Origin main. Execute dalej wstrzymane: bramka paper przyjmuje tylko accept()." },
     "summary": "5000 USD · 2% DD · kill-switch"
   },
   "aurumCiFallback": {
