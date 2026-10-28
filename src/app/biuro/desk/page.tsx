@@ -6,9 +6,9 @@ import { BiuroFrame } from "../frame";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "BiuroHQ — raport firmy",
+  title: "BiuroHQ — historyczny raport paper",
   description:
-    "Biuro AI — firma tradingowa Kuby. Pilnuje AURUM i Coin Bota, kolejkuje pomysły, składa deski. Paper-first, bez giełdy live.",
+    "Historyczny snapshot projektu Cursor/Origin Coin Bot BTC/ETH w trybie paper. Odrębny od instancji Coin Bota Solana DEX/Jupiter.",
 };
 
 export const viewport: Viewport = {

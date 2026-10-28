@@ -34,7 +34,7 @@ const FLOORS = [
     id: "coin",
     level: "02",
     name: "Coin Bot",
-    role: "BTC · ETH · SOL · tokeny",
+    role: "Solana · DEX · Jupiter",
     color: "#69d5ec",
     icon: "₿",
   },
@@ -188,7 +188,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
           >
             Rynki
           </button>
-          <a href="/biuro/desk">Raport firmy ↗</a>
+          <a href="/biuro/desk">Raport paper ↗</a>
         </nav>
         <div className={styles.headerRight}>
           <span className={styles.clock}>
@@ -204,7 +204,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                 ?.scrollIntoView({ behavior: "smooth", block: "center" });
             }}
           >
-            <span className={styles.walletDiamond}>◇</span>Phantom
+            <span className={styles.walletDiamond}>◇</span>Portfel bota
             <span>↗</span>
           </button>
           <div className={styles.avatar} title="Biuro Kuby">
@@ -436,7 +436,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                         <strong>{item.name}</strong>
                         <small>
                           {item.id === "coin"
-                            ? "Krypto, Solana i tokeny"
+                            ? "Solana DEX · dane rynku"
                             : item.id === "aurum"
                               ? "Terminal makro i geopolityka"
                               : `${snapshot.ideas.length} karty pomysłów w raporcie`}
@@ -449,9 +449,9 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                 <div className={styles.snapshotNote}>
                   <span>◷</span>
                   <p>
-                    Raport operacyjny to zapis z{" "}
-                    <strong>{localDate(snapshot.updatedAt)}</strong>. Wyniki
-                    paper nie są aktualnym saldem giełdy.
+                    Raport paper Cursor/Origin to zapis z{" "}
+                    <strong>{localDate(snapshot.updatedAt)}</strong>. To oddzielny
+                    projekt BTC/ETH; nie przedstawia salda bota Solana.
                   </p>
                 </div>
               </>
@@ -459,8 +459,8 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
             {selected === "coin" && (
               <>
                 <p className={styles.detailIntro}>
-                  Bitcoin, Ethereum, Solana i coiny. Giełdy spot i pary on-chain
-                  w jednym miejscu.
+                  Coin Bot korzysta z Solany, DEX-ów i Jupiter. Poniżej niezależne
+                  notowania rynku spot i par on-chain w jednym miejscu.
                 </p>
                 <div className={styles.cardTitle}>
                   <h3>Rynek spot · USD</h3>
@@ -506,7 +506,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                   </div>
                   <div>
                     <span className={styles.muted}>◇</span>Portfel bota
-                    <strong>W istniejącej instancji</strong>
+                    <strong>Solana · serwer</strong>
                   </div>
                   <div>
                     <span className={styles.warningDot}>○</span>Odczyt instancji
@@ -514,8 +514,9 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                   </div>
                 </div>
                 <p className={styles.sourceNote}>
-                  Istniejący portfel i praca bota pozostają w jego instancji.
-                  Notowania na tej stronie są niezależnym odczytem rynku.
+                  Coinbase i Kraken dostarczają tu publiczne ceny. Nie łączą
+                  silnika bota z tymi giełdami. Jego ścieżka wykonawcza pozostaje
+                  na Solanie.
                 </p>
               </>
             )}

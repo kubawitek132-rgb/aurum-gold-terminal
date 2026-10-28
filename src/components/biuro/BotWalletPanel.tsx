@@ -1,10 +1,10 @@
 import styles from './OfficeHQ.module.css';
 
-/** Existing Coin Bot wallet context, without wallet requests or account access. */
+/** Documented Coin Bot wallet architecture, without live account access. */
 export function BotWalletPanel() {
-  return <section className={styles.walletPanel} id="wallet-panel" aria-label="Portfel bota Phantom">
-    <div className={styles.cardTitle}><h3>Phantom</h3><span className={styles.neutralPill}>Portfel bota</span></div>
-    <p className={styles.smallText}>Istniejące połączenie z Coin Botem jest zachowane.</p>
-    <p className={styles.walletNote}>HQ nie zmienia portfela ani jego uprawnień. Saldo i transakcje pozostają w terminalu bota.</p>
+  return <section className={styles.walletPanel} id="wallet-panel" aria-label="Portfel bota Solana">
+    <div className={styles.cardTitle}><h3>Portfel bota · Solana</h3><span className={styles.neutralPill}>Serwer</span></div>
+    <p className={styles.smallText}>Oddzielny portfel na serwerze. Phantom służył do zasilenia.</p>
+    <p className={styles.walletNote}>HQ nie podpisuje transakcji. Saldo i transakcje pozostają w terminalu bota.</p>
   </section>;
 }

@@ -239,9 +239,11 @@ Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, Wor
 
 ## Biuro (`/biuro`)
 
-Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Coin Bot ma istniejące połączenie z Phantom, potwierdzone przez właściciela. HQ nie łączy portfela ponownie ani nie zmienia jego uprawnień. Saldo i transakcje pozostają w terminalu bota; publiczny pulpit nie potwierdza bieżącego stanu prywatnego połączenia.
+Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Istniejący Coin Bot korzysta z Solany, DEX-ów/Jupiter i oddzielnego portfela podpisującego na serwerze. Phantom służył do zasilenia tego portfela. HQ nie podpisuje transakcji ani nie odczytuje prywatnych sald; saldo i transakcje pozostają w terminalu bota. Panel opisuje architekturę, bez potwierdzania bieżącej pracy silnika.
 
-Historyczny raport firmy pozostaje pod `/biuro/desk`. Jego snapshot jest w `public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`. Wynik paper w tym pliku nie jest bieżącym saldem portfela. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
+Coinbase/Kraken i wyszukiwarka DEX dostarczają HQ niezależne odczyty rynku. Nie oznaczają podłączenia tych giełd do silnika bota. Wrapped BTC/ETH na Solanie nie są potwierdzeniem egzekucji na natywnych sieciach Bitcoin/Ethereum.
+
+Historyczny raport firmy pozostaje pod `/biuro/desk`. Jego snapshot (`public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`) opisuje oddzielny projekt Cursor/Origin Coin Bot BTC/ETH w trybie paper. Wynik paper nie jest saldem istniejącego bota Solana. Zapisany token MetaMask CLI nie potwierdza uwierzytelnionej egzekucji. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
 
 Odświeżenie:
 

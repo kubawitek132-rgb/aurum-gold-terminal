@@ -5,7 +5,7 @@ import { OfficeHQ } from "@/components/biuro/OfficeHQ";
 export const metadata: Metadata = {
   title: "BiuroHQ — jeden budynek, wszystkie projekty",
   description:
-    "BiuroHQ, Coin Bot i AURUM na osobnych piętrach, z wykazem stanowisk i notowaniami BTC, ETH, SOL oraz coinów. Portfel Phantom Coin Bota zachowuje istniejące połączenie.",
+    "BiuroHQ, Coin Bot i AURUM na osobnych piętrach, z wykazem stanowisk i publicznymi notowaniami kryptowalut. Coin Bot: Solana DEX/Jupiter i oddzielny portfel na serwerze. HQ nie podpisuje transakcji.",
 };
 export const viewport: Viewport = {
   width: "device-width",
