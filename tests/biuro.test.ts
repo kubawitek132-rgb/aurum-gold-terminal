@@ -77,7 +77,30 @@ test('paper snapshot spina się z limitem i logiem filli', () => {
 });
 
 test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
-  assert.equal(status.firm.name, 'Biuro AI — Trading Firm');
+  assert.equal(status.firm.name, 'Biuro HQ');
+  assert.deepEqual(status.firm.children, ['aurum', 'coin-bot']);
+  const aurum = status.projects.find((p: { id: string }) => p.id === 'aurum');
+  const coin = status.projects.find((p: { id: string }) => p.id === 'coin-bot');
+  assert.equal(aurum.relation, 'child');
+  assert.equal(coin.relation, 'child');
+  assert.equal(aurum.parent, 'biuro-hq');
+  assert.equal(coin.parent, 'biuro-hq');
+  assert.equal(
+    aurum.links.find((l: { label: string }) => l.label === 'Terminal').href,
+    'https://xauinteligenceooffice.com',
+  );
+  assert.equal(aurum.links.some((l: { href: string }) => l.href === '/'), false);
+  assert.ok(aurum.links.some((l: { href: string }) => l.href === 'https://www.xauinteligenceooffice.com'));
+  assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://cursor.com/codebase/kuba-witek/coin-bot'));
+  assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://github.com/kubawitek132-rgb/coin-bot'));
+  assert.equal(coin.game.label, 'Gra/Live BTC·ETH');
+  assert.equal(coin.game.href, 'https://cursor.com/codebase/kuba-witek/coin-bot');
+  assert.match(coin.game.note, /MetaMask/);
+  assert.match(coin.game.note, /pod risk/);
+  assert.match(coin.game.note, /fallback|zanim portfel/);
+  assert.equal(coin.state, 'Live MetaMask');
+  assert.match(coin.summary, /MetaMask/);
+  assert.match(coin.summary, /fallback/);
   assert.equal(status.executives.length, EXECS.length);
   assert.deepEqual(status.executives.map((e: { name: string }) => e.name), EXECS);
   for (const e of status.executives) {
@@ -109,7 +132,8 @@ test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
     assert.ok(idea.thesis && idea.invalidation && idea.source && idea.next, idea.title);
   }
   const live = status.botFactory.stages.find((s: { id: string }) => s.id === 'live');
-  assert.equal(live.state, 'off');
+  assert.equal(live.state, 'ahead');
+  assert.match(live.note, /nie odłożone/);
   assert.ok(status.botFactory.bots.some((b: { name: string }) => b.name === 'Coin Bot'));
   assert.ok(status.botFactory.bots.some((b: { stage: string }) => b.stage === 'Szkielet'));
   assert.equal(status.pipeline.length, 8);
@@ -120,9 +144,23 @@ test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
 test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.equal(/tylko po (Twojej )?akceptacji/i.test(html), false);
   assert.equal(/Realne pieniądze/i.test(html), false);
-  assert.match(html, /bez <code>accept\(\)<\/code>/);
+  assert.match(html, /<code>accept\(\)<\/code>/);
   assert.match(html, /nie składa zleceń/);
   assert.match(html, /najcenniejsze słowo/i);
+  assert.match(html, /Biuro HQ — ojciec AURUM \+ Coin Bot/);
+  assert.match(html, /id="children"/);
+  assert.match(html, /Piony-dzieci/);
+  assert.match(html, /https:\/\/xauinteligenceooffice\.com/);
+  assert.match(html, /https:\/\/www\.xauinteligenceooffice\.com/);
+  assert.match(html, /https:\/\/cursor\.com\/codebase\/kuba-witek\/coin-bot/);
+  assert.match(html, /Gra\/Live BTC·ETH/);
+  assert.match(html, /Live MetaMask/);
+  assert.match(html, /fallbackiem, zanim portfel jest podłączony/);
+  assert.doesNotMatch(html, /nie giełda live/);
+  assert.doesNotMatch(html, /To nie jest giełda live/);
+  assert.match(html, /id="office"/);
+  assert.match(html, /function bootOffice/);
+  assert.equal(html.includes('href="/"'), false);
   assert.match(html, /id="portfolio"/);
   assert.match(html, /id="exec-grid"/);
   assert.match(html, /id="seat-grid"/);
@@ -132,8 +170,8 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.match(html, /id="firm-pipeline"/);
   assert.match(html, /Au Session/);
   assert.match(html, /FX News Alert/);
-  assert.match(html, /Live · wyłączone|Live<\/span>|stage off|wyłączone/);
-  const order = ['id="portfolio"', 'id="exec"', 'id="seats"', 'id="fills-body"', 'id="ideas"', 'id="firm-pipeline"'];
+  assert.match(html, /nie jest odłożone/);
+  const order = ['id="children"', 'id="portfolio"', 'id="exec"', 'id="seats"', 'id="fills-body"', 'id="ideas"', 'id="firm-pipeline"'];
   let at = -1;
   for (const token of order) {
     const next = html.indexOf(token);
@@ -151,11 +189,12 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
     /https:\/\/api\.github\.com\/repos\/kubawitek132-rgb\/aurum-gold-terminal\/actions\/workflows\/ci\.yml\/runs\?branch=main/,
   );
   assert.match(html, /jobs\[i\]\.name === 'build'/);
-  assert.equal(status.risk.paper, 'Autonomiczny paper');
+  assert.equal(status.risk.paper, 'Live MetaMask');
   assert.match(status.risk.paperDetail, /bez accept\(\)/);
 
   const page = fs.readFileSync(path.join(root, 'src/app/biuro/page.tsx'), 'utf8');
   assert.match(page, /biuro\.html/);
+  assert.match(page, /Biuro HQ — ojciec AURUM \+ Coin Bot/);
   const home = fs.readFileSync(path.join(root, 'src/app/page.tsx'), 'utf8');
   assert.equal(home.includes('biuro'), false);
   assert.equal(/api[_-]?key|secret|BEGIN PRIVATE/i.test(JSON.stringify(status)), false);

@@ -239,15 +239,17 @@ Dane: FRED (Federal Reserve Bank of St. Louis), GDELT Project, ForexFactory, Wor
 
 ## Biuro (`/biuro`)
 
-Przestrzenna centrala BiuroHQ, Coin Bota i AURUM, z wykazem stanowisk i publicznymi danymi rynku. Istniejący Coin Bot korzysta z Solany, DEX-ów/Jupiter i oddzielnego portfela podpisującego na serwerze. Phantom służył do zasilenia tego portfela. HQ nie podpisuje transakcji ani nie odczytuje prywatnych sald; saldo i transakcje pozostają w terminalu bota. Panel opisuje architekturę, bez potwierdzania bieżącej pracy silnika.
+Przestrzenna centrala BiuroHQ. Biuro (`biurohq.com`) jest ojcem dwóch pionów, nie trzecim deskiem. AURUM — dziecko złota — żyje na [xauinteligenceooffice.com](https://xauinteligenceooffice.com) i nie składa zleceń.
+
+Coin Bot (BTC/ETH) jest na **live przez MetaMask**: realne kupno i sprzedaż. Risk: 5000 USD, 2% daily drawdown, kill-switch. Paper zostaje tylko jako fallback / tryb domyślny, zanim MetaMask jest podłączony — nie jest głównym statusem desku. Wejście: [Origin](https://cursor.com/codebase/kuba-witek/coin-bot) i [GitHub](https://github.com/kubawitek132-rgb/coin-bot). W repo nie ma kluczy.
 
 Coinbase/Kraken i wyszukiwarka DEX dostarczają HQ niezależne odczyty rynku. Nie oznaczają podłączenia tych giełd do silnika bota. Wrapped BTC/ETH na Solanie nie są potwierdzeniem egzekucji na natywnych sieciach Bitcoin/Ethereum.
 
-Historyczny raport firmy pozostaje pod `/biuro/desk`. Jego snapshot (`public/biuro-status.json`: `firm`, `projects`, `executives`, `departments`, `observers`, `ideas`, `botFactory`, `paperBlotter`, `metrics`, `risk`) opisuje oddzielny projekt Cursor/Origin Coin Bot BTC/ETH w trybie paper. Wynik paper nie jest saldem istniejącego bota Solana. Zapisany token MetaMask CLI nie potwierdza uwierzytelnionej egzekucji. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
+Raport sali zostaje pod `/biuro/desk`. Snapshot (`public/biuro-status.json`) opisuje Coin Bota BTC/ETH: status główny to live MetaMask, a `paperBlotter` jest ostatnim logiem fallbacku, zanim portfel jest podłączony. CI AURUM idzie osobno, z publicznego GitHub API (job `build` na `main`).
 
 Odświeżenie:
 
 1. Uzupełnij snapshot. `paperBlotter.pnlUsd` ma równać się sumie `pnlUsd` filli, `exposureUsd` sumie nominałów z `open: true`. Metryki w `metrics` trzymaj zgodne z blotterem.
 2. Nowy pomysł: obiekt w `ideas[]` z `title`, `status` (`kolejka` | `research` | `odrzucone`), `thesis`, `invalidation`, `source`, `next`. Bez tezy i invalidation karta nie wchodzi.
 3. Wgraj commit na `main`. Raport robi `fetch /biuro-status.json`. Gdy plik nie dojdzie, zostaje treść w `public/biuro.html`.
-4. Bez kluczy, bez syncu prywatnego coin-bot, bez zleceń live.
+4. Bez kluczy i bez syncu prywatnego coin-bot. Live Coin Bota idzie przez MetaMask, pod limitami risk.

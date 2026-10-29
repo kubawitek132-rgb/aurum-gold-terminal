@@ -2,27 +2,31 @@
   "schemaVersion": 3,
   "updatedAt": "2026-10-28T06:40:00Z",
   "firm": {
-    "name": "Biuro AI — Trading Firm",
-    "office": "Biuro AI Kuby",
+    "name": "Biuro HQ",
+    "title": "Biuro HQ — ojciec AURUM + Coin Bot",
+    "office": "biurohq.com",
+    "role": "ojciec",
+    "host": "https://biurohq.com",
+    "children": ["aurum", "coin-bot"],
     "mission": [
-      "Pilnuje istniejących pionów: AURUM (terminal makro) i Coin Bot (autonomiczny paper).",
-      "Myśli i kolejkuje nowe pomysły — z tezą, źródłem i warunkiem unieważnienia.",
-      "Fabryka botów składa kolejne deski, co najwyżej do autonomicznego paperu.",
-      "Tam, gdzie paper już chodzi sam (Coin Bot), nie wkłada bramki accept()."
+      "Biuro HQ jest ojcem dwóch pionów-dzieci. Nie jest trzecim deskiem obok nich.",
+      "AURUM to dziecko złota. Terminal żyje na xauinteligenceooffice.com. Biuro tylko pilnuje.",
+      "Coin Bot to dziecko crypto. Paper → live w trakcie: realne BTC/ETH pod risk i kill-switch, decyzja Kuby.",
+      "Fabryka składa deski przez paper. Live nie jest odłożone — otwiera się tylko z limitami risk."
     ]
   },
-  "update": "Odświeżenie: edytuj public/biuro-status.json (firm, projects, executives, departments, observers, ideas, botFactory, paperBlotter, metrics, risk) i wgraj na main. Nowy pomysł: obiekt w ideas[] z title, status (kolejka | research | odrzucone), thesis, invalidation, source, next. Bez tezy i invalidation Scout nie przyjmuje karty. Pulpit robi fetch /biuro-status.json i podmienia firmę; gdy plik nie dojdzie, zostaje snapshot w public/biuro.html. CI AURUM: publiczne GitHub API, job build na main, bez klucza. Bez syncu prywatnego coin-bot, bez sekretów, bez giełdy live.",
+  "update": "Odświeżenie: edytuj public/biuro-status.json (firm, projects, executives, departments, observers, ideas, botFactory, paperBlotter, metrics, risk) i wgraj na main. Nowy pomysł: obiekt w ideas[] z title, status (kolejka | research | odrzucone), thesis, invalidation, source, next. Bez tezy i invalidation Scout nie przyjmuje karty. Pulpit robi fetch /biuro-status.json i podmienia firmę; gdy plik nie dojdzie, zostaje snapshot w public/biuro.html. CI AURUM: publiczne GitHub API, job build na main, bez klucza. Bez syncu prywatnego coin-bot i bez sekretów. Live Coin Bota tylko pod risk i kill-switch.",
   "risk": {
     "testsGreen": 27,
     "exposureCapUsd": 5000,
     "dailyDrawdownPct": "2%",
     "killSwitch": true,
-    "paper": "Autonomiczny paper",
-    "paperDetail": "Origin main 4f06d3d · pętla paper sama · execute bez accept() · kill-switch niezbity · nie live",
+    "paper": "Live MetaMask",
+    "paperDetail": "Origin main 4f06d3d · live MetaMask · BTC/ETH · bez accept() · kill-switch niezbity · 5000 USD · 2% DD",
     "origin": {
       "ref": "main",
       "commit": "4f06d3d",
-      "note": "Autonomiczny paper na Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Pętla paper działa sama — execute nie czeka na accept(). BTC/USDT i ETH/USDT, feed symulowany. Risk dalej bramkuje: 5000 USD, 2% daily DD, kill-switch. Brak giełdy live."
+      "note": "Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Live przez MetaMask: realne kupno i sprzedaż BTC/ETH. Risk: 5000 USD, 2% DD, kill-switch. Paper jest fallbackiem, zanim portfel jest podłączony."
     },
     "summary": "5000 USD · 2% DD · kill-switch niezbity"
   },
@@ -55,7 +59,7 @@
       "ETH/USDT"
     ],
     "notionalUsd": 500,
-    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "note": "Log fallbacku paper, zanim MetaMask jest podłączony. Nie jest głównym statusem desku. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału.",
     "killSwitch": "off",
     "killSwitchTripped": false,
     "exposureUsd": 1500,
@@ -204,7 +208,7 @@
       "ETH/USDT"
     ],
     "notionalUsd": 500,
-    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "note": "Log fallbacku paper, zanim MetaMask jest podłączony. Nie jest głównym statusem desku. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału.",
     "killSwitch": "off",
     "killSwitchTripped": false,
     "exposureUsd": 1500,
@@ -353,17 +357,23 @@
       "id": "aurum",
       "name": "AURUM",
       "lane": "au",
-      "kind": "Terminal makro · złoto",
+      "relation": "child",
+      "parent": "biuro-hq",
+      "kind": "Dziecko · złoto · terminal makro",
       "state": "Pilnowany",
       "stateKind": "ok",
       "attention": "ok",
       "attentionLabel": "Bez uwagi",
       "signal": "CI build · sukces · e812955 · snapshot, dopóki API nie poda Live",
-      "summary": "Publiczny terminal na xauinteligenceooffice.com. Nie składa zleceń. Obserwator czyta tylko job build na main. Zielone CI znaczy, że pion stoi; czerwone znaczy, że COO podnosi uwagę.",
+      "summary": "Złoty stack żyje na xauinteligenceooffice.com. Biuro HQ tylko pilnuje CI i nie składa zleceń. Adres / na biurohq to to biuro, nie terminal.",
       "links": [
         {
           "label": "Terminal",
           "href": "https://xauinteligenceooffice.com"
+        },
+        {
+          "label": "WWW",
+          "href": "https://www.xauinteligenceooffice.com"
         },
         {
           "label": "GitHub",
@@ -379,29 +389,38 @@
       "id": "coin-bot",
       "name": "Coin Bot",
       "lane": "cb",
-      "kind": "BTC/ETH · autonomiczny paper",
-      "state": "Autonomiczny paper",
+      "relation": "child",
+      "parent": "biuro-hq",
+      "kind": "Dziecko · BTC/ETH",
+      "state": "Live MetaMask",
       "stateKind": "ok",
       "attention": "ok",
-      "attentionLabel": "Bez uwagi",
-      "signal": "Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40",
-      "summary": "Origin main 4f06d3d. Pętla paper sama, bez accept(), feed symulowany. Ekspozycja 1 500 / 5 000, DD 0,41% przy limicie 2%, kill-switch niezbity. To nie jest giełda.",
+      "attentionLabel": "Pod risk",
+      "signal": "Live MetaMask · realne kupno i sprzedaż BTC/ETH",
+      "summary": "Dziecko crypto pod Biurem HQ. Live przez MetaMask: realne kupno i sprzedaż BTC/ETH. Risk: 5000 USD, 2% DD, kill-switch. Paper jest tylko fallbackiem, zanim portfel jest podłączony — nie jest głównym statusem desku.",
       "links": [
+        {
+          "label": "Origin",
+          "href": "https://cursor.com/codebase/kuba-witek/coin-bot"
+        },
         {
           "label": "GitHub",
           "href": "https://github.com/kubawitek132-rgb/coin-bot"
-        },
-        {
-          "label": "Agent",
-          "href": "https://cursor.com/agents/bc-ab298bc4-796b-5c7b-b0b5-28e643be02c5"
         }
-      ]
+      ],
+      "game": {
+        "label": "Gra/Live BTC·ETH",
+        "href": "https://cursor.com/codebase/kuba-witek/coin-bot",
+        "note": "Live MetaMask. Realne kupno i sprzedaż BTC/ETH, pod risk i kill-switch. Paper tylko zanim portfel jest podłączony."
+      }
     },
     {
       "id": "incubation",
       "name": "Inkubacja",
       "lane": "incub",
-      "kind": "Następne deski",
+      "relation": "internal",
+      "parent": "biuro-hq",
+      "kind": "Wewnątrz HQ · nie pion-dziecko",
       "state": "1 szkielet",
       "stateKind": "acc",
       "attention": "watch",
@@ -443,8 +462,8 @@
       "role": "orkiestracja · go / no-go",
       "status": "Na warcie",
       "statusKind": "ok",
-      "does": "Ustawia kolejność firmy i mówi nie. Priorytety na ten tydzień: pilnować CI AURUM, trzymać Coin Bota w paperze, nie otwierać drugiego szkieletu. Najcenniejsze słowo wobec nowego pomysłu: nie.",
-      "decision": "Coin Bot zostaje autonomicznym paperem na main 4f06d3d. Execute bez accept() jest zgodą na paper, nie na giełdę. Live z tego fotela nie wychodzi.",
+      "does": "Ustawia kolejność firmy i mówi nie nowym pomysłom. Priorytety: pilnować CI AURUM, przeprowadzić Coin Bota z paperu na live pod risk, nie otwierać drugiego szkieletu. Najcenniejsze słowo wobec nowego pomysłu: nie.",
+      "decision": "Kuba wybrał live Coin Bota przez MetaMask: realne kupno i sprzedaż BTC/ETH. Pętla nie czeka na accept(). Risk: 5000 USD, 2% DD, kill-switch. Paper jest tylko fallbackiem, zanim portfel jest podłączony.",
       "waiting": "Na Kubę nie czeka awaria. Czeka ewentualne słowo przy Au Session, gdy karta bull/bear będzie domknięta. Do tego czasu firma nie stoi.",
       "next": "Nie promować Au Session do Sim Lab, dopóki karta nie ma invalidation zapisanej przed testem.",
       "blocks": "Nic nie blokuje biegu paperu ani terminala."
@@ -455,8 +474,8 @@
       "role": "veto · 5000 / 2% / kill-switch",
       "status": "Veto uzbrojone",
       "statusKind": "ok",
-      "does": "Ma prawo zatrzymać deskę. Cap ekspozycji 5000 USD, dzienny drawdown 2%, kill-switch w kodzie. Dziś: ekspozycja 1 500, DD 0,41% (max w snapshocie 0,86%), kill-switch niezbity, 27 testów Risk zielonych. Veto stoi na live, na nominale powyżej 500 USD w tym paperze i na przebiciu limitu.",
-      "decision": "Veto nie jest użyte. Paper może lecieć.",
+      "does": "Ma prawo zatrzymać deskę. Cap ekspozycji 5000 USD, dzienny drawdown 2%, kill-switch w kodzie. Dziś w snapshocie: ekspozycja 1 500, DD 0,41% (max 0,86%), kill-switch niezbity, 27 testów Risk zielonych. Live Coin Bota idzie pod tymi limitami. Veto jest na przebicie capu, 2% DD i na zbity kill-switch — nie na sam fakt live.",
+      "decision": "Veto nie jest użyte. Live MetaMask może iść, póki limity trzymają.",
       "waiting": "Na nic. Eskalacja do Kuby dopiero po zbiciu kill-switcha.",
       "next": "Zostawić limity. Nie poluzować capu pod inkubację.",
       "blocks": "Nic dziś. Próg jest w kodzie, nie w rozmowie."
@@ -476,14 +495,14 @@
     {
       "id": "cio",
       "name": "CIO / Alokacja",
-      "role": "kapitał uwagi · nie live $",
+      "role": "kapitał uwagi · pozycje po stronie bota",
       "status": "40 / 40 / 20",
       "statusKind": "ok",
-      "does": "Dzieli uwagę, nie środki. AURUM 40% — to produkt publiczny. Coin Bot 40% — paper, który już chodzi sam. Inkubacja 20% — jeden szkielet. Dolary live: zero. Drugi bot w budowie zjadłby uwagę terminala.",
+      "does": "Dzieli uwagę na tym pulpicie, nie księguje środków z pliku. AURUM 40% — terminal publiczny. Coin Bot 40% — live MetaMask, realne BTC/ETH pod risk. Inkubacja 20% — jeden szkielet. Drugi bot w budowie zjadłby uwagę terminala.",
       "decision": "Slot budowy jest jeden. FX News i ETH/BTC relative nie dostają czasu Fabryki.",
       "waiting": "Na nic finansowego. Kuba nie alokuje tu kapitału.",
       "next": "Przesunąć uwagę na Sim Lab dopiero po „tak” CEO dla Au Session. Inaczej 20% zostaje przy karcie, nie przy kodzie.",
-      "blocks": "Live $ jest zerem i nie ma z czego poluzować."
+      "blocks": "Z tego pliku nie poluzowuje się capu 5000 USD."
     },
     {
       "id": "research-director",
@@ -491,22 +510,22 @@
       "role": "promocja research → paper",
       "status": "Jedna karta",
       "statusKind": "warn",
-      "does": "Decyduje, co wolno przenieść z researchu do paperu. Ścieżka promocji: research, potem paper MVP, potem autonomiczny paper. Brama shadow/live jest zamknięta z tego fotela — nawet dobre paper nie awansuje samo na giełdę. Aktywna karta: sesja azjatycka XAU.",
-      "decision": "Au Session zostaje w researchu. Coin Bot już jest za bramą paperu i nie wraca do labu.",
+      "does": "Decyduje, co wolno przenieść z researchu dalej. Ścieżka: research, paper MVP, autonomiczny paper, live pod risk. Live Coin Bota jest decyzją Kuby i nie jest odłożone. Nowa karta nie awansuje na giełdę sama. Aktywna karta: sesja azjatycka XAU.",
+      "decision": "Au Session zostaje w researchu. Coin Bot jest na live MetaMask i nie wraca do labu.",
       "waiting": "Na domknięcie byka i niedźwiedzia. Potem CEO, nie dyrektor, mówi tak albo nie.",
-      "next": "Nie otwierać paper MVP bez karty. Nie obiecywać live w nagłówku karty.",
+      "next": "Nie otwierać paper MVP bez karty. Live nowej deski tylko po decyzji Kuby i pod risk.",
       "blocks": "Karta Au Session otwarta, nie domknięta."
     },
     {
       "id": "policy",
       "name": "Policy / Compliance",
-      "role": "paper-first · lekki audit",
+      "role": "live pod risk · kill-switch",
       "status": "Reguły stoją",
       "statusKind": "ok",
-      "does": "Trzyma reguły firmy, nie opinię. Paper-first. Coin Bot nie ma accept(), bo to paper, nie dlatego że live jest dozwolony. Live tylko decyzją Kuby poza tym pulpitem. Audit trail to git biuro-status.json. Sekretów w repo nie ma i nie będzie.",
-      "decision": "Live perp odrzucony. Zostaje w archiwum Scouta, nie w Fabryce.",
-      "waiting": "Na Kubę wyłącznie przy realnych środkach — i nie na tej stronie.",
-      "next": "Przy każdej nowej karcie sprawdzić, czy ktoś nie wsunął klucza albo „tylko tymczasowego” live.",
+      "does": "Live nie jest odłożone. Włącza je decyzja Kuby i tylko z limitami: 5000 USD, 2% daily drawdown, kill-switch. Coin Bot idzie tą ścieżką na BTC/ETH. Nowa deska nie otwiera giełdy sama. Audit trail to git biuro-status.json. Sekretów w repo nie ma.",
+      "decision": "Kuba włącza live Coin Bota pod risk. Pomysł „live perp” bez skorupy risk zostaje w archiwum — to nie jest ta sama decyzja.",
+      "waiting": "Na kod live na main. Decyzja już zapadła, nie czeka na odłożenie.",
+      "next": "Gdy kod live wejdzie, status dziecka zmienić na Live trading w toku (pod risk). Sprawdzać, czy w repo nie ma klucza.",
       "blocks": "Nic, dopóki reguły są na pulpicie, a nie w domyśle."
     }
   ],
@@ -519,7 +538,7 @@
       "statusKind": "ok",
       "does": "Czyta tło, które AURUM już liczy: realne rentowności, dolar, banki, GPR, chokepointy. Zostawia werdykt w terminalu. Ten fotel nie ma ścieżki do zlecenia — makro tu jest kontekstem, nie orderem.",
       "input": "FRED, GDELT, kalendarz CME, rezerwy",
-      "output": "Reżim tła na /. Zero orderów.",
+      "output": "Reżim tła na xauinteligenceooffice.com. Zero orderów.",
       "next": "Zostać przy terminalu. Do Au Session oddać tylko filtr sesji, gdy research o niego poprosi — nie wcześniej.",
       "blocks": "Nic."
     },
@@ -555,7 +574,7 @@
       "statusKind": "ok",
       "does": "Trzyma, gdzie jesteśmy, nie kiedy strzelać. Dla złota mapą jest terminal AURUM. Dla crypto mapą jest numer baru w paperze: ostatni wpis to bar 42 o 06:20 UTC. Tick giełdy nie wchodzi na tę mapę.",
       "input": "Snapshot barów paperu i tło AURUM",
-      "output": "Położenie: bar 42, feed symulowany, nie live.",
+      "output": "Położenie: bar 42, snapshot feedu.",
       "next": "Zostawić mapę na snapshocie. Odświeżenie = nowy asOf w pliku, nie websocket.",
       "blocks": "Brak klucza rynkowego — i tak zostaje."
     },
@@ -610,25 +629,25 @@
     {
       "id": "pm",
       "name": "Portfolio / PM",
-      "role": "księga uwagi · nie dolary live",
+      "role": "księga uwagi",
       "status": "Uwaga rozdzielona",
       "statusKind": "ok",
-      "does": "Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40%, inkubacja 20%. Dolary live są zerem. PM patrzy, czy któryś pion nie głoduje: terminal ma CI, paper ma blotter z tego ranka, inkubacja ma jeden szkielet i nic więcej.",
+      "does": "Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40% (live MetaMask), inkubacja 20%. Pozycje BTC/ETH idą przez MetaMask, pod risk. Paper w snapshocie to fallback, nie główny status. PM patrzy, czy któryś pion nie głoduje.",
       "input": "Stan pionów i werdykt CIO",
       "output": "Kto dostaje czas w tym tygodniu. Nie alokacja środków.",
       "next": "Nie oddawać inkubacji drugiego slotu. Au Session albo schodzi z karty, albo wraca do kolejki.",
-      "blocks": "Nic finansowego. Live $ = 0."
+      "blocks": "Z tego pliku nie rusza się capu 5000 USD."
     },
     {
       "id": "ship",
       "name": "Execution / Ship Paper",
-      "role": "egzekucja paper · bez accept()",
-      "status": "Autonomiczny paper",
-      "statusKind": "ok",
-      "does": "Pętla Coin Bota na Origin main 4f06d3d. Execute nie czeka na accept() — to paper, nie giełda. Ostatni fill: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, otwarte, marked +12,40. Log decyzji tego snapshotu: 6 filli i 4 braki sygnału.",
+      "role": "egzekucja · live MetaMask · bez accept()",
+      "status": "Live MetaMask",
+      "statusKind": "warn",
+      "does": "Pętla Coin Bota na Origin main 4f06d3d. Execute nie czeka na accept(). Kuba włącza live BTC/ETH pod risk. Ostatni fill w tym snapshocie jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, otwarte, marked +12,40. Log: 6 filli i 4 braki sygnału.",
       "input": "Reguła quant + limit CRO",
-      "output": "Fill albo no_signal w blotterze. Nigdy zlecenie na giełdę.",
-      "next": "Utrzymać pętlę w paperze. Live nie jest następnym krokiem tego fotela.",
+      "output": "Fill albo no_signal w blotterze. Live BTC/ETH wejdzie tą samą pętlą, gdy kod będzie na main, tylko pod risk.",
+      "next": "Trzymać live pod risk. Paper tylko gdy MetaMask nie jest podłączony.",
       "blocks": "Kill-switch, gdyby DD albo cap padły. Teraz niezbity."
     },
     {
@@ -637,7 +656,7 @@
       "role": "ślad · git, nie czat",
       "status": "Ślad w gicie",
       "statusKind": "ok",
-      "does": "Dziennik firmy to historia tego pliku i pulpit, który go czyta. Każdy snapshot ma asOf. W repo nie ma kluczy, nie ma syncu prywatnego coin-bot i nie ma orderów live. Za miesiąc da się powiedzieć, co paper pokazywał 28.10 o 06:40 UTC.",
+      "does": "Dziennik firmy to historia tego pliku i pulpit, który go czyta. Każdy snapshot ma asOf. W repo nie ma kluczy i nie ma syncu prywatnego coin-bot. Za miesiąc da się powiedzieć, że 28.10 o 06:40 UTC log był jeszcze paperem, a decyzja live już stała.",
       "input": "Blotter, CI, decyzje CEO, karty Scouta",
       "output": "Commit na main. To jest audit trail.",
       "next": "Przy każdej zmianie paperu ruszyć asOf i updatedAt. Nie dopisywać sekretów „na chwilę”.",
@@ -658,10 +677,10 @@
     {
       "id": "obs-coin",
       "name": "Obserwator Coin Bot",
-      "role": "Origin main · paper, nie prywatne API",
-      "status": "Paper na main",
-      "statusKind": "ok",
-      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla paper chodzi sama, execute nie czeka na accept(). Ostatni fill w logu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, pozycja otwarta. PR-ów stąd nie widać — stan to „paper na main”, bez syncu.",
+      "role": "Origin main · live MetaMask",
+      "status": "Live MetaMask",
+      "statusKind": "warn",
+      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla chodzi sama, execute nie czeka na accept(). Ostatni fill w logu jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC. Decyzja Kuby: live BTC/ETH pod risk. Kod live stąd nie widać.",
       "input": "paperBlotter w biuro-status.json",
       "output": "Werdykt: pętla żyje, kill-switch niezbity, DD 0,41% przy limicie 2%, ekspozycja 1 500 / 5 000.",
       "next": "Krzyczeć dopiero przy zbitym kill-switchu, DD powyżej 1% albo snapshocie starszym niż tydzień. Dziś cicho.",
@@ -670,14 +689,14 @@
     {
       "id": "factory",
       "name": "Fabryka botów",
-      "role": "składanie desek · live wyłączone",
+      "role": "składanie desek · live pod risk",
       "status": "Składa",
       "statusKind": "acc",
-      "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka jest jedna: pomysł, szkielet, paper MVP, autonomiczny paper. Etap live jest narysowany i wyłączony — nie da się go tu włączyć.",
+      "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na live MetaMask.",
       "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
-      "output": "Slot w portfolio. Dziś jeden szkielet (Au Session) i dwa piony, które fabryka już nie buduje: AURUM jako terminal, Coin Bot jako paper.",
+      "output": "Slot w portfolio. Dziś jeden szkielet (Au Session). AURUM zostaje terminalem. Coin Bot idzie w live BTC/ETH pod risk.",
       "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
-      "blocks": "Niedomknięta karta bull/bear. Live wyłączone niezależnie od karty — decyzja Kuby, poza pulpitem."
+      "blocks": "Niedomknięta karta bull/bear dla Au Session. Live Coin Bota tej karty nie omija."
     },
     {
       "id": "idea-scout",
@@ -708,10 +727,10 @@
     "coinBot": {
       "id": "obs-coin",
       "name": "Obserwator Coin Bot",
-      "role": "Origin main · paper, nie prywatne API",
-      "status": "Paper na main",
-      "statusKind": "ok",
-      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla paper chodzi sama, execute nie czeka na accept(). Ostatni fill w logu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, pozycja otwarta. PR-ów stąd nie widać — stan to „paper na main”, bez syncu.",
+      "role": "Origin main · live MetaMask",
+      "status": "Live MetaMask",
+      "statusKind": "warn",
+      "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla chodzi sama, execute nie czeka na accept(). Ostatni fill w logu jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC. Decyzja Kuby: live BTC/ETH pod risk. Kod live stąd nie widać.",
       "input": "paperBlotter w biuro-status.json",
       "output": "Werdykt: pętla żyje, kill-switch niezbity, DD 0,41% przy limicie 2%, ekspozycja 1 500 / 5 000.",
       "next": "Krzyczeć dopiero przy zbitym kill-switchu, DD powyżej 1% albo snapshocie starszym niż tydzień. Dziś cicho.",
@@ -759,7 +778,7 @@
       "statusKind": "bad",
       "source": "Policy / Compliance",
       "thesis": "Nie ma tezy rynkowej. Był skrót do giełdy.",
-      "invalidation": "Firma nie włącza giełdy live z tego pulpitu. Brak kluczy. Decyzja o realnych środkach należy do Kuby i nie zapada tutaj.",
+      "invalidation": "Skrót do giełdy bez skorupy risk. Live Coin Bota idzie osobno, pod limitami i kill-switchem. Ten pomysł zostaje w archiwum.",
       "next": "Archiwum. Nie wchodzi do Fabryki i nie dostaje slota.",
       "feeds": "Nigdzie"
     }
@@ -768,11 +787,11 @@
     "name": "Fabryka botów",
     "status": "Składa",
     "statusKind": "acc",
-    "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka jest jedna: pomysł, szkielet, paper MVP, autonomiczny paper. Etap live jest narysowany i wyłączony — nie da się go tu włączyć.",
+    "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na live MetaMask.",
     "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
-    "output": "Slot w portfolio. Dziś jeden szkielet (Au Session) i dwa piony, które fabryka już nie buduje: AURUM jako terminal, Coin Bot jako paper.",
+    "output": "Slot w portfolio. Dziś jeden szkielet (Au Session). AURUM zostaje terminalem. Coin Bot idzie w live BTC/ETH pod risk.",
     "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
-    "blocks": "Niedomknięta karta bull/bear. Live wyłączone niezależnie od karty — decyzja Kuby, poza pulpitem.",
+    "blocks": "Niedomknięta karta bull/bear dla Au Session. Live Coin Bota tej karty nie omija.",
     "stages": [
       {
         "id": "idea",
@@ -797,8 +816,8 @@
       {
         "id": "live",
         "name": "Live",
-        "state": "off",
-        "note": "Wyłączone. Tylko decyzja Kuby poza tym pulpitem."
+        "state": "ahead",
+        "note": "Pod risk i kill-switch. Decyzja Kuby, nie odłożone."
       }
     ],
     "bots": [
@@ -808,15 +827,15 @@
         "stage": "Poza fabryką zleceń",
         "state": "Pilnowany",
         "kind": "ok",
-        "note": "Produkt na xauinteligenceooffice.com. Nie składa zleceń. Nie jest botem egzekucji."
+        "note": "Dziecko złota na xauinteligenceooffice.com. Biuro tylko pilnuje. Nie składa zleceń."
       },
       {
         "name": "Coin Bot",
-        "role": "BTC/ETH paper",
-        "stage": "Autonomiczny paper",
-        "state": "Na main 4f06d3d",
+        "role": "BTC/ETH",
+        "stage": "Live MetaMask",
+        "state": "Pod risk",
         "kind": "ok",
-        "note": "Pętla sama, bez accept(), feed symulowany. Nie live."
+        "note": "Realne kupno i sprzedaż przez MetaMask. Paper tylko zanim portfel jest podłączony."
       },
       {
         "name": "Au Session",
@@ -870,12 +889,12 @@
     {
       "step": "Paper",
       "owner": "Ship",
-      "note": "Autonomiczna pętla, bez accept(). Coin Bot już tu stoi."
+      "note": "Pętla bez accept(). Coin Bot: live MetaMask, pod risk. Paper tylko jako fallback."
     },
     {
       "step": "Ops",
       "owner": "COO",
-      "note": "CI, journal, drift. Live jest poza firmą — tylko decyzja Kuby."
+      "note": "CI, journal, drift. Live Coin Bota pod risk i kill-switch — decyzja Kuby, nie odłożone."
     }
   ]
 }

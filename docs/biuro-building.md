@@ -13,8 +13,8 @@ Inventory was read on 28 October 2026, 09:30 UTC:
 
 Role definitions do not certify running processes, available AI models, qualified strategies or trading permissions. Source names, counts and timestamps are in `src/lib/biuroStructure.ts`. No private infrastructure addresses, wallet balances, account addresses, transactions or credentials are published in this inventory.
 
-The complete source conversation distinguishes the existing Solana Coin Bot from the separate Cursor/Origin BTC/ETH paper project. The Solana bot uses DEXes/Jupiter and a separate signing wallet on its server. Phantom was the initial browser wallet and later funded that separate wallet; it is not the bot's current signing environment. Wrapped BTC/ETH quotes on Solana do not establish native Bitcoin or Ethereum execution.
+Coin Bot BTC/ETH on the Biuro desk is live through MetaMask: real buy and sell, under risk limits (5000 USD, 2% daily drawdown, kill-switch). Paper is only the fallback before that wallet is connected, not the desk's main status. A separate Solana DEX/Jupiter server path is architecture context, not the headline.
 
-HQ displays this architectural context only. It does not connect a wallet, inspect browser accounts, read private balances, or request signatures. Balances and transactions remain in the bot terminal. The public panel does not verify current execution or private wallet health. A saved MetaMask CLI credential in the separate project is not evidence of authenticated execution.
+The public desk states live MetaMask for BTC/ETH and can show a browser wallet preview. It does not store keys. Paper fills in the snapshot are the fallback log from before that connection, not the main desk status.
 
 The market endpoint and token explorer provide public data independently of either bot. Coinbase/Kraken price feeds do not connect the Solana bot to those exchanges. See `biuro-exchanges.md`. Authenticated bot telemetry and execution are not provided by this public UI.
