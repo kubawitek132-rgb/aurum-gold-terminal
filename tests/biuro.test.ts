@@ -93,6 +93,10 @@ test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
   assert.ok(aurum.links.some((l: { href: string }) => l.href === 'https://www.xauinteligenceooffice.com'));
   assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://cursor.com/codebase/kuba-witek/coin-bot'));
   assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://github.com/kubawitek132-rgb/coin-bot'));
+  assert.equal(coin.game.label, 'Gra BTC · ETH');
+  assert.equal(coin.game.href, 'https://cursor.com/codebase/kuba-witek/coin-bot');
+  assert.match(coin.game.note, /nie live/);
+  assert.match(coin.game.note, /[Pp]aper game/);
   assert.equal(status.executives.length, EXECS.length);
   assert.deepEqual(status.executives.map((e: { name: string }) => e.name), EXECS);
   for (const e of status.executives) {
@@ -138,12 +142,16 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.match(html, /bez <code>accept\(\)<\/code>/);
   assert.match(html, /nie składa zleceń/);
   assert.match(html, /najcenniejsze słowo/i);
-  assert.match(html, /Biuro HQ — AURUM \+ Coin Bot/);
+  assert.match(html, /Biuro HQ — ojciec AURUM \+ Coin Bot/);
   assert.match(html, /id="children"/);
   assert.match(html, /Piony-dzieci/);
   assert.match(html, /https:\/\/xauinteligenceooffice\.com/);
   assert.match(html, /https:\/\/www\.xauinteligenceooffice\.com/);
   assert.match(html, /https:\/\/cursor\.com\/codebase\/kuba-witek\/coin-bot/);
+  assert.match(html, /Gra BTC · ETH/);
+  assert.match(html, /Paper game · lokalny dashboard/);
+  assert.match(html, /id="office"/);
+  assert.match(html, /function bootOffice/);
   assert.equal(html.includes('href="/"'), false);
   assert.match(html, /id="portfolio"/);
   assert.match(html, /id="exec-grid"/);
@@ -178,7 +186,7 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
 
   const page = fs.readFileSync(path.join(root, 'src/app/biuro/page.tsx'), 'utf8');
   assert.match(page, /biuro\.html/);
-  assert.match(page, /Biuro HQ — AURUM \+ Coin Bot/);
+  assert.match(page, /Biuro HQ — ojciec AURUM \+ Coin Bot/);
   const home = fs.readFileSync(path.join(root, 'src/app/page.tsx'), 'utf8');
   assert.equal(home.includes('biuro'), false);
   assert.equal(/api[_-]?key|secret|BEGIN PRIVATE/i.test(JSON.stringify(status)), false);

@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090b0e">
-<title>Biuro HQ — AURUM + Coin Bot</title>
+<title>Biuro HQ — ojciec AURUM + Coin Bot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap">
 <style>
 :root{
   --bg:#090b0e;
@@ -30,7 +32,7 @@ body:has(.biuro){
   overflow-x:hidden;
   background:#090b0e !important;
   color:#f4f7fb !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif !important;
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace !important;
 }
 .biuro{
   min-height:100dvh;
@@ -39,7 +41,7 @@ body:has(.biuro){
     radial-gradient(880px 320px at 12% -10%, rgba(201,162,39,.11), transparent 60%),
     radial-gradient(720px 360px at 100% -8%, rgba(59,130,246,.09), transparent 58%),
     var(--bg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   line-height:1.4;
   -webkit-text-size-adjust:100%;
   text-rendering:optimizeLegibility;
@@ -662,6 +664,95 @@ body:has(.biuro){
 @media (max-width:759px){
   .block-title{flex-direction:column;align-items:flex-start;gap:.1rem}
 }
+
+.office{margin-top:.85rem}
+.stage-label{margin:0 0 .4rem;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AF37}
+.drawer{margin-top:.55rem;padding:.75rem .8rem .85rem;border:1px solid rgba(212,175,55,.4);border-radius:12px;background:#10141b;box-shadow:inset 3px 0 0 #D4AF37}
+.drawer[hidden]{display:none}
+.drawer-h{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
+.drawer h2{margin:0;font-size:1rem;letter-spacing:-.02em}
+.drawer-x{font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f4f7fb;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.28rem .5rem;cursor:pointer}
+.drawer-x:focus-visible{outline:2px solid #D4AF37;outline-offset:2px}
+.drawer .status-line{margin:.35rem 0;color:#D4AF37;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.drawer p{margin:.35rem 0;color:#c5d0de;font-size:.78rem;line-height:1.45}
+#drawer-links{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.55rem}
+.floor,.wall-back,.wall-left,.wall-right{display:none}
+.office.is-3d{position:relative}
+.office.is-3d .floor,.office.is-3d .wall-back,.office.is-3d .wall-left,.office.is-3d .wall-right{display:block}
+.office.is-3d .drawer{position:absolute;z-index:5;top:46px;right:12px;width:min(320px,34vw);max-height:min(640px,70vh);overflow:auto;margin:0}
+.office.is-3d .stage{position:relative;height:min(820px,88vh);min-height:560px;perspective:1700px;overflow:hidden;border-radius:14px;border:1px solid rgba(212,175,55,.32);background:radial-gradient(900px 280px at 50% 100%, rgba(212,175,55,.08), transparent 60%), #07090c}
+.office.is-3d .world{position:absolute;left:50%;top:46%;width:1080px;height:680px;margin-left:-540px;margin-top:-250px;transform-style:preserve-3d;transform:rotateX(50deg) rotateZ(-16deg)}
+.office.is-3d .floor{position:absolute;inset:0;background-color:#0b0f14;background-image:linear-gradient(rgba(212,175,55,.18) 1px, transparent 1px),linear-gradient(90deg, rgba(212,175,55,.18) 1px, transparent 1px);background-size:48px 48px;border:1px solid rgba(212,175,55,.28)}
+.office.is-3d .wall-back{position:absolute;left:0;right:0;top:0;height:220px;transform-origin:top center;transform:rotateX(-90deg);background:linear-gradient(180deg,#151b24,#0c1016);border-bottom:2px solid #D4AF37}
+.office.is-3d .wall-left,.office.is-3d .wall-right{position:absolute;top:0;bottom:0;width:160px;background:#10151c;border:1px solid rgba(255,255,255,.06)}
+.office.is-3d .wall-left{left:0;transform-origin:left center;transform:rotateY(90deg)}
+.office.is-3d .wall-right{right:0;transform-origin:right center;transform:rotateY(-90deg)}
+.office.is-3d .block-title,.office.is-3d #hq-tree{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.office.is-3d #children,.office.is-3d #portfolio,.office.is-3d #exec,.office.is-3d #seats{position:absolute;margin:0;transform-style:preserve-3d}
+.office.is-3d #children{left:70px;top:48px;width:940px;height:250px;z-index:4}
+.office.is-3d #portfolio{left:40px;top:250px;width:180px;height:120px;z-index:2}
+.office.is-3d #exec{left:230px;top:250px;width:770px;height:100px;z-index:2}
+.office.is-3d #seats{left:40px;top:390px;width:960px;height:280px;z-index:2}
+.office.is-3d .children,.office.is-3d .portfolio,.office.is-3d .exec-grid,.office.is-3d .seat-grid{display:block;position:static;margin:0}
+.office.is-3d .sleeve,.office.is-3d .exec,.office.is-3d .seat{position:absolute;margin:0;overflow:hidden;cursor:pointer;transform-style:preserve-3d;background:#12171f;box-shadow:0 14px 0 #07090c}
+.office.is-3d .sleeve:focus-visible,.office.is-3d .exec:focus-visible,.office.is-3d .seat:focus-visible{outline:2px solid #D4AF37;outline-offset:3px}
+.office.is-3d .is-hot{outline:2px solid #D4AF37}
+.office.is-3d #sleeve-aurum,.office.is-3d #sleeve-coin{width:400px;height:230px;top:0;border:10px solid #222833;border-bottom-width:22px;transform:rotateX(-50deg) translateZ(70px);box-shadow:0 22px 0 #05070a}
+a.game-cta{display:flex;flex-direction:column;gap:.12rem;margin:.4rem .65rem .15rem;padding:.42rem .55rem;text-decoration:none;color:#071018;background:#9ec0ff;border-radius:8px;font-weight:700;letter-spacing:.01em}
+a.game-cta small{font-weight:500;font-size:.66rem;line-height:1.3;color:#102033}
+a.game-cta:hover{background:#c5dcff}
+a.game-cta:focus-visible{outline:2px solid #D4AF37;outline-offset:2px}
+.office.is-3d #children a.game-cta{display:flex}
+.office.is-3d #sleeve-aurum{left:10px;border-color:#4a3f22;box-shadow:0 22px 0 #05070a,0 0 32px rgba(212,175,55,.22)}
+.office.is-3d #sleeve-coin{left:500px;border-color:#243246;box-shadow:0 22px 0 #05070a,0 0 32px rgba(126,176,255,.2)}
+.office.is-3d #sleeve-aurum h3{font-size:1.35rem;color:#D4AF37}
+.office.is-3d #sleeve-coin h3{font-size:1.35rem;color:#c5dcff}
+.office.is-3d #children .sleeve > p,.office.is-3d #children .slot{display:none}
+.office.is-3d #children .attn,.office.is-3d #children .metric,.office.is-3d #children .mini-row,.office.is-3d #children .signal{display:block}
+.office.is-3d #sleeve-coin .signal{display:none}
+.office.is-3d #children .metric{margin:.35rem .7rem}
+.office.is-3d #children .mini-row{padding:0 .7rem}
+.office.is-3d #portfolio-grid .sleeve{position:absolute;left:0;top:0;width:170px;height:96px;transform:translateZ(16px);border-color:rgba(255,217,138,.45)}
+.office.is-3d .exec,.office.is-3d .seat{width:118px;height:70px;transform:translateZ(14px);border-color:rgba(212,175,55,.35)}
+.office.is-3d .exec:hover,.office.is-3d .seat:hover,.office.is-3d #portfolio-grid .sleeve:hover{transform:translateZ(28px);border-color:#D4AF37}
+.office.is-3d #sleeve-aurum:hover,.office.is-3d #sleeve-coin:hover{transform:rotateX(-50deg) translateZ(96px)}
+.office.is-3d #exec-grid .exec:nth-child(1){left:0;top:0}
+.office.is-3d #exec-grid .exec:nth-child(2){left:128px;top:0}
+.office.is-3d #exec-grid .exec:nth-child(3){left:256px;top:0}
+.office.is-3d #exec-grid .exec:nth-child(4){left:384px;top:0}
+.office.is-3d #exec-grid .exec:nth-child(5){left:512px;top:0}
+.office.is-3d #exec-grid .exec:nth-child(6){left:640px;top:0}
+.office.is-3d #seat-grid .seat:nth-child(5n+1){left:0}
+.office.is-3d #seat-grid .seat:nth-child(5n+2){left:192px}
+.office.is-3d #seat-grid .seat:nth-child(5n+3){left:384px}
+.office.is-3d #seat-grid .seat:nth-child(5n+4){left:576px}
+.office.is-3d #seat-grid .seat:nth-child(5n+5){left:768px}
+.office.is-3d #seat-grid .seat:nth-child(-n+5){top:0}
+.office.is-3d #seat-grid .seat:nth-child(n+6):nth-child(-n+10){top:88px}
+.office.is-3d #seat-grid .seat:nth-child(n+11){top:176px}
+.office.is-3d #seat-factory,.office.is-3d #seat-idea-scout{width:150px}
+.office.is-3d #seat-factory{border-color:rgba(126,176,255,.55)}
+.office.is-3d #seat-idea-scout{border-color:#D4AF37}
+.office.is-3d .exec .seat-h,.office.is-3d .seat .seat-h,.office.is-3d #portfolio-grid .seat-h{display:block;padding:.4rem .4rem 0}
+.office.is-3d .exec h3,.office.is-3d .seat h3,.office.is-3d #portfolio-grid h3{font-size:10px;line-height:1.25;letter-spacing:0}
+.office.is-3d .exec .role,.office.is-3d .seat .role,.office.is-3d #portfolio-grid .role,.office.is-3d .exec > p,.office.is-3d .seat > p,.office.is-3d #portfolio-grid .sleeve > p,.office.is-3d #portfolio-grid .slot,.office.is-3d #portfolio-grid .mini-row{display:none}
+.office.is-3d .exec .pill,.office.is-3d .seat .pill,.office.is-3d #portfolio-grid .pill{position:absolute;top:6px;right:6px;width:8px;height:8px;min-height:0;padding:0;font-size:0;border-radius:50%}
+.office.is-3d .exec .pill::before,.office.is-3d .seat .pill::before,.office.is-3d #portfolio-grid .pill::before{display:none}
+@media (max-width:800px){
+  .office.is-3d{display:block}
+  .office.is-3d .stage{height:auto;min-height:0;perspective:900px;overflow:visible}
+  .office.is-3d .world{position:relative;left:auto;top:auto;width:auto;height:auto;margin:0;transform:rotateX(8deg)}
+  .office.is-3d .floor,.office.is-3d .wall-back,.office.is-3d .wall-left,.office.is-3d .wall-right{display:none}
+  .office.is-3d .drawer{position:static;width:auto;max-height:none;margin-top:.55rem}
+  .office.is-3d #children,.office.is-3d #portfolio,.office.is-3d #exec,.office.is-3d #seats{position:relative;left:auto;top:auto;width:auto;height:auto}
+  .office.is-3d .children,.office.is-3d .exec-grid,.office.is-3d .seat-grid{display:grid;gap:.45rem;grid-template-columns:1fr}
+  .office.is-3d .sleeve,.office.is-3d .exec,.office.is-3d .seat{position:relative;left:auto !important;top:auto !important;width:auto !important;height:auto;transform:none !important;overflow:visible;box-shadow:none}
+  .office.is-3d #children .sleeve > p,.office.is-3d .exec > p,.office.is-3d .seat > p,.office.is-3d .exec .role,.office.is-3d .seat .role,.office.is-3d #portfolio-grid .sleeve > p,.office.is-3d #portfolio-grid .slot,.office.is-3d #portfolio-grid .mini-row{display:block}
+  .office.is-3d .exec .pill,.office.is-3d .seat .pill,.office.is-3d #portfolio-grid .pill{position:static;width:auto;height:auto;min-height:1.5rem;padding:.18rem .55rem;font-size:.72rem;border-radius:999px}
+  .office.is-3d .exec .pill::before,.office.is-3d .seat .pill::before,.office.is-3d #portfolio-grid .pill::before{display:inline-block}
+  .office.is-3d .block-title,.office.is-3d #hq-tree{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+}
+
 </style>
 </head>
 <body>
@@ -702,6 +793,14 @@ body:has(.biuro){
     <a href="#firm-pipeline">Pipeline</a>
   </nav>
 
+  <div class="office" id="office">
+    <div class="stage">
+      <p class="stage-label">Sala biura · izometria</p>
+      <div class="world" id="world">
+        <div class="floor" aria-hidden="true"></div>
+        <div class="wall-back" aria-hidden="true"></div>
+        <div class="wall-left" aria-hidden="true"></div>
+        <div class="wall-right" aria-hidden="true"></div>
   <section class="block" id="children">
     <div class="block-title"><p class="kicker">Piony-dzieci</p><h2 class="block-h">Biuro HQ jest ojcem</h2></div>
     <div class="hq-tree" id="hq-tree">
@@ -722,6 +821,7 @@ body:has(.biuro){
   </article>
 <article class="sleeve sleeve-cb child" id="sleeve-coin">
     <header class="seat-h"><div><p class="kicker">Dziecko</p><h3>Coin Bot</h3><p class="role">Dziecko · crypto paper</p></div><span class="pill ok">Autonomiczny paper</span></header>
+    <a class="game-cta" href="https://cursor.com/codebase/kuba-witek/coin-bot"><span>Gra BTC · ETH</span><small>Paper game · lokalny dashboard. BTC i ETH, nie live.</small></a>
       <p class="attn ok">Bez uwagi</p>
       <p class="signal" id="cb-last-fill">Ostatni fill: BTC/USDT kupno 500 · bar 42 · marked +12,40</p>
       <p class="signal">P&amp;L marked <b class="pos" id="sleeve-pnl">+36,20</b></p>
@@ -935,6 +1035,19 @@ body:has(.biuro){
   </article>
     </div>
   </section>
+
+      </div>
+    </div>
+    <aside class="drawer" id="desk-drawer" hidden>
+      <div class="drawer-h">
+        <h2 id="drawer-title">Wybierz fotel</h2>
+        <button type="button" class="drawer-x" id="drawer-close">Zamknij</button>
+      </div>
+      <p class="status-line" id="drawer-status">Status, następny krok i blokada z biuro-status.json</p>
+      <div id="drawer-body"></div>
+      <div id="drawer-links"></div>
+    </aside>
+  </div>
 
   <section class="block" id="paper-desk">
     <div class="block-title"><p class="kicker">03 · Coin Bot</p><h2 class="block-h">Paper · blotter i skuteczność</h2></div>
@@ -1311,6 +1424,7 @@ body:has(.biuro){
     if (p.id === 'coin-bot') status.id = 'ship-sleeve-pill';
     head.appendChild(status);
     art.appendChild(head);
+    if (p.game && p.game.href) art.appendChild(gameLink(p.game));
     var attnKind = p.attention === 'alert' ? 'alert' : (p.attention === 'watch' ? 'watch' : 'ok');
     var attn = el('p', 'attn ' + attnKind, p.attentionLabel || '');
     if (p.id === 'aurum') attn.id = 'aurum-attn';
@@ -1355,6 +1469,21 @@ body:has(.biuro){
     }
     if (p.links && p.links.length) art.appendChild(linkRow(p.links, p.relation === 'child'));
     return art;
+  }
+
+  function gameLink(game) {
+    var a = document.createElement('a');
+    a.className = 'game-cta';
+    a.href = safeHref(game.href);
+    var label = document.createElement('span');
+    label.textContent = game.label || 'Gra BTC · ETH';
+    a.appendChild(label);
+    if (game.note) {
+      var note = document.createElement('small');
+      note.textContent = game.note;
+      a.appendChild(note);
+    }
+    return a;
   }
 
   function renderExec(list) {
@@ -1538,6 +1667,7 @@ body:has(.biuro){
     try { renderIdeas(data.ideas); } catch (e5) {}
     try { renderFactory(data.botFactory); } catch (e6) {}
     try { renderPipeline(data.pipeline); } catch (e7) {}
+    try { bootOffice(); } catch (e8) {}
   }
 
   function setMeter(id, value, limit) {
@@ -1875,7 +2005,93 @@ body:has(.biuro){
     });
   }
 
+
+  function bootOffice() {
+    var office = byId('office');
+    if (!office) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    office.classList.add('is-3d');
+    var lite = window.matchMedia('(max-width: 800px)').matches;
+    if (lite) office.classList.add('is-lite');
+    var units = office.querySelectorAll('.sleeve, .exec, .seat');
+    for (var i = 0; i < units.length; i++) {
+      if (!units[i].hasAttribute('tabindex')) units[i].setAttribute('tabindex', '0');
+    }
+    if (office.getAttribute('data-booted') === '1') return;
+    office.setAttribute('data-booted', '1');
+    var world = byId('world');
+    if (world && !lite) {
+      office.addEventListener('pointermove', function (ev) {
+        var stage = office.querySelector('.stage');
+        if (!stage) return;
+        var r = stage.getBoundingClientRect();
+        var px = (ev.clientX - r.left) / Math.max(1, r.width) - 0.5;
+        var py = (ev.clientY - r.top) / Math.max(1, r.height) - 0.5;
+        world.style.transform = 'rotateX(' + (50 - py * 5).toFixed(2) + 'deg) rotateZ(' + (-16 + px * 6).toFixed(2) + 'deg)';
+      });
+    }
+    function clearHot() {
+      var hot = office.querySelectorAll('.is-hot');
+      for (var h = 0; h < hot.length; h++) hot[h].classList.remove('is-hot');
+    }
+    function openDrawer(unit) {
+      var drawer = byId('desk-drawer');
+      if (!drawer || !unit) return;
+      clearHot();
+      unit.classList.add('is-hot');
+      drawer.hidden = false;
+      var heading = unit.querySelector('h3');
+      if (byId('drawer-title')) byId('drawer-title').textContent = heading ? heading.textContent : 'Fotel';
+      var pillEl = unit.querySelector('.pill');
+      if (byId('drawer-status')) byId('drawer-status').textContent = pillEl ? pillEl.textContent : '';
+      var body = byId('drawer-body');
+      if (body) {
+        body.textContent = '';
+        var ps = unit.querySelectorAll('p');
+        for (var p = 0; p < ps.length; p++) {
+          var line = document.createElement('p');
+          line.textContent = ps[p].textContent;
+          body.appendChild(line);
+        }
+      }
+      var box = byId('drawer-links');
+      if (box) {
+        box.textContent = '';
+        var as = unit.querySelectorAll('a');
+        for (var a = 0; a < as.length; a++) {
+          var link = document.createElement('a');
+          link.className = 'mini go';
+          link.href = as[a].getAttribute('href') || '#';
+          link.textContent = as[a].textContent;
+          box.appendChild(link);
+        }
+      }
+    }
+    office.addEventListener('click', function (ev) {
+      if (ev.target.closest('a')) return;
+      var unit = ev.target.closest('.sleeve, .exec, .seat');
+      if (!unit || !office.contains(unit)) return;
+      openDrawer(unit);
+    });
+    office.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' && ev.key !== ' ') return;
+      var unit = ev.target.closest('.sleeve, .exec, .seat');
+      if (!unit || ev.target.closest('a')) return;
+      ev.preventDefault();
+      openDrawer(unit);
+    });
+    var close = byId('drawer-close');
+    if (close) close.addEventListener('click', function () {
+      var drawer = byId('desk-drawer');
+      if (drawer) drawer.hidden = true;
+      clearHot();
+    });
+  }
+
   loadStatus().then(loadCi, loadCi);
+  bootOffice();
+
 })();
 
 </script>

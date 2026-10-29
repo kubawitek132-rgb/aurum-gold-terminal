@@ -407,7 +407,12 @@
           "label": "GitHub",
           "href": "https://github.com/kubawitek132-rgb/coin-bot"
         }
-      ]
+      ],
+      "game": {
+        "label": "Gra BTC · ETH",
+        "href": "https://cursor.com/codebase/kuba-witek/coin-bot",
+        "note": "Paper game · lokalny dashboard. BTC i ETH, nie live."
+      }
     },
     {
       "id": "incubation",
