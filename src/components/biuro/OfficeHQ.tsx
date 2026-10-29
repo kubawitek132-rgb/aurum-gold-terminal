@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import type { BiuroMarketsSnapshot } from "@/lib/biuroMarkets";
 import { BotWalletPanel } from "./BotWalletPanel";
+import { MetaMaskWallet } from "./MetaMaskWallet";
 import { CoinExplorer } from "./CoinExplorer";
 import {
   BIURO_STRUCTURE,
@@ -34,7 +35,7 @@ const FLOORS = [
     id: "coin",
     level: "02",
     name: "Coin Bot",
-    role: "Solana · DEX · Jupiter",
+    role: "Live MetaMask · BTC/ETH",
     color: "#69d5ec",
     icon: "₿",
   },
@@ -188,7 +189,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
           >
             Rynki
           </button>
-          <a href="/biuro/desk">Raport paper ↗</a>
+          <a href="/biuro/desk">Raport desku ↗</a>
         </nav>
         <div className={styles.headerRight}>
           <span className={styles.clock}>
@@ -436,7 +437,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                         <strong>{item.name}</strong>
                         <small>
                           {item.id === "coin"
-                            ? "Solana DEX · dane rynku"
+                            ? "Live MetaMask · BTC/ETH pod risk"
                             : item.id === "aurum"
                               ? "Terminal makro i geopolityka"
                               : `${snapshot.ideas.length} karty pomysłów w raporcie`}
@@ -449,9 +450,10 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                 <div className={styles.snapshotNote}>
                   <span>◷</span>
                   <p>
-                    Raport paper Cursor/Origin to zapis z{" "}
-                    <strong>{localDate(snapshot.updatedAt)}</strong>. To oddzielny
-                    projekt BTC/ETH; nie przedstawia salda bota Solana.
+                    Coin Bot BTC/ETH: live przez MetaMask, pod risk (5000 USD, 2%
+                    DD, kill-switch). Paper jest tylko fallbackiem, zanim portfel
+                    jest podłączony. Zapis sali:{" "}
+                    <strong>{localDate(snapshot.updatedAt)}</strong>.
                   </p>
                 </div>
               </>
@@ -459,8 +461,10 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
             {selected === "coin" && (
               <>
                 <p className={styles.detailIntro}>
-                  Coin Bot korzysta z Solany, DEX-ów i Jupiter. Poniżej niezależne
-                  notowania rynku spot i par on-chain w jednym miejscu.
+                  Coin Bot na BTC/ETH jest live przez MetaMask: realne kupno i
+                  sprzedaż. Risk: 5000 USD, 2% drawdown, kill-switch. Paper zostaje
+                  fallbackiem, zanim portfel jest podłączony. Poniżej notowania
+                  rynku.
                 </p>
                 <div className={styles.cardTitle}>
                   <h3>Rynek spot · USD</h3>
@@ -505,8 +509,8 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                     </strong>
                   </div>
                   <div>
-                    <span className={styles.muted}>◇</span>Portfel bota
-                    <strong>Solana · serwer</strong>
+                    <span className={styles.muted}>◇</span>Portfel live
+                    <strong>MetaMask · BTC/ETH</strong>
                   </div>
                   <div>
                     <span className={styles.warningDot}>○</span>Odczyt instancji
@@ -514,9 +518,9 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
                   </div>
                 </div>
                 <p className={styles.sourceNote}>
-                  Coinbase i Kraken dostarczają tu publiczne ceny. Nie łączą
-                  silnika bota z tymi giełdami. Jego ścieżka wykonawcza pozostaje
-                  na Solanie.
+                  Coinbase i Kraken dają tu publiczne ceny. Egzekucja BTC/ETH
+                  idzie przez MetaMask, pod risk. Paper nie jest głównym statusem
+                  desku.
                 </p>
               </>
             )}
@@ -565,6 +569,7 @@ export function OfficeHQ({ snapshot }: { snapshot: OfficeSnapshot }) {
             )}
             <FloorInventory inventory={getFloorInventory(selected)} />
             {selected === "coin" && <CoinExplorer />}
+            {selected === "coin" && <MetaMaskWallet />}
             <div className={styles.detailDivider} />
             <BotWalletPanel />
           </aside>

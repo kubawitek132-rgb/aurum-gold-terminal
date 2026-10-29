@@ -95,9 +95,12 @@ test('firma ma egzekutywę, fotele, pomysły i fabrykę', () => {
   assert.ok(coin.links.some((l: { href: string }) => l.href === 'https://github.com/kubawitek132-rgb/coin-bot'));
   assert.equal(coin.game.label, 'Gra/Live BTC·ETH');
   assert.equal(coin.game.href, 'https://cursor.com/codebase/kuba-witek/coin-bot');
+  assert.match(coin.game.note, /MetaMask/);
   assert.match(coin.game.note, /pod risk/);
-  assert.match(coin.game.note, /[Pp]aper → live w trakcie/);
-  assert.equal(coin.state, 'paper → live w trakcie');
+  assert.match(coin.game.note, /fallback|zanim portfel/);
+  assert.equal(coin.state, 'Live MetaMask');
+  assert.match(coin.summary, /MetaMask/);
+  assert.match(coin.summary, /fallback/);
   assert.equal(status.executives.length, EXECS.length);
   assert.deepEqual(status.executives.map((e: { name: string }) => e.name), EXECS);
   for (const e of status.executives) {
@@ -151,8 +154,8 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
   assert.match(html, /https:\/\/www\.xauinteligenceooffice\.com/);
   assert.match(html, /https:\/\/cursor\.com\/codebase\/kuba-witek\/coin-bot/);
   assert.match(html, /Gra\/Live BTC·ETH/);
-  assert.match(html, /paper → live w trakcie/);
-  assert.match(html, /Live trading w toku \(pod risk\)/);
+  assert.match(html, /Live MetaMask/);
+  assert.match(html, /fallbackiem, zanim portfel jest podłączony/);
   assert.doesNotMatch(html, /nie giełda live/);
   assert.doesNotMatch(html, /To nie jest giełda live/);
   assert.match(html, /id="office"/);
@@ -186,7 +189,7 @@ test('pulpit jest firmą, nie bramką akceptacji, i zostawia CI live', () => {
     /https:\/\/api\.github\.com\/repos\/kubawitek132-rgb\/aurum-gold-terminal\/actions\/workflows\/ci\.yml\/runs\?branch=main/,
   );
   assert.match(html, /jobs\[i\]\.name === 'build'/);
-  assert.equal(status.risk.paper, 'paper → live w trakcie');
+  assert.equal(status.risk.paper, 'Live MetaMask');
   assert.match(status.risk.paperDetail, /bez accept\(\)/);
 
   const page = fs.readFileSync(path.join(root, 'src/app/biuro/page.tsx'), 'utf8');

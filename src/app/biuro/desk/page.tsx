@@ -6,9 +6,9 @@ import { BiuroFrame } from "../frame";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "BiuroHQ — historyczny raport paper",
+  title: "Biuro HQ — raport desku",
   description:
-    "Historyczny snapshot projektu Cursor/Origin Coin Bot BTC/ETH w trybie paper. Odrębny od instancji Coin Bota Solana DEX/Jupiter.",
+    "Raport sali Biura HQ. Coin Bot: live MetaMask, realne BTC/ETH pod risk. Paper jest tylko logiem fallbacku, zanim portfel jest podłączony.",
 };
 
 export const viewport: Viewport = {

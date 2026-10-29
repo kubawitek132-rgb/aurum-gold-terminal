@@ -21,12 +21,12 @@
     "exposureCapUsd": 5000,
     "dailyDrawdownPct": "2%",
     "killSwitch": true,
-    "paper": "paper → live w trakcie",
-    "paperDetail": "Origin main 4f06d3d · paper → live w trakcie · execute bez accept() · kill-switch niezbity · pod risk",
+    "paper": "Live MetaMask",
+    "paperDetail": "Origin main 4f06d3d · live MetaMask · BTC/ETH · bez accept() · kill-switch niezbity · 5000 USD · 2% DD",
     "origin": {
       "ref": "main",
       "commit": "4f06d3d",
-      "note": "Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Pętla nie czeka na accept(). BTC/USDT i ETH/USDT. Kuba włącza live pod risk: 5000 USD, 2% daily DD, kill-switch. Do czasu kodu live na main status to paper → live w trakcie."
+      "note": "Origin main (4f06d3d3360fe197a6a129291ee8ac55130a84f9). Live przez MetaMask: realne kupno i sprzedaż BTC/ETH. Risk: 5000 USD, 2% DD, kill-switch. Paper jest fallbackiem, zanim portfel jest podłączony."
     },
     "summary": "5000 USD · 2% DD · kill-switch niezbity"
   },
@@ -59,7 +59,7 @@
       "ETH/USDT"
     ],
     "notionalUsd": 500,
-    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "note": "Log fallbacku paper, zanim MetaMask jest podłączony. Nie jest głównym statusem desku. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału.",
     "killSwitch": "off",
     "killSwitchTripped": false,
     "exposureUsd": 1500,
@@ -208,7 +208,7 @@
       "ETH/USDT"
     ],
     "notionalUsd": 500,
-    "note": "Autonomiczny paper, feed symulowany. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału. Ciche bary feedu nie wchodzą do logu. P&L marked = suma filli w tym logu, nie notowanie z giełdy.",
+    "note": "Log fallbacku paper, zanim MetaMask jest podłączony. Nie jest głównym statusem desku. Fill około 500 USD na barze wzrostowym (BTC/USDT, ETH/USDT); bar spadkowy zapisany jako brak sygnału.",
     "killSwitch": "off",
     "killSwitchTripped": false,
     "exposureUsd": 1500,
@@ -392,12 +392,12 @@
       "relation": "child",
       "parent": "biuro-hq",
       "kind": "Dziecko · BTC/ETH",
-      "state": "paper → live w trakcie",
-      "stateKind": "warn",
-      "attention": "watch",
+      "state": "Live MetaMask",
+      "stateKind": "ok",
+      "attention": "ok",
       "attentionLabel": "Pod risk",
-      "signal": "Ostatni fill w snapshocie: BTC/USDT kupno 500 · bar 42 · marked +12,40",
-      "summary": "Dziecko crypto pod Biurem HQ. Kuba włącza realne pozycje BTC/ETH. Do czasu kodu live na main status to paper → live w trakcie, pod risk: 5000 USD, 2% DD, kill-switch. Ostatni log na tym pulpicie to jeszcze snapshot z Origin main 4f06d3d. Gdy kod wejdzie, status przechodzi na Live trading w toku (pod risk).",
+      "signal": "Live MetaMask · realne kupno i sprzedaż BTC/ETH",
+      "summary": "Dziecko crypto pod Biurem HQ. Live przez MetaMask: realne kupno i sprzedaż BTC/ETH. Risk: 5000 USD, 2% DD, kill-switch. Paper jest tylko fallbackiem, zanim portfel jest podłączony — nie jest głównym statusem desku.",
       "links": [
         {
           "label": "Origin",
@@ -411,7 +411,7 @@
       "game": {
         "label": "Gra/Live BTC·ETH",
         "href": "https://cursor.com/codebase/kuba-witek/coin-bot",
-        "note": "Paper → live w trakcie. BTC i ETH, pod risk i kill-switch. Lokalny dashboard na Origin."
+        "note": "Live MetaMask. Realne kupno i sprzedaż BTC/ETH, pod risk i kill-switch. Paper tylko zanim portfel jest podłączony."
       }
     },
     {
@@ -463,7 +463,7 @@
       "status": "Na warcie",
       "statusKind": "ok",
       "does": "Ustawia kolejność firmy i mówi nie nowym pomysłom. Priorytety: pilnować CI AURUM, przeprowadzić Coin Bota z paperu na live pod risk, nie otwierać drugiego szkieletu. Najcenniejsze słowo wobec nowego pomysłu: nie.",
-      "decision": "Kuba włącza live BTC/ETH na Coin Bocie. Do czasu kodu na main status to paper → live w trakcie. Pętla nie czeka na accept(). Limity zostają w kodzie.",
+      "decision": "Kuba wybrał live Coin Bota przez MetaMask: realne kupno i sprzedaż BTC/ETH. Pętla nie czeka na accept(). Risk: 5000 USD, 2% DD, kill-switch. Paper jest tylko fallbackiem, zanim portfel jest podłączony.",
       "waiting": "Na Kubę nie czeka awaria. Czeka ewentualne słowo przy Au Session, gdy karta bull/bear będzie domknięta. Do tego czasu firma nie stoi.",
       "next": "Nie promować Au Session do Sim Lab, dopóki karta nie ma invalidation zapisanej przed testem.",
       "blocks": "Nic nie blokuje biegu paperu ani terminala."
@@ -475,7 +475,7 @@
       "status": "Veto uzbrojone",
       "statusKind": "ok",
       "does": "Ma prawo zatrzymać deskę. Cap ekspozycji 5000 USD, dzienny drawdown 2%, kill-switch w kodzie. Dziś w snapshocie: ekspozycja 1 500, DD 0,41% (max 0,86%), kill-switch niezbity, 27 testów Risk zielonych. Live Coin Bota idzie pod tymi limitami. Veto jest na przebicie capu, 2% DD i na zbity kill-switch — nie na sam fakt live.",
-      "decision": "Veto nie jest użyte. Przejście paper → live może iść, póki limity trzymają.",
+      "decision": "Veto nie jest użyte. Live MetaMask może iść, póki limity trzymają.",
       "waiting": "Na nic. Eskalacja do Kuby dopiero po zbiciu kill-switcha.",
       "next": "Zostawić limity. Nie poluzować capu pod inkubację.",
       "blocks": "Nic dziś. Próg jest w kodzie, nie w rozmowie."
@@ -498,7 +498,7 @@
       "role": "kapitał uwagi · pozycje po stronie bota",
       "status": "40 / 40 / 20",
       "statusKind": "ok",
-      "does": "Dzieli uwagę na tym pulpicie, nie księguje środków z pliku. AURUM 40% — terminal publiczny. Coin Bot 40% — paper → live w trakcie, pozycje BTC/ETH po stronie bota, pod risk. Inkubacja 20% — jeden szkielet. Drugi bot w budowie zjadłby uwagę terminala.",
+      "does": "Dzieli uwagę na tym pulpicie, nie księguje środków z pliku. AURUM 40% — terminal publiczny. Coin Bot 40% — live MetaMask, realne BTC/ETH pod risk. Inkubacja 20% — jeden szkielet. Drugi bot w budowie zjadłby uwagę terminala.",
       "decision": "Slot budowy jest jeden. FX News i ETH/BTC relative nie dostają czasu Fabryki.",
       "waiting": "Na nic finansowego. Kuba nie alokuje tu kapitału.",
       "next": "Przesunąć uwagę na Sim Lab dopiero po „tak” CEO dla Au Session. Inaczej 20% zostaje przy karcie, nie przy kodzie.",
@@ -511,7 +511,7 @@
       "status": "Jedna karta",
       "statusKind": "warn",
       "does": "Decyduje, co wolno przenieść z researchu dalej. Ścieżka: research, paper MVP, autonomiczny paper, live pod risk. Live Coin Bota jest decyzją Kuby i nie jest odłożone. Nowa karta nie awansuje na giełdę sama. Aktywna karta: sesja azjatycka XAU.",
-      "decision": "Au Session zostaje w researchu. Coin Bot jest na przejściu paper → live i nie wraca do labu.",
+      "decision": "Au Session zostaje w researchu. Coin Bot jest na live MetaMask i nie wraca do labu.",
       "waiting": "Na domknięcie byka i niedźwiedzia. Potem CEO, nie dyrektor, mówi tak albo nie.",
       "next": "Nie otwierać paper MVP bez karty. Live nowej deski tylko po decyzji Kuby i pod risk.",
       "blocks": "Karta Au Session otwarta, nie domknięta."
@@ -632,7 +632,7 @@
       "role": "księga uwagi",
       "status": "Uwaga rozdzielona",
       "statusKind": "ok",
-      "does": "Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40% (paper → live w trakcie), inkubacja 20%. Pozycje BTC/ETH są po stronie bota, pod risk. PM patrzy, czy któryś pion nie głoduje: terminal ma CI, snapshot ma blotter, inkubacja ma jeden szkielet.",
+      "does": "Prowadzi księgę uwagi, którą ustawił CIO: AURUM 40%, Coin Bot 40% (live MetaMask), inkubacja 20%. Pozycje BTC/ETH idą przez MetaMask, pod risk. Paper w snapshocie to fallback, nie główny status. PM patrzy, czy któryś pion nie głoduje.",
       "input": "Stan pionów i werdykt CIO",
       "output": "Kto dostaje czas w tym tygodniu. Nie alokacja środków.",
       "next": "Nie oddawać inkubacji drugiego slotu. Au Session albo schodzi z karty, albo wraca do kolejki.",
@@ -641,13 +641,13 @@
     {
       "id": "ship",
       "name": "Execution / Ship Paper",
-      "role": "egzekucja · paper → live · bez accept()",
-      "status": "paper → live w trakcie",
+      "role": "egzekucja · live MetaMask · bez accept()",
+      "status": "Live MetaMask",
       "statusKind": "warn",
       "does": "Pętla Coin Bota na Origin main 4f06d3d. Execute nie czeka na accept(). Kuba włącza live BTC/ETH pod risk. Ostatni fill w tym snapshocie jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC, otwarte, marked +12,40. Log: 6 filli i 4 braki sygnału.",
       "input": "Reguła quant + limit CRO",
       "output": "Fill albo no_signal w blotterze. Live BTC/ETH wejdzie tą samą pętlą, gdy kod będzie na main, tylko pod risk.",
-      "next": "Dowieźć kod live. Do tego czasu status: paper → live w trakcie. Po wejściu kodu: Live trading w toku (pod risk).",
+      "next": "Trzymać live pod risk. Paper tylko gdy MetaMask nie jest podłączony.",
       "blocks": "Kill-switch, gdyby DD albo cap padły. Teraz niezbity."
     },
     {
@@ -677,8 +677,8 @@
     {
       "id": "obs-coin",
       "name": "Obserwator Coin Bot",
-      "role": "Origin main · paper → live",
-      "status": "paper → live w trakcie",
+      "role": "Origin main · live MetaMask",
+      "status": "Live MetaMask",
       "statusKind": "warn",
       "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla chodzi sama, execute nie czeka na accept(). Ostatni fill w logu jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC. Decyzja Kuby: live BTC/ETH pod risk. Kod live stąd nie widać.",
       "input": "paperBlotter w biuro-status.json",
@@ -692,7 +692,7 @@
       "role": "składanie desek · live pod risk",
       "status": "Składa",
       "statusKind": "acc",
-      "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na przejściu paper → live.",
+      "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na live MetaMask.",
       "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
       "output": "Slot w portfolio. Dziś jeden szkielet (Au Session). AURUM zostaje terminalem. Coin Bot idzie w live BTC/ETH pod risk.",
       "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
@@ -727,8 +727,8 @@
     "coinBot": {
       "id": "obs-coin",
       "name": "Obserwator Coin Bot",
-      "role": "Origin main · paper → live",
-      "status": "paper → live w trakcie",
+      "role": "Origin main · live MetaMask",
+      "status": "Live MetaMask",
       "statusKind": "warn",
       "does": "Czyta ten snapshot, nie repo prywatne. Origin main 4f06d3d: pętla chodzi sama, execute nie czeka na accept(). Ostatni fill w logu jest jeszcze z paperu: BTC/USDT kupno 500 USD, bar 42, 28.10 06:20 UTC. Decyzja Kuby: live BTC/ETH pod risk. Kod live stąd nie widać.",
       "input": "paperBlotter w biuro-status.json",
@@ -787,7 +787,7 @@
     "name": "Fabryka botów",
     "status": "Składa",
     "statusKind": "acc",
-    "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na przejściu paper → live.",
+    "does": "Bierze pomysł, który CEO przepuścił i research opisał, i składa z niego deskę. Ścieżka: pomysł, szkielet, paper MVP, autonomiczny paper, live pod risk. Live nie jest odłożone — włącza je decyzja Kuby, z limitem i kill-switchem. Coin Bot jest na live MetaMask.",
     "input": "Karta z Idea Scout po słowie CEO (tak albo nie)",
     "output": "Slot w portfolio. Dziś jeden szkielet (Au Session). AURUM zostaje terminalem. Coin Bot idzie w live BTC/ETH pod risk.",
     "next": "Nie schodzić z Au Session poniżej notatki szkieletu, dopóki bull/bear nie domknie karty. Drugiego szkieletu nie otwierać.",
@@ -831,11 +831,11 @@
       },
       {
         "name": "Coin Bot",
-        "role": "BTC/ETH paper",
-        "stage": "Autonomiczny paper",
-        "state": "Na main 4f06d3d",
+        "role": "BTC/ETH",
+        "stage": "Live MetaMask",
+        "state": "Pod risk",
         "kind": "ok",
-        "note": "Dziecko crypto. Paper → live w trakcie, BTC/ETH pod risk i kill-switch."
+        "note": "Realne kupno i sprzedaż przez MetaMask. Paper tylko zanim portfel jest podłączony."
       },
       {
         "name": "Au Session",
@@ -889,7 +889,7 @@
     {
       "step": "Paper",
       "owner": "Ship",
-      "note": "Pętla bez accept(). Coin Bot: paper → live w trakcie, pod risk."
+      "note": "Pętla bez accept(). Coin Bot: live MetaMask, pod risk. Paper tylko jako fallback."
     },
     {
       "step": "Ops",
